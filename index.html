@@ -125,6 +125,15 @@ blockquote footer a{text-decoration:none;border-bottom:1px solid var(--red)}
 .facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .facts dd{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.15}
 figure{margin:0;max-width:40em}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,250px);gap:28px;align-items:end}
+.hero-t{display:grid;gap:22px}
+.portrait img{width:100%;border:1px solid var(--rule);filter:grayscale(1)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:40em;align-items:start}
+.pair img,.who img{width:100%;display:block}
+.who .ph{position:relative;display:block}
+.who .ring{position:absolute;left:43.9%;top:63.1%;width:8%;aspect-ratio:1;transform:translate(-50%,-50%);border:3px solid var(--route);border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.55)}
+@media(max-width:640px){.hero{grid-template-columns:1fr}.portrait{max-width:220px}}
+
 figure svg,figure img{display:block;width:100%;height:auto;background:var(--panel);border:1px solid var(--rule)}
 figcaption{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.45}
 .dg text{font-family:var(--display);font-weight:600;font-size:17px;fill:var(--ink)}
@@ -287,9 +296,11 @@ html.lock{overflow:hidden}
 
 <div class="wrap">
   <header class="mast">
+    <div class="hero"><div class="hero-t">
     <div class="eyebrow">Thatcher, Arizona &middot; Bougainville &middot; Luzon &middot; 1942 to 1945</div>
     <h1>Jess Rowley&rsquo;s War<span class="patch" role="img" aria-label="37th Division shoulder patch, a red disc on white"></span></h1>
     <p class="lede">Jesse Venoy Rowley left Gila College at nineteen and spent two years as a mortarman in the jungle and mountains of the Pacific. This is where he went and what he lived through, told in his own words from the recording his sons made, and checked stop by stop against the Army&rsquo;s official histories.</p>
+    </div><figure class="portrait"><img src="img/jess-portrait.jpg" alt="A young soldier in dress uniform and service cap stands beside a white barracks building" ><figcaption>Jess in dress uniform, about 1943. He signed the print &ldquo;Jes.&rdquo; Family photograph.</figcaption></figure></div>
     <dl class="id">
       <div><dt>Soldier</dt><dd>Cpl. Jesse V. Rowley</dd></div>
       <div><dt>Army serial no.</dt><dd>19109459</dd></div>
@@ -342,6 +353,10 @@ html.lock{overflow:hidden}
         <blockquote>I&rsquo;d been trained to go to the European theater to fight in the desert. So they sent me to the jungles down in the South Pacific, where you couldn&rsquo;t see nothing.
           <footer><a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=247s" target="_blank" rel="noopener">&#9654; 4:07</a></footer></blockquote>
         <p>After basic he came home to Thatcher on furlough. It was the last time he saw his father.</p>
+        <div class="pair">
+          <figure><img src="img/jess-two.jpg" alt="Two young soldiers in khakis and garrison caps stand arm in arm outside a barracks" loading="lazy"><figcaption>Jess, on the right, with a fellow soldier at a stateside camp. The other man is not identified. Family photograph.</figcaption></figure>
+          <figure><img src="img/jess-mother.jpg" alt="A soldier in dress uniform with his arm around an older woman in a print dress, in a garden" loading="lazy"><figcaption>Jess with a woman the family believes is his mother, probably on leave before he went overseas. He wears two marksmanship badges and no overseas ribbons yet. Family photograph.</figcaption></figure>
+        </div>
       </section>
 
       <section class="ch" data-view="pacific" data-at="noumea" data-date="Autumn 1943 (his dates unknown)" data-title="The Pacific crossing">
@@ -360,6 +375,7 @@ html.lock{overflow:hidden}
         <p>From New Caledonia he went up to Guadalcanal. The island had been won that February, but Japanese planes still came over at night. There he was assigned to Company H of the 129th Infantry, the heavy weapons company of the regiment&rsquo;s 2nd Battalion. A man trained to carry a rifle was handed a carbine he had never fired and put on an 81 mm mortar.</p>
         <blockquote>I was trained as a rifleman, to carry a .30-06. Down here they issued me a little .30 carbine, going into heavy weapons, in the mortars. I didn&rsquo;t know a thing about the gun and was going to the front line. I said, &ldquo;Well, give me some boxes of shells. I&rsquo;m going in the jungle to learn something about this gun.&rdquo; And so I did.
           <footer><a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=268s" target="_blank" rel="noopener">&#9654; 4:28</a></footer></blockquote>
+        <figure class="who"><span class="ph"><img src="img/jess-group.jpg" alt="Thirty-three soldiers in khakis and garrison caps pose in three rows in front of banana plants" loading="lazy"><i class="ring" aria-hidden="true"></i></span><figcaption><b>Jess is circled:</b> front row, fifth from the left. Thirty-three men in khakis in front of banana plants, several with sergeant&rsquo;s stripes. The family does not know where or when it was taken, or who the others are. It may be his platoon of Company H. If you know a face or the place, tell the family. Family photograph.</figcaption></figure>
         <div class="rec"><h3>The record</h3><ul>
           <li>The 129th was an Illinois National Guard regiment. It had been split from its own Illinois division, the 33rd, and on July 31, 1943 it was assigned to Ohio&rsquo;s 37th &ldquo;Buckeye&rdquo; Division. That is why an Arizona boy served with Illinois men under the Ohio patch.</li>
           <li>The regiment sailed from Espiritu Santo and unloaded on Guadalcanal on the last day of October 1943, staging for Bougainville. That is the window in which Jess could have joined it there.</li>
