@@ -1005,7 +1005,7 @@ function def3d(){ const c=chapters[cur]; if(!c) return null;
   return {key, lines:v.legs.filter(l=>l[2]<=cur).map(l=>({pts:l[0],cls:l[1],arrow:false})), stops:v.stops.filter(s=>s[4]<=cur), zones:[], jess:AT[c.dataset.at]||P[c.dataset.at]}; }
 
 function terrain(key){ if(T3.scenes[key]) return T3.scenes[key]; const THREE=T3.three, t=TERR[key], [x0,y0,x1,y1]=t.box, nx=t.nx, ny=t.ny;
-  const raw=Uint8Array.from(atob(t.d),c=>c.charCodeAt(0)); let H=new Float32Array(nx*ny); for(let i=0;i<H.length;i++) H[i]=raw[i]/255*t.max;
+  const raw=Uint8Array.from(atob(t.d),c=>c.charCodeAt(0)); if(key==='manila') raw.fill(Math.round(4/t.max*255)); // central Manila is flat; the elevation data there is mostly rooftops let H=new Float32Array(nx*ny); for(let i=0;i<H.length;i++) H[i]=raw[i]/255*t.max;
   const S=new Float32Array(nx*ny); // light blur to remove 8-bit terraces; sea stays sea
   for(let j=0;j<ny;j++) for(let i=0;i<nx;i++){ const k=j*nx+i; if(!raw[k]){ S[k]=0; continue; } let s=0,w=0; for(let b=-1;b<=1;b++) for(let a=-1;a<=1;a++){ const ii=i+a,jj=j+b; if(ii<0||jj<0||ii>=nx||jj>=ny) continue; const q=jj*nx+ii; if(!raw[q]) continue; const ww=(a||b)?1:2; s+=H[q]*ww; w+=ww; } S[k]=Math.max(1,s/w); }
   H=S; const kx=Math.cos((y0+y1)/2*Math.PI/180), Wd=(x1-x0)*kx, Dd=(y1-y0), sc=100/Math.max(Wd,Dd), W=Wd*sc, D=Dd*sc, upm=sc/111320*EXAG[key];
@@ -1032,7 +1032,7 @@ function terrain(key){ if(T3.scenes[key]) return T3.scenes[key]; const THREE=T3.
 
 const R3={peri:.5};
 const C3={jes:0xc8102e, us:0x1d5fa0, usd:0x4f8fc9, jp:0xa34a00, doc:0xe2334c, personal:0xf08a98, air:0xf08a98, before:0xa9bcc0};
-const AZ0={peri:-0.6,boug:0.35,drive:0.25,baguio:-0.5,cagayan:0.3,luzon:0.3,landing:2.75,manila:-0.45};
+const AZ0={peri:-0.6,boug:0.35,drive:0.25,baguio:-0.5,cagayan:0.3,luzon:0.3,landing:0.3,manila:-0.35};
 function build3d(d){ const THREE=T3.three, s=terrain(d.key); if(T3.key!==d.key){ T3.key=d.key; T3.az=AZ0[d.key]; T3.pol=0.82; T3.dist=150; } T3.cur=s; while(s.over.children.length){ const o=s.over.children.pop(); o.geometry&&o.geometry.dispose(); }
   lab3.innerHTML=''; T3.labels=[]; const [x0,y0,x1,y1]=s.box, step=Math.max(x1-x0,y1-y0)/160;
   const label=(v,html,cls)=>{ const e=document.createElement('div'); e.className='l3 '+(cls||''); e.innerHTML=html; lab3.appendChild(e); T3.labels.push([v,e]); };
@@ -1044,7 +1044,7 @@ function build3d(d){ const THREE=T3.three, s=terrain(d.key); if(T3.key!==d.key){
   for(const st of d.stops){ const [id,text,,,,,cls]=st, v=s.xyz(pt(id),.6); if(cls&&cls.startsWith('mtag')){ label(v,E(text),'chip '+cls.split(' ')[1]); continue; }
     const m=new THREE.Mesh(new THREE.SphereGeometry(.55,12,8),new THREE.MeshBasicMaterial({color:0xf4f1e2})); m.position.copy(v); s.over.add(m); label(v,E(text),cls==='sm'||!cls?'':''); }
   if(d.jess){ const v=s.xyz(pt(d.jess),1.2); const pole=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,5,6),new THREE.MeshBasicMaterial({color:0xffffff})); pole.position.copy(v); pole.position.y+=2; s.over.add(pole); v.y+=4.6; label(v,'<span class="egg3"></span>','egg'); }
-  note3.textContent='Real terrain. Heights stretched '+EXAG[d.key]+' times. Drag to turn.'; draw3d(); }
+  note3.textContent=d.key==='manila'?'Central Manila is flat, so the map is simply laid down. Drag to turn.':'Real terrain. Heights stretched '+EXAG[d.key]+' times. Drag to turn.'; draw3d(); }
 function draw3d(){ if(!T3.cur||!T3.on) return; const THREE=T3.three, w=wrap3.clientWidth, h=wrap3.clientHeight; if(!w||!h) return;
   T3.renderer.setSize(w,h,false); T3.cam.aspect=w/h; const R=T3.dist*(w/h<1.05?1.22:1); T3.cam.position.set(R*Math.sin(T3.pol)*Math.sin(T3.az), R*Math.cos(T3.pol), R*Math.sin(T3.pol)*Math.cos(T3.az)); T3.cam.lookAt(0,2,0); T3.cam.updateProjectionMatrix();
   T3.renderer.render(T3.cur.scene,T3.cam);
