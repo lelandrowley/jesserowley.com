@@ -1005,7 +1005,7 @@ function def3d(){ const c=chapters[cur]; if(!c) return null;
   return {key, lines:v.legs.filter(l=>l[2]<=cur).map(l=>({pts:l[0],cls:l[1],arrow:false})), stops:v.stops.filter(s=>s[4]<=cur), zones:[], jess:AT[c.dataset.at]||P[c.dataset.at]}; }
 
 function terrain(key){ if(T3.scenes[key]) return T3.scenes[key]; const THREE=T3.three, t=TERR[key], [x0,y0,x1,y1]=t.box, nx=t.nx, ny=t.ny;
-  const raw=Uint8Array.from(atob(t.d),c=>c.charCodeAt(0)); if(key==='manila') raw.fill(Math.round(4/t.max*255)); // central Manila is flat; the elevation data there is mostly rooftops let H=new Float32Array(nx*ny); for(let i=0;i<H.length;i++) H[i]=raw[i]/255*t.max;
+  const raw=Uint8Array.from(atob(t.d),c=>c.charCodeAt(0)); if(key==='manila') raw.fill(Math.round(4/t.max*255)); let H=new Float32Array(nx*ny); for(let i=0;i<H.length;i++) H[i]=raw[i]/255*t.max;
   const S=new Float32Array(nx*ny); // light blur to remove 8-bit terraces; sea stays sea
   for(let j=0;j<ny;j++) for(let i=0;i<nx;i++){ const k=j*nx+i; if(!raw[k]){ S[k]=0; continue; } let s=0,w=0; for(let b=-1;b<=1;b++) for(let a=-1;a<=1;a++){ const ii=i+a,jj=j+b; if(ii<0||jj<0||ii>=nx||jj>=ny) continue; const q=jj*nx+ii; if(!raw[q]) continue; const ww=(a||b)?1:2; s+=H[q]*ww; w+=ww; } S[k]=Math.max(1,s/w); }
   H=S; const kx=Math.cos((y0+y1)/2*Math.PI/180), Wd=(x1-x0)*kx, Dd=(y1-y0), sc=100/Math.max(Wd,Dd), W=Wd*sc, D=Dd*sc, upm=sc/111320*EXAG[key];
