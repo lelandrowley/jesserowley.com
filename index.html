@@ -259,6 +259,30 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
 #map .bl.halo{stroke:#fff;stroke-width:9;opacity:.75}
 #map .mtag.onmap{stroke:#fff;stroke-width:6px}
 
+/* documentary touches */
+.phase #phaseT q{display:block;margin-top:5px;font-style:italic;color:var(--map-dim);quotes:"\201C" "\201D"}
+#bclose{position:absolute;left:10px;top:10px;font-size:15px;padding:3px 10px;background:rgba(16,32,31,.7)}
+#bclose[hidden]{display:none}
+#bfs{font-size:15px;padding:3px 10px;white-space:nowrap}
+#bfs.on{background:var(--map-ink);color:var(--sea)}
+html.lock{overflow:hidden}
+.chart.theater{position:fixed;inset:0;height:100%;max-height:none;min-height:0;z-index:60;border-radius:0;margin:0;top:0}
+.chart.theater .chart-title{font-size:clamp(22px,3vw,40px)}
+.chart.theater .chart-foot{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:60px max(16px,4vw) calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,rgba(10,18,24,.92) 55%,rgba(10,18,24,0));pointer-events:none}
+.chart.theater .chart-foot > *{pointer-events:auto}
+.chart.theater .chart-head{position:absolute;left:0;right:0;top:0;z-index:2;padding:calc(14px + env(safe-area-inset-top,0px)) max(16px,4vw) 40px;background:linear-gradient(to bottom,rgba(10,18,24,.85),rgba(10,18,24,0));pointer-events:none}
+.chart.theater .chart-head > *{pointer-events:auto}
+.chart.theater .legend{display:none}
+.chart.theater .phase{border-top:0;max-width:980px}
+.chart.theater .phase #phaseT{font-size:clamp(17px,1.9vw,24px);line-height:1.4;min-height:0}
+.chart.theater .phase #phaseT b{font-size:clamp(13px,1.2vw,16px);display:block;margin-bottom:4px}
+.chart.theater .phase #phaseT q{font-size:clamp(17px,1.9vw,24px);color:#fff;margin-top:10px;border-left:4px solid #c8102e;padding-left:14px}
+.chart.theater #note3d{bottom:auto;top:76px;left:max(16px,4vw)}
+.chart.theater #bclose{top:112px;left:max(16px,4vw)}
+.chart.theater #zoom3d{bottom:auto;top:76px;right:max(16px,4vw)}
+.chart.theater .l3{font-size:18px} .chart.theater .l3.chip{font-size:13px}
+@media (max-width: 899px){ .chart.theater{margin-inline:0} .chart-side{gap:6px} #b3d,#bfs{font-size:13px;padding:2px 7px} }
+
 </style>
 
 <div class="wrap">
@@ -779,14 +803,14 @@ const M22={lon0:155.06675,lat0:-6.2125,mpp:15.375,rot:0.015,cx:750,cy:570,k:0.99
 const mp=(x,y)=>{ const dx=(x-M22.cx)*M22.mpp, dy=(y-M22.cy)*M22.mpp, c=Math.cos(M22.rot), s=Math.sin(M22.rot); return [M22.lon0+(dx*c-dy*s)/(111320*M22.k), M22.lat0-(dx*s+dy*c)/110574]; };
 const S22=0.8, X22=-230*S22, Y22=-36*S22, m2=(x,y)=>[X22+x*S22,Y22+y*S22];
 const BATTLES = {
- perimeter:{ box:[154.955,-6.30,155.215,-6.105], phases:[
+ perimeter:{ box:[154.955,-6.30,155.215,-6.105], night:[5], phases:[
    ['March 8','Japanese guns, hauled over the mountains in pieces, open on the airfields at 5:45 a.m.'],
    ['March 9 to 13','The Iwasa Unit storms Hill 700. The 145th Infantry throws it back in four days.'],
    ['March 10 to 15','The Muda Unit takes part of Hill 260 from the Americal Division.'],
-   ['March 11 to 17','The Magata Unit comes down the Logging Trail onto Jess’s battalion. Pillboxes are lost, then retaken with tanks.'],
+   ['March 11 to 17','The Magata Unit comes down the Logging Trail onto Jess’s battalion. Pillboxes are lost, then retaken with tanks.',"They thought the 129th would be the one to take, because we had really never been in a front-end battle. So they tried us."],
    ['March 18 to 22','A pause. The survivors of the two beaten columns move through the jungle to join Magata. Their route is not recorded.'],
-   ['March 23 to 24','The general attack, after dark. It breaks through Company F at Cox Creek to within 25 yards of the battalion command post. The line is restored by 2 p.m.'],
-   ['March 27','The Japanese withdraw, leaving more than 5,000 dead.']],
+   ['March 23 to 24','The general attack, after dark. It breaks through Company F at Cox Creek to within 25 yards of the battalion command post. The line is restored by 2 p.m.',"Those guys in those foxholes said, “Raise those things up.” We said, “We’ll be dropping them right on you.” They said, “Drop them on us.”"],
+   ['March 27','The Japanese withdraw, leaving more than 5,000 dead.',"The jungle was so thick you couldn’t see anybody four feet from you. When it was all over, it was just a desert of rock and steel."]],
   // everything below is in pixel coordinates of the Army's Map 22, converted to the screen (m2) or to longitude and latitude (mp)
   items:[ {px:[[478,438],[520,405],[560,378],[600,358],[640,345],[680,340],[722,342]],cls:'jes',ph:0,arrow:false},
    {px:[[800,172],[705,470]],cls:'jp',ph:0,until:0},{px:[[1062,335],[720,528]],cls:'jp',ph:0,until:0},
@@ -815,7 +839,7 @@ const BATTLES = {
 
  drive:{ box:[119.8,14.4,121.4,16.35], land:'luzon', scale:25,
   ctx:[['LINGAYEN GULF',120.12,16.22,'middle'],['MANILA BAY',120.72,14.62,'middle']],
-  phases:[['January 9','Ashore at the Crimson beaches, into Dagupan and Calasiao.'],['January 10 to 11','Eight miles to Malasiqui. Filipino guerrillas come out to meet the column.'],['January 15','A battalion of the 129th crosses the Agno River and marches to Camiling.'],['January 19 to 22','Down Route 3 to Moncada: about 200 prisoners, the first large group taken on Luzon.'],['January 26 to 30','Clark Field, then the ruins of Fort Stotsenburg. The 129th loses 50 killed and 230 wounded.'],['February 1 to 4','The race for Manila. The 148th Infantry and the 1st Cavalry get there first; the 129th follows from February 2.']],
+  phases:[['January 9','Ashore at the Crimson beaches, into Dagupan and Calasiao.'],['January 10 to 11','Eight miles to Malasiqui. Filipino guerrillas come out to meet the column.'],['January 15','A battalion of the 129th crosses the Agno River and marches to Camiling.'],['January 19 to 22','Down Route 3 to Moncada: about 200 prisoners, the first large group taken on Luzon.'],['January 26 to 30','Clark Field, then the ruins of Fort Stotsenburg. The 129th loses 50 killed and 230 wounded.'],['February 1 to 4','The race for Manila. The 148th Infantry and the 1st Cavalry get there first; the 129th follows from February 2.',"The whole troops got drunk that night. But a few of us stayed sober."]],
   lines:[ {pts:['lingayen','dagupan','calasiao'],cls:'jes',ph:0},{pts:['lingtown','aguilar'],cls:'usd',ph:0},
    {pts:['calasiao','malasiqui'],cls:'jes',ph:1},{pts:['malasiqui','bayambang','camiling'],cls:'jes',ph:2},{pts:['aguilar','camiling'],cls:'usd',ph:2},
    {pts:['malasiqui','carmen','moncada'],cls:'jes',ph:3},{pts:['camiling','tarlac'],cls:'usd',ph:3},
@@ -829,7 +853,7 @@ const BATTLES = {
 
  baguio:{ box:[120.26,16.2,120.74,16.6], land:'luzon', scale:5,
   ctx:[],
-  phases:[['March 19 to 23','The 33rd Division opens Route 9 at the coast: Bauang, then Naguilian.'],['March 28','The 129th, attached to the 33rd, takes Burgos after a sharp fight.'],['April 1 to 9','Salat. The outpost line in front of Sablan is broken on April 9.'],['April 11 to 14','The 129th breaks the main Japanese line at Sablan with tanks and artillery.'],['April 15 to 21','The 148th passes through and fights four days for the Irisan Gorge.'],['April 22 to 26','The 129th takes the lead again. A patrol is in Baguio on the 24th; the city is secured on the 26th.'],['April 27','The 33rd Division’s patrols come up from the south and find the sign.']],
+  phases:[['March 19 to 23','The 33rd Division opens Route 9 at the coast: Bauang, then Naguilian.'],['March 28','The 129th, attached to the 33rd, takes Burgos after a sharp fight.'],['April 1 to 9','Salat. The outpost line in front of Sablan is broken on April 9.'],['April 11 to 14','The 129th breaks the main Japanese line at Sablan with tanks and artillery.',"We’d been up there better than two weeks without any relief, no shave and no baths, and just eating out of cans."],['April 15 to 21','The 148th passes through and fights four days for the Irisan Gorge.'],['April 22 to 26','The 129th takes the lead again. A patrol is in Baguio on the 24th; the city is secured on the 26th.',"That’s the only time I really felt any fear in the war."],['April 27','The 33rd Division’s patrols come up from the south and find the sign.',"I dug one right between two graves. It was there, May the 5th, that my dad died, and I didn’t know it."]],
   lines:[ {pts:['bauang','naguilian'],cls:'usd',ph:0},{pts:['naguilian','burgos'],cls:'jes',ph:1},{pts:['burgos','salat'],cls:'jes',ph:2},{pts:['salat','sablan'],cls:'jes',ph:3},
    {pts:['sablan','irisan'],cls:'us',ph:4},{pts:['irisan','baguio'],cls:'jes',ph:5},{pts:['rosario','camp3',[120.6,16.39]],cls:'usd',ph:6} ],
   zones:[{at:'sablan',r:26,ph:0,until:2},{at:'irisan',r:26,ph:0,until:3},{at:'baguio',r:34,ph:0,until:4}],
@@ -839,7 +863,7 @@ const BATTLES = {
 
  cagayan:{ box:[120.5,15.95,122.7,18.75], land:'luzon', scale:25,
   ctx:[['CAGAYAN VALLEY',122.05,17.38,'start','land'],['BABUYAN CHANNEL',121.6,18.62,'middle']],
-  phases:[['May 31','The 129th leads the division north from Santa Fe, through the troops who took Balete Pass.'],['June 5 to 7','A running fight to Aritao, then Bambang and Bayombong in two days.'],['June 8 to 13','The 145th takes over: Bagabag, the fight at Oriung Pass, Santiago.'],['June 14 to 19','The 148th runs down the valley: Echague, Cauayan, Naguilian.'],['June 21 to 23','Another force takes Aparri. Paratroopers of the 11th Airborne drop just south of it.'],['June 23 to 26','The 129th leads again, takes Tuguegarao on the 25th and meets the paratroopers at the Paret River.'],['July to September','Patrols for holdouts. Jess remembered a wide shallow beach on the north coast, and hearing there that the war was over.']],
+  phases:[['May 31','The 129th leads the division north from Santa Fe, through the troops who took Balete Pass.'],['June 5 to 7','A running fight to Aritao, then Bambang and Bayombong in two days.'],['June 8 to 13','The 145th takes over: Bagabag, the fight at Oriung Pass, Santiago.'],['June 14 to 19','The 148th runs down the valley: Echague, Cauayan, Naguilian.'],['June 21 to 23','Another force takes Aparri. Paratroopers of the 11th Airborne drop just south of it.'],['June 23 to 26','The 129th leads again, takes Tuguegarao on the 25th and meets the paratroopers at the Paret River.'],['July to September','Patrols for holdouts. Jess remembered a wide shallow beach on the north coast, and hearing there that the war was over.',"It was a really beautiful beach. You go out a hundred yards and still not be up over your waist."]],
   lines:[ {pts:['santafe','aritao'],cls:'jes',ph:1},{pts:['aritao','bambang','bayombong'],cls:'jes',ph:1},{pts:['bayombong','bagabag','santiago'],cls:'us',ph:2},{pts:['santiago','echague','cauayan','naguilianI'],cls:'us',ph:3},
    {pts:['aparri','camalaniugan',[121.69,18.02]],cls:'usd',ph:4},{pts:['naguilianI','tuguegarao','iguig','paret'],cls:'jes',ph:5},{pts:['paret','camalaniugan','aparri'],cls:'jes',ph:6,arrow:false} ],
   stops:[ ['santafe','Santa Fe',-12,4,0,'end'],['bayombong','Bayombong',-12,-2,1,'end'],['santiago','Santiago',12,10,2],['cauayan','Cauayan',12,4,3],['tuguegarao','Tuguegarao',-12,0,5,'end'],['aparri','Aparri',12,-8,4],
@@ -864,10 +888,10 @@ function mapBattle(c){ const F=c.fit, S=1000/c.crop[2];
 
 BATTLES.landing = mapBattle({ key:'landing', img:'img/map-landing.jpg', crop:[100,740,1600,1150], box:[120.08242,15.89855,120.48732,16.18082], noteAt:[14,690],
   fit:{a:26.9998102,b:-0.1012498,tx:-33861.1374346,ty:-29573.2289688,lon0:120.373,lat0:16.0925,k:0.9610208},
-  phases:[ ['4:00 to 9:00 a.m.','The convoys enter the gulf in the dark. From 7:00 the battleships and cruisers shell the shore.'],
+  phases:[ ['4:00 to 9:00 a.m.','The convoys enter the gulf in the dark. From 7:00 the battleships and cruisers shell the shore.',"They had relief maps of the place we was going to go, and photos of it, where we had to run through the rice paddies."],
    ['9:30 a.m.','H-hour. Amphibious tractors carry the first waves onto every beach, four divisions abreast. The 129th has the Crimson beaches.'],
-   ['9:41 to 10:31','Ramped landing boats bring in the rest of the 129th. Jess wades ashore from one of these.'],
-   ['Afternoon','Part of the 129th goes straight inland across the Calmay River. The rest turns east along the sand to the Dagupan River, takes Dagupan and probes to Calasiao.'],
+   ['9:41 to 10:31','Ramped landing boats bring in the rest of the 129th. Jess wades ashore from one of these.',"The first thing I remember seeing as I waded out of that ocean was a horse down there. He’d been shot through the stomach. He was still alive."],
+   ['Afternoon','Part of the 129th goes straight inland across the Calmay River. The rest turns east along the sand to the Dagupan River, takes Dagupan and probes to Calasiao.',"I was able to get dry socks out of the top of my pack and get them on, and then we went in twenty miles."],
    ['January 10 to 11','South to Malasiqui. The Army’s map puts Jess’s 2nd Battalion between Calasiao and San Carlos on the evening of the 11th.'] ],
   items:[ {px:[[707,1150],[707,1250]],cls:'us',ph:1,until:2},{px:[[746,1150],[746,1250]],cls:'us',ph:1,until:2},{px:[[796,1150],[796,1232]],cls:'us',ph:1,until:2},{px:[[833,1140],[833,1232]],cls:'jes',ph:1,until:2},
    {px:[[1085,950],[1160,1028]],cls:'us',ph:1,until:2},{px:[[1270,770],[1345,828]],cls:'us',ph:1,until:2},
@@ -880,7 +904,7 @@ BATTLES.manila = mapBattle({ key:'manila', img:'img/map-manila.jpg', tint:true, 
   fit:{a:3.301537,b:0.0145898,tx:-1916.4204858,ty:-2015.9572268,lon0:120.985,lat0:14.58,k:0.9677971},
   phases:[ ['February 3 to 4','Off the top of this map, the 1st Cavalry frees Santo Tomas University and the 37th Division frees Bilibid Prison, each under a mile north of the river.'],
    ['February 7','Jess’s battalion takes over the north bank of the Pasig, from Malacañan Palace east to Santa Mesa.'],
-   ['February 8','The 129th crosses in the afternoon beside the palace, lands at Malacañan Gardens and turns west.'],
+   ['February 8','The 129th crosses in the afternoon beside the palace, lands at Malacañan Gardens and turns west.',"I dug a foxhole on a golf course, and my buddy right behind me in a foxhole, a knee mortar hit him direct."],
    ['February 9 to 12','Companies G and E fight for the power plant on Provisor Island. The battalion loses about 25 killed and 75 wounded.'],
    ['February 12 to 17','West along the south bank toward the Post Office, 150 yards on the first day. The regiment’s other battalions fight for the New Police Station.'],
    ['February 23 to 24','The 3rd Battalion crosses in assault boats into the Walled City and takes Fort Santiago. Where Jess’s battalion was that day is not recorded.'] ],
@@ -901,7 +925,7 @@ let battle=null, phase=0, timer=null;
 const phaseBox=document.getElementById('phase'), playB=document.getElementById('play'), phaseR=document.getElementById('phaseR'), phaseT=document.getElementById('phaseT');
 function render(){ const c=chapters[cur], name=c.dataset.view;
   svg.innerHTML = battle ? battle.draw(phase) : drawGeo(name,cur,c.dataset.at);
-  if(battle){ phaseR.value=phase; const ph=battle.phases[phase]; phaseT.innerHTML='<b>'+ph[0]+'</b>'+ph[1]; } }
+  if(battle){ phaseR.value=phase; const ph=battle.phases[phase]; phaseT.innerHTML='<b>'+ph[0]+'</b>'+ph[1]+(ph[2]?'<q>'+ph[2]+'</q>':''); } }
 function stopPlay(){ if(timer){ clearInterval(timer); timer=null; } playB.innerHTML='&#9654; Play'; }
 playB.onclick=()=>{ if(timer){ stopPlay(); return; } phase=0; render(); playB.innerHTML='&#10073;&#10073; Pause';
   timer=setInterval(()=>{ if(phase>=battle.phases.length-1){ stopPlay(); return; } phase++; render(); }, 2600); };
