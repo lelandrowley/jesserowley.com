@@ -240,7 +240,7 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
 #gl:active{cursor:grabbing}
 #lab3d{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .l3{position:absolute;transform:translate(-50%,-150%);white-space:nowrap;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.03em;color:#fff;text-shadow:0 0 3px #10201f,0 0 3px #10201f,0 1px 2px #10201f}
-.l3.chip{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:0;padding:1px 6px;border-radius:2px;text-shadow:none;transform:translate(-50%,-50%)}
+.l3.chip{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:0;padding:1px 6px;border-radius:2px;text-shadow:none;transform:translate(-50%,-170%)}
 .l3.chip.us{background:#1d5fa0} .l3.chip.jp{background:#a34a00} .l3.chip.jes{background:#c8102e}
 .l3.egg{transform:translate(-50%,-50%)}
 .egg3{display:block;width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid #1a2220;position:relative}
@@ -673,7 +673,7 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
       <li>Shaw and Kane, <i>Isolation of Rabaul</i> (U.S. Marine Corps official history, vol. II) for the Bougainville convoys. <a href="https://www.ibiblio.org/hyperwar/USMC/II/USMC-II-III-4.html" target="_blank" rel="noopener">ibiblio.org/hyperwar</a></li>
       <li>Photographs: U.S. Army Signal Corps and the Army&rsquo;s official histories, public domain, via Wikimedia Commons and HyperWar.</li>
       <li>Elevation for the 3D views: Terrain Tiles open dataset (Mapzen, built from SRTM and other public sources), resampled to grids of about 200 points a side. Heights are stretched by the factor shown on each view.</li>
-      <li>Coastlines: Natural Earth, public domain. The Bougainville perimeter and Manila charts are schematics drawn for this page, not surveyed maps.</li>
+      <li>Coastlines: Natural Earth, public domain. The Bougainville battle map is the Army&rsquo;s own Map 22 from <i>Cartwheel</i>, fitted to modern coordinates by matching its coastline to the elevation data (95 percent agreement), so positions on it are good to a few hundred yards. The Lingayen and Manila charts are schematics drawn for this page, not surveyed maps.</li>
     </ol>
   </section>
 
@@ -774,7 +774,7 @@ function geoBattle(b,p){ const f=proj(b); let h=`<path class="land" d="${landPat
 
 const M22={lon0:155.06675,lat0:-6.2125,mpp:15.375,rot:0.015,cx:750,cy:570,k:0.99415};
 const mp=(x,y)=>{ const dx=(x-M22.cx)*M22.mpp, dy=(y-M22.cy)*M22.mpp, c=Math.cos(M22.rot), s=Math.sin(M22.rot); return [M22.lon0+(dx*c-dy*s)/(111320*M22.k), M22.lat0-(dx*s+dy*c)/110574]; };
-const S22=700/1139, X22=(1000-1500*S22)/2, m2=(x,y)=>[X22+x*S22,y*S22];
+const S22=0.8, X22=-230*S22, Y22=-36*S22, m2=(x,y)=>[X22+x*S22,Y22+y*S22];
 const BATTLES = {
  perimeter:{ box:[154.955,-6.30,155.215,-6.105], phases:[
    ['March 8','Japanese guns, hauled over the mountains in pieces, open on the airfields at 5:45 a.m.'],
@@ -791,23 +791,23 @@ const BATTLES = {
    {px:[[1350,548],[1220,560],[1090,548]],cls:'jp',ph:2,until:5,fade:4},
    {px:[[690,110],[662,180],[638,255],[634,330]],cls:'jp',ph:3,until:5},
    {px:[[1010,232],[905,130],[745,102]],cls:'usd jpd',ph:4,until:4},{px:[[1300,545],[1190,300],[930,105],[750,92]],cls:'usd jpd',ph:4,until:4},
-   {px:[[668,150],[618,250],[598,362]],cls:'jp',ph:5,until:5},{px:[[650,392],[606,374]],cls:'jes',ph:5,until:5},
+   {px:[[668,150],[618,250],[598,362]],cls:'jp',ph:5,until:5},{px:[[645,372],[606,372]],cls:'jes',ph:5,until:5},
    {px:[[636,326],[690,112]],cls:'jp',ph:6,fade:6},{px:[[894,328],[1048,216]],cls:'jp',ph:6,fade:6},{px:[[1092,548],[1348,548]],cls:'jp',ph:6,fade:6} ],
-  tags:[ [560,430,'129th Infantry, 2nd Battalion','jes',0], [575,395,'F','jes',3],[640,372,'G','jes',3],[700,366,'E','jes',3],
+  tags:[ [400,396,'2nd Battalion, 129th','jes',0], [572,352,'F','jes',3],[628,324,'G','jes',3],[704,322,'E','jes',3],
    [900,372,'Hill 700','us',1],[1010,498,'Hill 260','us',2],[760,90,'Magata Unit','jp',3,5],[1085,180,'Iwasa Unit','jp',1,3],[1380,520,'Muda Unit','jp',2,3],
-   [545,300,'breakthrough, March 23','jes',5,5],[700,455,'Piva airstrips','us',0,0],[640,800,'Torokina strip','us',0,0] ],
-  jessPx:[652,384],
+   [470,330,'breakthrough, March 23','jes',5,5],[700,455,'Piva airstrips','us',0,0],[640,800,'Torokina strip','us',0,0] ],
+  jessPx:[652,366],
   get lines(){ return this.items.map(o=>({pts:o.px.map(q=>mp(q[0],q[1])),cls:o.cls.split(' ').pop()==='jpd'?'jp':o.cls,ph:o.ph,until:o.until,fade:o.fade,arrow:o.arrow})); },
   get stops(){ return this.tags.map(t=>[mp(t[0],t[1]),t[2],0,0,t[4],null,'mtag '+t[3],t[5]]).concat([[mp(553,838),'Cape Torokina',0,0,0],[[155.196,-6.137],'Mt. Bagana',0,0,0]]); },
   get jess(){ return [mp(this.jessPx[0],this.jessPx[1])]; },
-  draw(p){ let h=`<rect class="fillland" width="1000" height="700"/><image href="img/map22.jpg" x="${X22.toFixed(1)}" y="0" width="${(1500*S22).toFixed(1)}" height="700" preserveAspectRatio="none" style="mix-blend-mode:multiply"/>`;
+  draw(p){ let h=`<rect class="fillland" width="1000" height="700"/><image href="img/map22.jpg" x="${X22.toFixed(1)}" y="${Y22.toFixed(1)}" width="${(1500*S22).toFixed(1)}" height="${(1139*S22).toFixed(1)}" preserveAspectRatio="none" style="mix-blend-mode:multiply"/><rect class="fillland" x="0" y="0" width="${(480*S22+X22).toFixed(1)}" height="${(276*S22+Y22).toFixed(1)}"/><path class="sch thin" style="stroke:#2a2a1c" d="M20 150v8h${(1609.3/15.375*S22).toFixed(1)}v-8"/><text class="note" style="fill:#2a2a1c" x="20" y="142">1 mile</text><text class="lbl on-land" x="20" y="44">Japanese counterattack</text><text class="note" style="fill:#2a2a1c" x="20" y="72">March 1944</text><text class="note" style="fill:#2a2a1c" x="20" y="96">N &#8593;</text>`;
    for(const o of this.items){ if(o.ph>p||(o.until!=null&&p>o.until)) continue; const pts=o.px.map(q=>m2(q[0],q[1])), jpd=o.cls.includes('jpd'), cls=jpd?'jp':o.cls, op=(o.fade!=null&&p>=o.fade)?.45:1;
      h+=`<g opacity="${op}"><path class="bl ${cls}"${jpd?' stroke-dasharray="4 10"':''} d="M${pts.map(q=>q[0].toFixed(1)+' '+q[1].toFixed(1)).join('L')}"/>${o.arrow===false?'':head(pts[pts.length-2],pts[pts.length-1],cls)}</g>`; }
    if(p===0){ for(const q of [[697,485],[707,535],[630,828]]){ const c=m2(q[0],q[1]); h+=`<circle class="burst" cx="${c[0]}" cy="${c[1]}" r="16"/>`; } }
    if(p===5){ const c=m2(598,368); h+=`<circle class="burst" cx="${c[0]}" cy="${c[1]}" r="14"/><circle class="burst" cx="${c[0]}" cy="${c[1]}" r="24" opacity=".5"/>`; }
    for(const t of this.tags){ if(t[4]>p||(t[5]!=null&&p>t[5])) continue; const c=m2(t[0],t[1]); h+=`<text class="mtag ${t[3]}" x="${c[0].toFixed(1)}" y="${c[1].toFixed(1)}" text-anchor="middle">${E(t[2])}</text>`; }
-   const j=m2(this.jessPx[0],this.jessPx[1]); h+=`<text class="mtag jes" x="${j[0]+18}" y="${j[1]+26}">Co. H mortars</text>`;
-   h+=`<text class="note" style="fill:#2a2a1c" x="${(X22+8).toFixed(0)}" y="690">Base map: U.S. Army, 1959. Colour added. Mortar position from Jess&rsquo;s account.</text>`;
+   const j=m2(this.jessPx[0],this.jessPx[1]); h+=`<text class="mtag jes" x="${j[0]+6}" y="${j[1]+36}">Co. H mortars</text>`;
+   h+=`<text class="note" style="fill:#2a2a1c" x="300" y="690">Base map: U.S. Army official history. Colour added. Mortar position from Jess&rsquo;s account.</text>`;
    return h+egg(j[0],j[1],true); } },
 
  landing:{ phases:[
@@ -1037,7 +1037,8 @@ function terrain(key){ if(T3.scenes[key]) return T3.scenes[key]; const THREE=T3.
 
 const R3={peri:.5};
 const C3={jes:0xc8102e, us:0x1d5fa0, usd:0x4f8fc9, jp:0xa34a00, doc:0xe2334c, personal:0xf08a98, air:0xf08a98, before:0xa9bcc0};
-function build3d(d){ const THREE=T3.three, s=terrain(d.key); T3.cur=s; while(s.over.children.length){ const o=s.over.children.pop(); o.geometry&&o.geometry.dispose(); }
+const AZ0={peri:-0.6,boug:0.35,drive:0.25,baguio:-0.5,cagayan:0.3,luzon:0.3};
+function build3d(d){ const THREE=T3.three, s=terrain(d.key); if(T3.key!==d.key){ T3.key=d.key; T3.az=AZ0[d.key]; T3.pol=0.82; T3.dist=150; } T3.cur=s; while(s.over.children.length){ const o=s.over.children.pop(); o.geometry&&o.geometry.dispose(); }
   lab3.innerHTML=''; T3.labels=[]; const [x0,y0,x1,y1]=s.box, step=Math.max(x1-x0,y1-y0)/160;
   const label=(v,html,cls)=>{ const e=document.createElement('div'); e.className='l3 '+(cls||''); e.innerHTML=html; lab3.appendChild(e); T3.labels.push([v,e]); };
   for(const L of d.lines){ const pts=L.pts.map(pt), dense=[]; for(let i=0;i<pts.length-1;i++){ const a=pts[i],b=pts[i+1],n=Math.max(1,Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/step)); for(let k=0;k<n;k++) dense.push([a[0]+(b[0]-a[0])*k/n,a[1]+(b[1]-a[1])*k/n]); } dense.push(pts[pts.length-1]);
