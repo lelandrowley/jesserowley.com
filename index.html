@@ -159,6 +159,80 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
   #map .lbl{font-size:30px} #map .lbl.sm{font-size:25px} #map .lbl.ctx{font-size:24px} #map .note{font-size:20px}
   .chapters{padding-bottom:20vh}
 }
+/* ---- battle player, charts, fleet ---- */
+:root{ --c-us:#2a78b5; --c-jp:#b87800; --c-civ:#8a5a9e; --c-mute:#c3ccc8; --c-ink2:#59666a; --us-map:#1d5fa0; --jp-map:#a34a00; --tip-bg:#1a2220; --tip-fg:#f2f4f1 }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --c-us:#3f8fd0; --c-jp:#b07d1c; --c-civ:#a070b8; --c-mute:#3a484b; --c-ink2:#a9b6b3; --us-map:#1d5fa0; --jp-map:#a34a00; --tip-bg:#e7ebe6; --tip-fg:#11181a } }
+:root[data-theme="dark"]{ --c-us:#3f8fd0; --c-jp:#b07d1c; --c-civ:#a070b8; --c-mute:#3a484b; --c-ink2:#a9b6b3; --us-map:#1d5fa0; --jp-map:#a34a00; --tip-bg:#e7ebe6; --tip-fg:#11181a }
+
+.phase{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:center;border-top:1px solid var(--sea2);padding-top:8px}
+.phase input[type=range]{width:100%;accent-color:var(--route);min-width:0}
+.phase #phaseT{grid-column:1/-1;font-size:14.5px;line-height:1.35;color:var(--map-ink);min-height:2.7em;font-family:var(--body)}
+.phase #phaseT b{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--route);margin-right:8px}
+.legend i.u{border-top-color:#6db3ea} .legend i.j{border-top-color:#e08a3c}
+#map .bl{fill:none;stroke-linecap:round;stroke-linejoin:round}
+#map .bl.jes{stroke:#c8102e;stroke-width:6}
+#map .bl.us{stroke:var(--us-map);stroke-width:4.5}
+#map .bl.usd{stroke:var(--us-map);stroke-width:3.5;stroke-dasharray:3 9}
+#map .bl.jp{stroke:var(--jp-map);stroke-width:4.5}
+#map .hd.jes{fill:#c8102e} #map .hd.us,#map .hd.usd{fill:var(--us-map)} #map .hd.jp{fill:var(--jp-map)}
+#map .jp{stroke:var(--jp-map)} #map .jpf{fill:var(--jp-map)}
+#map .zone{fill:var(--jp-map);opacity:.16}
+#map .mtag{font-family:var(--mono);font-size:16px;paint-order:stroke;stroke:var(--land);stroke-width:5px;stroke-linejoin:round}
+#map .mtag.us{fill:#123f6c} #map .mtag.jp{fill:#6b3000} #map .mtag.jes{fill:#8a0a1f} #map .mtag.sea{stroke:var(--sea);fill:var(--map-ink)}
+#map .beach{stroke-width:12;stroke-linecap:butt;fill:none}
+#map .shipm{fill:var(--map-dim)}
+#map .mark{fill:var(--jp-map)}
+#map .burst{fill:none;stroke:#c8102e;stroke-width:3}
+@media (max-width: 899px){ #map .mtag{font-size:22px} .phase #phaseT{font-size:13px;min-height:3.9em} }
+
+/* service strip */
+.strip svg{display:block;width:100%;height:auto}
+.strip text{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.strip .t{font-family:var(--display);font-weight:600;font-size:16px;fill:var(--ink)}
+.strip .s0{fill:var(--c-mute)} .strip .s1{fill:var(--c-ink2)} .strip .s2{fill:var(--red)} .strip .ax{stroke:var(--rule);stroke-width:1}
+.strip .lg{display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.sw.us,.f-us{background:var(--c-us);fill:var(--c-us)} .sw.jp,.f-jp{background:var(--c-jp);fill:var(--c-jp)} .sw.civ,.f-civ{background:var(--c-civ);fill:var(--c-civ)}
+.sw.mute,.f-mute{background:var(--c-mute);fill:var(--c-mute)} .sw.ink,.f-ink{background:var(--c-ink2);fill:var(--c-ink2)} .sw.red,.f-red{background:var(--red);fill:var(--red)}
+.sw.usl,.f-usl{background:color-mix(in srgb,var(--c-us) 45%,var(--panel));fill:color-mix(in srgb,var(--c-us) 45%,var(--panel))}
+
+/* chart card */
+.viz{border:1px solid var(--rule);background:var(--panel);padding:16px 18px;max-width:40em;display:grid;gap:12px;align-content:start}
+.viz.wide{max-width:none}
+.viz h3{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.15;margin:0;text-transform:none;letter-spacing:0;color:var(--ink)}
+.viz .sub{font-size:14.5px;color:var(--muted);margin:-6px 0 0;line-height:1.4;max-width:none}
+.viz .note{font-size:13.5px;color:var(--muted);line-height:1.45;margin:0;max-width:none}
+.viz .lg{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13.5px;color:var(--muted)}
+.ug{display:grid;gap:5px}
+.ug .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:15px;line-height:1.3}
+.ug .hd b{font-family:var(--display);font-weight:600;font-size:22px}
+.ug .hd span.n{color:var(--muted);font-size:13.5px}
+.ug svg{display:block;width:100%;height:auto;background:none;border:0}
+.hb{display:grid;grid-template-columns:minmax(90px,max-content) 1fr;gap:8px 12px;align-items:center;font-size:14.5px}
+.hb .lab{line-height:1.2}
+.hb .lab small{display:block;color:var(--muted);font-size:12.5px}
+.hb .row{display:flex;align-items:center;gap:8px;min-width:0}
+.hb .bar{display:flex;gap:2px;height:20px;min-width:2px}
+.hb .bar i{display:block;height:100%;border-radius:0}
+.hb .bar i:last-child{border-radius:0 4px 4px 0}
+.hb .val{font-family:var(--mono);font-size:12.5px;color:var(--ink);white-space:nowrap}
+.fleet{display:grid;gap:10px}
+.fl{display:grid;grid-template-columns:minmax(0,13.5em) 1fr;gap:4px 14px;align-items:start;font-size:14px;line-height:1.3}
+.fl .ct{font-family:var(--display);font-weight:600;font-size:20px;margin-right:6px}
+.fl .ships{display:flex;flex-wrap:wrap;gap:5px 6px;align-items:flex-end;padding-top:4px}
+.fl svg{display:block;background:none;border:0;width:auto;height:14px}
+.fl svg.tr{fill:var(--c-us)} .fl svg.war{fill:var(--c-ink2)} .fl svg.sunk{fill:var(--red)} .fl svg.hv{fill:var(--c-ink2)} .fl svg.lt{fill:var(--c-mute)}
+@media (max-width:560px){ .fl{grid-template-columns:1fr} .hb{grid-template-columns:1fr} }
+.wv text{font-family:var(--mono);font-size:12px;fill:var(--muted)} .wv .t{font-family:var(--display);font-weight:600;font-size:16px;fill:var(--ink)}
+.wv .ax{stroke:var(--rule);stroke-width:1}
+.nest text{font-family:var(--display);font-weight:600;font-size:17px;fill:var(--ink)} .nest .m{font-family:var(--mono);font-weight:400;font-size:12.5px;fill:var(--muted)}
+.nest rect{stroke:var(--panel);stroke-width:2}
+.nest .ld{stroke:var(--muted);stroke-width:1;fill:none}
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--tip-bg);color:var(--tip-fg);font-family:var(--mono);font-size:12.5px;line-height:1.35;padding:6px 9px;border-radius:3px;max-width:260px}
+[data-tip]{cursor:default}
+
+.phase[hidden]{display:none}
+
 </style>
 
 <div class="wrap">
@@ -178,7 +252,9 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
       <li><b>In his words</b><br>Red-barred quotations are Jess speaking on the family recording. Each one links to that moment in the video.</li>
       <li><b>The record</b><br>Boxed notes come from the U.S. Army&rsquo;s official histories, the National Archives and other sources listed at the end.</li>
       <li><b>Memory and record</b><br>Where his memory, fifty-odd years on, differs from the record, both are shown. Most of what he remembered checks out.</li>
+      <li><b>Play the battles</b><br>On six of the maps a Play button steps through the fighting day by day. Drag the slider to move at your own pace.</li>
     </ul>
+    <div class="strip" id="strip"></div>
     <a class="watch" href="https://www.youtube.com/watch?v=41T6YbBgPLA" target="_blank" rel="noopener">&#9654; Watch Jess tell it &middot; 54 min</a>
   </header>
 
@@ -187,7 +263,8 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
       <div class="chart-head"><div class="chart-title" id="chartTitle">Arizona and California</div><div class="chart-date" id="chartDate"></div></div>
       <svg id="map" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map following the current chapter"></svg>
       <div class="chart-foot">
-        <div class="legend"><span><i class="e"></i>Jess (the 37th&rsquo;s patch)</span><span><i></i>Documented regiment route</span><span><i class="p"></i>His own route, track or dates unknown</span></div>
+        <div class="legend"><span><i class="e"></i>Jess (the 37th&rsquo;s patch)</span><span><i></i>Documented regiment route</span><span><i class="p"></i>His own route, track or dates unknown</span><span><i class="u"></i>Other American units</span><span><i class="j"></i>Japanese</span></div>
+        <div class="phase" id="phase" hidden><button type="button" class="step" id="play">&#9654; Play</button><input type="range" id="phaseR" min="0" max="6" step="1" value="6" aria-label="Step through the battle"><div id="phaseT"></div></div>
         <div class="rail" id="rail"></div>
       </div>
     </aside>
@@ -253,9 +330,10 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
           <li>The 129th landed at Empress Augusta Bay on <b>November 13, 1943</b>. By December 15 the perimeter line ran about 13 miles through the jungle. The 37th Division held the western half.</li>
           <li>Three airfields were built inside it: the Torokina fighter strip on the beach, and the Piva bomber and fighter strips inland. From them American planes shut down the great Japanese base at Rabaul.</li>
         </ul></div>
+        <div class="viz"><h3>How the beachhead filled</h3><p class="sub">Men landed at Empress Augusta Bay, by convoy, November 1943</p><div id="b-ech"></div><p class="note">The 129th came in the fifth convoy: four attack transports and two cargo ships carrying 6,678 men and 2,935 tons of supplies. By that evening almost 34,000 Americans were ashore. Source: Marine Corps official history.</p></div>
       </section>
 
-      <section class="ch" data-view="perimeter" data-at="coH" data-date="March 11 to 24, 1944" data-title="The perimeter, March 1944">
+      <section class="ch" data-view="perimeter" data-battle="perimeter" data-at="coH" data-date="March 11 to 24, 1944" data-title="The perimeter, March 1944">
         <div class="ch-meta"><span>March 1944</span><span>2nd Battalion line, Bougainville perimeter</span></div>
         <h2>&ldquo;Drop them on us&rdquo;</h2>
         <p>In March 1944 the Japanese came for the airfields. They had dragged their artillery across the island in pieces and brought more than 15,000 men through the mountains. Three columns struck the perimeter. The last and longest fight fell on the center of the 37th Division&rsquo;s line, where a single battalion of the 129th held the whole regimental front. It was Jess&rsquo;s battalion. His mortars sat a few hundred yards behind its pillboxes.</p>
@@ -299,6 +377,7 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
           </svg>
           <figcaption>Attacks on the 2nd Battalion&rsquo;s line by day, from the Army&rsquo;s official history. Bar height shows relative weight, not a measured count. Jess remembered &ldquo;two waves&rdquo;: a first that failed, then a concentrated final run. The record shows exactly that shape.</figcaption>
         </figure>
+        <div class="viz"><h3>What the three weeks cost</h3><p class="sub">The whole counteroffensive, all sectors, March 8 to 27, 1944. One square is 10 men.</p><div id="u-boug"></div><p class="note">The Americans had about 62,000 men inside the perimeter; the Japanese attacked with 15,000 to 19,000. Against Hill 700 alone, the next regiment&rsquo;s 81 mm mortars fired 13,000 rounds. No count survives for Company H. Source: U.S. Army official history.</p></div>
         <div class="rec"><h3>The record</h3><ul>
           <li>2nd Battalion, 129th Infantry held the regiment&rsquo;s whole front, about 2.2 miles: Company F at Cox Creek, G at the Logging Trail and Taylor Creek, E at the Numa Numa Trail.</li>
           <li>March 12: seven pillboxes lost. March 13: tanks help retake them. March 15: attacks at 3:00 and 4:35 in the afternoon retake a Cox Creek pillbox; 7 Americans killed, 56 wounded, about 190 Japanese dead counted.</li>
@@ -333,19 +412,23 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
         <blockquote>They had relief maps of the place we was going to go and photos of it, where we had to run through the rice paddies and get to a certain spot together again.
           <footer><a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=1295s" target="_blank" rel="noopener">&#9654; 21:35</a></footer></blockquote>
         <p>The diesel exhaust of the landing craft made him sick on those rehearsals. For the rest of his life the smell of a GMC diesel bus climbing the grade to Superior would do it again.</p>
+        <div class="viz"><h3>The ships that carried one division</h3><p class="sub">Transport Group Able, which took the 37th Division from Bougainville to the Crimson and Yellow beaches. Each outline is one ship, drawn to relative length.</p><div class="fleet" id="f-carry"></div><p class="note">93 ships and craft for one division of about 14,000 men. Which ship Jess rode is not known. Source: U.S. Army official history, amphibious forces chart.</p></div>
+        <div class="viz"><h3>The guns and planes that covered them</h3><p class="sub">Part of the bombardment and escort carrier groups at Lingayen Gulf</p><div class="fleet" id="f-guns"></div><p class="note">The whole invasion force was far larger: three more divisions sailed in their own transport groups, with minesweepers, supply ships and a reinforcement convoy behind. No official count of every ship was found; published figures run from about 800 to more than 875.</p></div>
+        <div class="viz"><h3>What the kamikazes did to the fleet</h3><p class="sub">Ships hit by suicide planes and other air attack off Mindoro and Luzon, December 13, 1944 to January 13, 1945</p><div class="fleet" id="f-kami"></div><p class="note">About 1,230 men were killed and 1,800 wounded aboard, most of them sailors. The worst day was January 6, three days before the landing. No record was found of a 37th Division transport being hit. Outlines here are generic, not the ship types lost.</p></div>
         <div class="rec"><h3>The record</h3><ul>
           <li>The division finished loading at Bougainville by December 12, 1944. Rehearsal in Huon Gulf, New Guinea. Convoy assembled at Manus on December 22 and sailed December 31.</li>
-          <li>It passed through Surigao Strait on the night of January 4 and entered Lingayen Gulf about 4:00 a.m. on January 9.</li>
+          <li>The slow landing ships passed through Surigao Strait on the night of January 4 in a convoy more than forty miles long. The troop transports left Leyte Gulf on the morning of January 6. All of them reached the mouth of Lingayen Gulf about 4:00 a.m. on January 9. Bougainville to Lingayen is nearly 3,000 miles in a straight line.</li>
         </ul></div>
       </section>
 
-      <section class="ch" data-view="luzon" data-at="lingayen" data-date="January 9, 1945" data-title="Luzon">
+      <section class="ch" data-view="luzon" data-battle="landing" data-at="lingayen" data-date="January 9 to 11, 1945" data-title="Lingayen Gulf">
         <div class="ch-meta"><span>January 9, 1945</span><span>Lingayen Gulf, Luzon</span></div>
         <h2>Dry socks on the beach</h2>
         <p>The 129th was one of the assault regiments. Jess went in on a landing craft with a drop ramp and waded ashore under less fire than anyone had feared. The Navy had pounded the shore, and the Japanese had chosen to fight inland.</p>
         <blockquote>The first thing that I remember seeing as I waded out of that ocean onto that beach was a horse down there. He&rsquo;d been shot through the stomach. He was still alive. &hellip; I was able to get dry socks out of the top of my pack and get them on, and then we went in twenty miles.
           <footer><a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=1318s" target="_blank" rel="noopener">&#9654; 21:58</a></footer></blockquote>
         <figure><img src="img/lingayen.jpg" alt="Aerial view of a long beach with surf, fish ponds and a town behind it" loading="lazy"><figcaption>The landing beach at Lingayen from the air, January 1945: surf, a strip of sand, then fish ponds and rice paddies. U.S. Army photograph.</figcaption></figure>
+        <div class="viz"><h3>The 129th comes ashore</h3><p class="sub">Landing craft on the two Crimson beaches by wave, January 9, 1945. Bar height is the number of craft.</p><div id="waves"></div><p class="note">Jess remembered wading in from a boat whose front dropped to make a ramp. That places him in the boat waves, from eleven minutes after H-hour, not in the first tractors. About 68,000 men landed on the four divisions&rsquo; beaches that day. Source: U.S. Army official history, Appendix B.</p></div>
         <figure>
           <svg class="dg" viewBox="0 0 720 250" role="img" aria-label="What he carried ashore">
             <text x="30" y="26" class="m">WHAT HE CARRIED ASHORE, BY HIS ACCOUNT</text>
@@ -359,12 +442,12 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
           <figcaption>Jess remembered each mortar load as 80 pounds. The mortar&rsquo;s pieces weighed about 45 pounds each by the manual. With pack, weapons, water and ammunition on top, the whole load a mortarman carried could well have felt like, and come close to, the figure he gave.</figcaption>
         </figure>
         <div class="rec"><h3>The record</h3><ul>
-          <li>The 129th landed on the left of XIV Corps&rsquo; beaches and pushed east to the mouth of the Dagupan River. It entered Dagupan that afternoon and crossed the Pantal River in amphibious tractors because the bridge was down.</li>
+          <li>The 129th landed at 9:30 a.m. on the beaches code-named Crimson 1 and 2, on the left of XIV Corps, and pushed east to the mouth of the Dagupan River. It entered Dagupan that afternoon and crossed the Pantal River in amphibious tractors because the bridge was down.</li>
           <li>January 10: about eight miles on foot to Malasiqui, greeted by Filipino guerrillas. Fish ponds and rice paddies kept the columns on the roads.</li>
         </ul></div>
       </section>
 
-      <section class="ch" data-view="luzon" data-at="stotsenburg" data-date="January 19 to February 2, 1945" data-title="Luzon">
+      <section class="ch" data-view="luzon" data-battle="drive" data-at="stotsenburg" data-date="January 9 to February 4, 1945" data-title="Lingayen to Manila">
         <div class="ch-meta"><span>Late January 1945</span><span>Central Plain, Clark Field, Fort Stotsenburg</span></div>
         <h2>Down the plain to Clark Field</h2>
         <p>They walked south through the rice country, town after town, toward the old American air base at Clark Field and the Army post beside it, Fort Stotsenburg, both lost in 1941. The Japanese fought for them from wrecked hangars, minefields and the hills behind.</p>
@@ -378,10 +461,11 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
           <li>January 28 to 30: it breaks the Japanese line at Clark Field, beats off a tank attack and takes the ruins of Fort Stotsenburg. February 1: the regiment&rsquo;s 1st Battalion takes the hill called Top of the World. Clark Field is secure.</li>
           <li>Regimental losses through January 31: 50 killed, 230 wounded.</li>
         </ul></div>
+        <div class="viz"><h3>Who paid for Clark Field</h3><p class="sub">American killed and wounded by regiment, January 24 to 31, 1945</p><div id="b-clark"></div><p class="note">The 129th faced the Eguchi Detachment, about 3,900 men of the 30,000-strong Kembu Group. About as many Americans again were evacuated for sickness, heat and exhaustion. The Army calls its own figures incomplete. Source: U.S. Army official history.</p></div>
         <div class="diff"><h3>Memory and record</h3>Jess placed the brewery near Clark Field. The brewery the 37th Division famously drank dry was the Balintawak brewery on the northern edge of Manila, reached in the first days of February. The published accounts tie it to a sister regiment, the 148th. The 129th came down the same highway two days behind. The story is real. The place is most likely Balintawak.</div>
       </section>
 
-      <section class="ch" data-view="manila" data-at="provisor" data-date="February 7 to 17, 1945" data-title="Manila, February 1945">
+      <section class="ch" data-view="manila" data-battle="manila" data-at="provisor" data-date="February 7 to 17, 1945" data-title="Manila, February 1945">
         <div class="ch-meta"><span>February 1945</span><span>Manila</span></div>
         <h2>Manila</h2>
         <p>The Japanese naval garrison chose to fight for Manila block by block, and the city was destroyed around them. Jess&rsquo;s battalion took over the north bank of the Pasig River by the presidential palace on February 7, crossed the next afternoon, and spent four days taking a power plant on a small island in the river. Asked where the fighting was worst, he named two places: Bougainville and Manila.</p>
@@ -395,10 +479,12 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
           <li>February 12 to 17: the battalion pushes along the south bank toward the Post Office. February 23 to 24: the regiment&rsquo;s 3rd Battalion crosses the river in assault boats into the Walled City and takes Fort Santiago.</li>
           <li>The 37th Division&rsquo;s cost in Manila: about 300 killed and 2,700 wounded.</li>
         </ul></div>
+        <div class="viz"><h3>The dead of Manila</h3><p class="sub">February 3 to March 3, 1945. One square is 100 people.</p><div id="u-manila"></div><p class="note">The civilians died from Japanese massacre and from the shellfire of both sides. All three figures are the Army&rsquo;s own estimates.</p></div>
+        <div class="viz"><h3>American losses in Manila, by division</h3><p class="sub">Killed and wounded, February 3 to March 3, 1945</p><div id="b-manila"></div><p class="note">Jess&rsquo;s division took nearly half of all American casualties in the city. Source: U.S. Army official history, Table 5.</p></div>
         <div class="diff"><h3>Memory and record</h3>Jess says &ldquo;we&rdquo; released the Santo Tomas prisoners. The 1st Cavalry Division reached Santo Tomas first, on February 3. His division freed the prisoners at Bilibid the next day, and his battalion&rsquo;s line was under a mile from the Santo Tomas fence. He placed the golf course in Quezon City. No record names it. The 37th came into the city through Quezon City, and there was a golf course in Malaca&ntilde;ang Park, across the river from the palace, at the very spot where his battalion crossed on February 8. His friend&rsquo;s name is not on the recording.</div>
       </section>
 
-      <section class="ch" data-view="luzon" data-at="baguio" data-date="March 28 to May 1945" data-title="Luzon">
+      <section class="ch" data-view="luzon" data-battle="baguio" data-at="baguio" data-date="March 19 to April 27, 1945" data-title="Route 9 to Baguio">
         <div class="ch-meta"><span>April 1945</span><span>Route 9 to Baguio</span></div>
         <h2>The mountain road</h2>
         <p>After Manila the regiment guarded bridges and roads and filled its ranks with new men. Then it was sent north, attached to another division that had been stalled for weeks below Baguio, the mile-high summer capital where General Yamashita had his headquarters. The road climbed from the coast into pine forest. To Jess it was the Swift Trail up Mount Graham, with Japanese guns in the caves.</p>
@@ -423,7 +509,7 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
         <div class="diff"><h3>Memory and record</h3>Jess calls the other division &ldquo;the 44th.&rdquo; It was the 33rd, and there is an irony he may never have known: the 33rd was the Illinois division the 129th had been taken from in 1943. He was right about the sign. When the 33rd&rsquo;s patrols came up the easier road on April 27 they were met by a board reading &ldquo;You are now entering Baguio, courtesy 37th Infantry Division.&rdquo;</div>
       </section>
 
-      <section class="ch" data-view="luzon" data-at="aparri" data-date="May 31 to September 1945" data-title="Luzon">
+      <section class="ch" data-view="luzon" data-battle="cagayan" data-at="aparri" data-date="May 31 to September 1945" data-title="The Cagayan Valley">
         <div class="ch-meta"><span>Summer 1945</span><span>Cagayan Valley, northern Luzon</span></div>
         <h2>The last valley</h2>
         <p>Rested and rebuilt, the 37th Division was sent through Balete Pass to run the length of the Cagayan Valley, 200 miles to the north coast, and break up what was left of Yamashita&rsquo;s army. The 129th led the way out of Santa Fe. By late June it was in Tuguegarao. After that the work was patrols into the hills, with days off on the beach.</p>
@@ -469,6 +555,15 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
     </main>
   </div>
 
+  <section class="after" id="cost">
+    <h2>The cost</h2>
+    <p>Jess came home. These are the numbers for the men around him, for the men on the other side, and for the sickness that nearly killed him.</p>
+    <div class="cols">
+      <div class="viz wide"><h3>Luzon, 1945</h3><p class="sub">U.S. Army ground forces and Japanese forces on Luzon. One square is 100 people.</p><div id="u-luzon"></div><p class="note">Sickness put more than twice as many Americans in hospital as the enemy did. Of 275,000 Japanese on Luzon, three in four died, most of them from starvation and disease in the mountains after their supply had collapsed. Source: U.S. Army official history, Appendix H and chapter 33.</p></div>
+      <div class="viz wide"><h3>The 37th Division&rsquo;s war</h3><p class="sub">Battle casualties from 1943 to 1945, set against a full-strength division of 14,253. One square is 10 men.</p><div id="u-37"></div><p class="note">5,960 battle casualties in all, equal to four in every ten places in the division. Replacements filled the gaps, so more than 14,253 men served in it over the war. Source: Department of the Army, <i>Army Battle Casualties and Nonbattle Deaths in World War II</i> (1953).</p></div>
+    </div>
+  </section>
+
   <section class="after" id="mortar">
     <h2>His gun</h2>
     <div class="cols">
@@ -496,6 +591,7 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
         <figcaption>The 81 mm mortar M1, from the Army&rsquo;s published figures: 136 pounds in three loads, normally 18 rounds a minute and up to 30 to 35 in an emergency. Jess&rsquo;s crew fired fast enough on Bougainville to ruin a tube.</figcaption>
       </figure>
     </div>
+    <div class="viz" style="max-width:760px"><h3>One squad in a division</h3><p class="sub">Authorized strength of each unit Jess belonged to, 1944. Area is proportional to the number of men.</p><div id="nest"></div><p class="note">Company H had six 81 mm mortars and eight heavy machine guns. A division had 54 of these mortars. In Manila the 129th was nearly 700 men short of its paper strength.</p></div>
   </section>
 
   <section class="after" id="compare">
@@ -550,6 +646,8 @@ ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
       <li>129th Infantry lineage, from the <i>Army Lineage Book, Volume II: Infantry</i> (1953), as summarized at <a href="https://en.wikipedia.org/wiki/129th_Infantry_Regiment_(United_States)" target="_blank" rel="noopener">Wikipedia</a>.</li>
       <li>Signal Corps photograph, 37th Division infantrymen at Baguio cemetery, 1945. <a href="https://ww2online.org/node/83630" target="_blank" rel="noopener">ww2online.org</a></li>
       <li>U.S. Army TM 12-427 (1944) and FM 7-15 (1942) for mortar crews and job titles; Army Service Forces health report, May 31, 1944, for malaria in the 37th Division.</li>
+      <li><i>Triumph in the Philippines</i>, Appendix A (naval and amphibious forces), Appendix B (landing waves), Appendix H (cost of the campaigns). Department of the Army, <i>Army Battle Casualties and Nonbattle Deaths in World War II: Final Report</i> (1953). <a href="https://www.ibiblio.org/hyperwar/USA/ref/Casualties/Casualties-1.html" target="_blank" rel="noopener">ibiblio.org/hyperwar</a></li>
+      <li>Shaw and Kane, <i>Isolation of Rabaul</i> (U.S. Marine Corps official history, vol. II) for the Bougainville convoys. <a href="https://www.ibiblio.org/hyperwar/USMC/II/USMC-II-III-4.html" target="_blank" rel="noopener">ibiblio.org/hyperwar</a></li>
       <li>Photographs: U.S. Army Signal Corps and the Army&rsquo;s official histories, public domain, via Wikimedia Commons and HyperWar.</li>
       <li>Coastlines: Natural Earth, public domain. The Bougainville perimeter and Manila charts are schematics drawn for this page, not surveyed maps.</li>
     </ol>
@@ -617,51 +715,8 @@ function drawGeo(name,ci,at){ const v=VIEWS[name], f=proj(v); let h='';
   const mi=v.scale, px=mi/69.17*f.s; h+=`<path class="sch thin" d="M40 660v8h${px.toFixed(0)}v-8"/><text class="note" x="40" y="652">${mi.toLocaleString()} miles</text>`;
   const a=AT[at]||P[at]; if(a){ const q=f(a); h+=egg(q[0],q[1],ci>=3); }
   return h; }
-function drawPerimeter(ci){ let h='';
-  h+=`<path class="fillland" d="M0 0h1000v560C860 600 700 640 560 668 470 640 430 600 380 590 250 560 120 470 0 380z"/>`;
-  h+=`<text class="lbl ctx" x="150" y="610">EMPRESS AUGUSTA BAY</text>`;
-  h+=`<path class="sch" stroke-dasharray="10 7" style="stroke:#2a2a1c" d="M150 440C130 250 300 110 520 110 740 110 900 250 880 560"/>`;
-  h+=`<g style="fill:#2a2a1c"><rect x="545" y="600" width="90" height="12" transform="rotate(-12 590 606)"/><rect x="560" y="330" width="170" height="14" transform="rotate(-20 645 337)"/><rect x="600" y="420" width="110" height="11" transform="rotate(-20 655 425)"/></g>`;
-  h+=`<text class="lbl sm on-land" x="640" y="590">Torokina fighter strip</text><text class="lbl sm on-land" x="640" y="300" text-anchor="middle">Piva bomber strip</text><text class="lbl sm on-land" x="668" y="462" text-anchor="middle">Piva fighter strip</text>`;
-  h+=`<text class="lbl sm on-land" x="205" y="300" text-anchor="middle">148th</text><text class="lbl on-land" x="430" y="172" text-anchor="middle">129th Infantry</text><text class="lbl sm on-land" x="690" y="186" text-anchor="middle">145th</text><text class="lbl sm on-land" x="820" y="400" text-anchor="middle">Americal</text><text class="lbl sm on-land" x="820" y="424" text-anchor="middle">Division</text>`;
-  h+=`<path class="sch thin" style="stroke:#2a2a1c" d="M300 162l12 22M560 108l-2 24M800 196l-18 14"/>`;
-  h+=`<path class="sch water" d="M330 20c20 50-10 90 30 130M420 10c-10 50 30 70 10 110M520 10c10 40-10 70 0 100"/>`;
-  h+=`<text class="note" style="fill:#2a2a1c" x="238" y="40">Cox Creek</text><text class="note" style="fill:#2a2a1c" x="368" y="24" text-anchor="middle"> </text><text class="note" style="fill:#2a2a1c" x="536" y="40">Numa Numa Trail</text><text class="note" style="fill:#2a2a1c" x="432" y="64">Taylor Creek</text>`;
-  h+=`<g class="jp"><path d="M430 6v70"/><path d="M700 30l-28 86"/><path d="M960 250l-70 40"/></g><g class="jpf"><path d="M430 96l-11-22h22z"/><path d="M666 134l-4-25 21 8z"/><path d="M872 300l15-20 9 20z"/></g>`;
-  h+=`<text class="lbl sm" style="fill:#7a5a00;stroke:var(--land)" x="446" y="92"> </text>`;
-  h+=`<text class="note" style="fill:#5c4300" x="722" y="60">Hill 700, March 8 to 13</text><text class="note" style="fill:#5c4300" x="806" y="250">Hill 260</text><text class="note" style="fill:#5c4300" x="60" y="92">Main attack on the 129th,</text><text class="note" style="fill:#5c4300" x="60" y="112">March 11 to 24</text><path class="jp" style="stroke-width:2" d="M300 100h110"/>`;
-  h+=`<g class="us"><circle cx="455" cy="205" r="7"/><circle cx="480" cy="212" r="7"/><circle cx="505" cy="216" r="7"/></g><text class="lbl sm on-land" x="500" y="250" text-anchor="middle">Co. H mortars</text>`;
-  h+=`<text class="note" style="fill:#2a2a1c" x="930" y="120" text-anchor="end">to Mt. Bagana &#8599;</text>`;
-  h+=`<text class="note" x="40" y="680">Schematic after the Army&rsquo;s official map. Not to scale.</text>`;
-  h+=egg(480,212,true); return h; }
-function drawManila(ci){ let h='';
-  h+=`<rect class="fillland" x="0" y="0" width="1000" height="700"/><path class="fillsea" d="M0 0h250C230 150 250 260 300 330 250 420 200 560 190 700H0z"/>`;
-  h+=`<text class="lbl ctx" x="40" y="400" text-anchor="start">MANILA BAY</text>`;
-  h+=`<path class="sch water" style="stroke-width:16;stroke:var(--sea2)" d="M290 335C360 330 420 318 480 330 540 345 560 400 610 420 670 440 700 380 760 370 830 360 880 400 1000 390"/>`;
-  h+=`<text class="note" style="fill:#2a2a1c" x="850" y="352">Pasig River</text>`;
-  h+=`<path d="M320 352h120l14 110-150 40z" style="fill:none;stroke:#2a2a1c;stroke-width:4"/><text class="lbl sm on-land" x="378" y="430" text-anchor="middle">Walled City</text><text class="note" style="fill:#2a2a1c" x="378" y="452" text-anchor="middle">(Intramuros)</text>`;
-  const pin=(x,y,t,a,dx,dy,c)=>`<circle cx="${x}" cy="${y}" r="7" style="fill:#2a2a1c"/><text class="lbl sm on-land" x="${x+(dx||12)}" y="${y+(dy||6)}" text-anchor="${a||'start'}">${t}</text>`;
-  h+=pin(322,340,'Fort Santiago','end',-12,-10);
-  h+=pin(470,300,'Post Office','middle',0,-16);
-  h+=pin(520,150,'Bilibid Prison','start');
-  h+=pin(640,120,'Santo Tomas University','start');
-  h+=pin(720,352,'Malaca&ntilde;ang Palace','middle',0,-18);
-  h+=pin(900,300,'Santa Mesa','middle',0,-18);
-  h+=pin(520,520,'New Police Station','start');
-  h+=`<rect x="575" y="418" width="64" height="22" rx="4" style="fill:#2a2a1c"/><text class="lbl on-land" x="610" y="476" text-anchor="middle">Provisor Island</text>`;
-  h+=`<path class="leg doc" style="stroke:#b90f2b" d="M700 372h190"/><path class="leg doc" style="stroke:#b90f2b" d="M740 376C760 430 700 450 650 436"/><path class="leg personal" style="stroke:#b90f2b" d="M575 446C520 440 500 400 480 340"/>`;
-  h+=`<text class="note" style="fill:#7a0a1c" x="770" y="420">Feb 8: crosses</text><text class="note" style="fill:#7a0a1c" x="770" y="440">here, by the</text><text class="note" style="fill:#7a0a1c" x="770" y="460">palace golf course</text>`;
-  h+=`<text class="note" style="fill:#7a0a1c" x="712" y="400" text-anchor="end"> </text><text class="note" style="fill:#2a2a1c" x="620" y="40">&#8593; Balintawak brewery, 4 miles north</text>`;
-  h+=`<text class="note" style="fill:#2a2a1c" x="270" y="656">Schematic of central Manila. Not to scale.</text><text class="note" style="fill:#7a0a1c" x="270" y="682">Red: 2nd Battalion, 129th Infantry, February 7 to 17.</text>`;
-  h+=egg(607,430,true); return h; }
-
 const chapters=[...document.querySelectorAll('.ch')], rail=document.getElementById('rail');
 let cur=-1;
-function show(i){ if(i===cur||i<0||i>=chapters.length) return; cur=i; const c=chapters[i], name=c.dataset.view;
-  svg.innerHTML = name==='perimeter'?drawPerimeter(i): name==='manila'?drawManila(i): drawGeo(name,i,c.dataset.at);
-  document.getElementById('chartTitle').textContent=c.dataset.title; document.getElementById('chartDate').textContent=c.dataset.date;
-  [...rail.querySelectorAll('button[data-i]')].forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('done',j<i);});
-  prev.disabled=i===0; next.disabled=i===chapters.length-1; }
 const mk=(t,cls)=>{const b=document.createElement('button');b.type='button';b.className=cls||'';b.innerHTML=t;return b;};
 const prev=mk('&#8592;','step'), next=mk('Next &#8594;','step'); prev.setAttribute('aria-label','Previous chapter'); rail.appendChild(prev);
 chapters.forEach((c,i)=>{ c.id='ch'+(i+1); const b=mk('<span></span>'); b.dataset.i=i; b.title=c.querySelector('h2').textContent; b.setAttribute('aria-label','Chapter '+(i+1)+': '+b.title); b.onclick=()=>go(i); rail.appendChild(b); });
@@ -671,6 +726,247 @@ function go(i){ if(i<0||i>=chapters.length) return; const narrow=matchMedia('(ma
 prev.onclick=()=>go(cur-1); next.onclick=()=>go(cur+1);
 function pick(){ const narrow=matchMedia('(max-width: 899px)').matches; const line=narrow?document.querySelector('.chart').offsetHeight+70:Math.min(innerHeight*0.3,240); let best=0;
   chapters.forEach((c,i)=>{ if(c.getBoundingClientRect().top<=line) best=i; }); show(best); }
+// ---------- battle maps with phases ----------
+Object.assign(P,{ dagupan:[120.34,16.04], calasiao:[120.36,16.01], bayambang:[120.45,15.81], camiling:[120.41,15.69], carmen:[120.59,15.89], tarlac:[120.59,15.49], bamban:[120.57,15.27],
+  angeles:[120.59,15.15], sanfernando:[120.69,15.03], calumpit:[120.77,14.92], malolos:[120.81,14.84], marilao:[120.95,14.76], lingtown:[120.23,16.02], aguilar:[120.24,15.89],
+  guimba:[120.77,15.66], gapan:[120.95,15.31], baliuag:[120.90,14.95], novaliches:[121.04,14.72],
+  bauang:[120.33,16.53], naguilian:[120.39,16.53], salat:[120.475,16.512], irisan:[120.555,16.44], rosario:[120.49,16.23], camp3:[120.57,16.31],
+  aritao:[121.03,16.30], bambang:[121.10,16.39], santiago:[121.55,16.69], echague:[121.65,16.70], cauayan:[121.77,16.93], naguilianI:[121.84,17.02], iguig:[121.74,17.75], paret:[121.68,17.90], camalaniugan:[121.68,18.27] });
+
+function head(a,b,cls){ const ang=Math.atan2(b[1]-a[1],b[0]-a[0]),h=17,bx=b[0]-Math.cos(ang)*h,by=b[1]-Math.sin(ang)*h,px=Math.sin(ang)*h*.5,py=-Math.cos(ang)*h*.5;
+  return `<path class="hd ${cls}" d="M${b[0].toFixed(1)} ${b[1].toFixed(1)}L${(bx+px).toFixed(1)} ${(by+py).toFixed(1)}L${(bx-px).toFixed(1)} ${(by-py).toFixed(1)}Z"/>`; }
+function arr(x1,y1,x2,y2,cls,o){ const ang=Math.atan2(y2-y1,x2-x1); return `<g opacity="${o==null?1:o}"><path class="bl ${cls}" d="M${x1} ${y1}L${(x2-Math.cos(ang)*12).toFixed(1)} ${(y2-Math.sin(ang)*12).toFixed(1)}"/>${head([x1,y1],[x2,y2],cls)}</g>`; }
+function geoBattle(b,p){ const f=proj(b); let h=`<path class="land" d="${landPath(b.land,f)}"/>`;
+  for(const c of b.ctx||[]){ const q=f([c[1],c[2]]); h+=`<text class="lbl ctx${c[4]?' on-land':''}" x="${q[0]}" y="${q[1]}" text-anchor="${c[3]||'middle'}">${c[0]}</text>`; }
+  for(const z of b.zones||[]){ if(z.ph>p||(z.until!=null&&p>z.until)) continue; const q=f(pt(z.at)); h+=`<circle class="zone" cx="${q[0]}" cy="${q[1]}" r="${z.r}"/><path class="mark" d="M${q[0]-9} ${q[1]}h18M${q[0]} ${q[1]-9}v18" style="stroke:var(--jp-map);stroke-width:3"/>`; }
+  for(const L of b.lines){ if(L.ph>p) continue; const pts=L.pts.map(a=>f(pt(a))); const o=(L.fade!=null&&p>=L.fade)?.35:1;
+    h+=`<g opacity="${o}"><path class="bl ${L.cls}" d="M${pts.map(q=>q[0].toFixed(1)+' '+q[1].toFixed(1)).join('L')}"/>${L.arrow===false?'':head(pts[pts.length-2],pts[pts.length-1],L.cls)}</g>`; }
+  for(const s of b.stops){ const [id,label,dx,dy,ph,anchor,cls]=s; if(ph>p) continue; const q=f(pt(id));
+    if(cls&&cls.startsWith('mtag')) h+=`<text class="${cls}" x="${q[0]+dx}" y="${q[1]+dy}" text-anchor="${anchor||'start'}">${E(label)}</text>`;
+    else h+=`<circle class="dot" cx="${q[0]}" cy="${q[1]}" r="5"/><text class="lbl on-land ${cls||'sm'}" x="${q[0]+dx}" y="${q[1]+dy+7}" text-anchor="${anchor||'start'}">${E(label)}</text>`; }
+  const mi=b.scale, px=mi/69.17*f.s; h+=`<path class="sch thin" d="M40 660v8h${px.toFixed(0)}v-8"/><text class="note" x="40" y="652">${mi} miles</text>`;
+  const j=b.jess[Math.min(p,b.jess.length-1)]; if(j){ const q=f(pt(j)); h+=egg(q[0],q[1],true); }
+  return h; }
+
+const BATTLES = {
+ perimeter:{ phases:[
+   ['March 8','Japanese guns, hauled over the mountains in pieces, open on the airfields at 5:45 a.m.'],
+   ['March 9 to 13','The Iwasa Unit storms Hill 700. The 145th Infantry throws it back in four days.'],
+   ['March 10 to 15','The Muda Unit takes part of Hill 260 from the Americal Division.'],
+   ['March 11 to 17','The Magata Unit hits Jess’s battalion at the creeks. Pillboxes are lost, then retaken with tanks.'],
+   ['March 18 to 22','A pause. The survivors of the two beaten columns circle through the jungle to join Magata.'],
+   ['March 23 to 24','The general attack, after dark. It breaks through at Cox Creek to within 25 yards of the battalion command post. The line is restored by 2 p.m.'],
+   ['March 27','The Japanese withdraw, leaving more than 5,000 dead.']],
+  draw(p){ let h='';
+   h+=`<path class="fillland" d="M0 0h1000v560C860 600 700 640 560 668 470 640 430 600 380 590 250 560 120 470 0 380z"/>`;
+   h+=`<text class="lbl ctx" x="150" y="610">EMPRESS AUGUSTA BAY</text>`;
+   h+=`<path class="sch" stroke-dasharray="10 7" style="stroke:#2a2a1c" d="M150 440C130 250 300 110 520 110 740 110 900 250 880 560"/>`;
+   h+=`<g style="fill:#2a2a1c"><rect x="545" y="600" width="90" height="12" transform="rotate(-12 590 606)"/><rect x="560" y="330" width="170" height="14" transform="rotate(-20 645 337)"/><rect x="600" y="420" width="110" height="11" transform="rotate(-20 655 425)"/></g>`;
+   h+=`<text class="lbl sm on-land" x="640" y="590">Torokina fighter strip</text><text class="lbl sm on-land" x="640" y="304" text-anchor="middle">Piva bomber strip</text><text class="lbl sm on-land" x="668" y="466" text-anchor="middle">Piva fighter strip</text>`;
+   h+=`<text class="mtag us" x="205" y="300" text-anchor="middle">148th Inf.</text><text class="lbl on-land" x="610" y="168" text-anchor="middle">129th Infantry</text><text class="mtag us" x="770" y="236" text-anchor="middle">145th Inf.</text><text class="mtag us" x="812" y="400" text-anchor="middle">Americal Div.</text>`;
+   h+=`<path class="sch thin" style="stroke:#2a2a1c" d="M300 162l12 22M560 108l-2 24M800 196l-18 14"/>`;
+   h+=`<path class="sch water" d="M340 20c20 50-10 90 30 130M430 10c-10 50 30 70 10 110M520 10c10 40-10 70 0 100"/>`;
+   h+=`<text class="note" style="fill:#2a2a1c" x="330" y="42" text-anchor="end">Cox Creek</text><text class="note" style="fill:#2a2a1c" x="534" y="42">Numa Numa Trail</text><text class="note" style="fill:#2a2a1c" x="446" y="96">Taylor Creek</text>`;
+   h+=`<text class="note" style="fill:#2a2a1c" x="960" y="130" text-anchor="end">to Mt. Bagana &#8599;</text>`;
+   const old = p>=4 ? .28 : 1;
+   if(p===0){ h+=`<g class="burst"><circle cx="640" cy="336" r="26"/><circle cx="655" cy="424" r="20"/><circle cx="590" cy="604" r="18"/></g><text class="mtag jp" x="870" y="60" text-anchor="middle">Japanese artillery</text>`+arr(850,76,700,300,'jp',.5)+arr(880,80,690,400,'jp',.5); }
+   if(p>=1&&p<6){ h+=arr(742,24,690,112,'jp',p>=2&&p<4?.6:old)+`<text class="mtag jp" x="760" y="48">Iwasa: Hill 700</text>`; }
+   if(p>=2&&p<6){ h+=arr(975,236,892,286,'jp',old)+`<text class="mtag jp" x="980" y="222" text-anchor="end">Muda: Hill 260</text>`; }
+   if(p>=3&&p<6){ h+=arr(412,2,416,104,'jp')+arr(368,2,374,112,'jp',p>=5?1:.7)+`<text class="mtag jp" x="60" y="60">Magata Unit:</text><text class="mtag jp" x="60" y="82">45th Infantry</text>`; }
+   if(p===3){ h+=`<text class="mtag us" x="560" y="230">tanks, March 13 to 17</text>`+arr(540,214,470,150,'us'); }
+   if(p===4){ h+=`<path class="bl jp" stroke-dasharray="4 10" d="M730 20C660 -6 560 -6 480 6"/><path class="bl jp" stroke-dasharray="4 10" d="M968 226C940 60 720 -10 500 2"/>`; }
+   if(p===5){ h+=arr(322,2,350,128,'jp')+`<g class="burst"><circle cx="356" cy="150" r="24"/><circle cx="356" cy="150" r="38" opacity=".5"/></g><text class="mtag jes" x="250" y="216" text-anchor="middle">breakthrough,</text><text class="mtag jes" x="250" y="238" text-anchor="middle">Company F</text>`+arr(470,226,376,166,'jes'); }
+   if(p===6){ h+=arr(440,100,440,10,'jp',.5)+arr(690,104,736,24,'jp',.5)+arr(894,286,972,240,'jp',.5); }
+   h+=`<g class="us" style="fill:#c8102e"><circle cx="455" cy="212" r="7"/><circle cx="480" cy="218" r="7"/><circle cx="505" cy="222" r="7"/></g><text class="lbl sm on-land" x="500" y="258" text-anchor="middle">Co. H mortars</text>`;
+   h+=`<text class="note" x="40" y="684">Schematic after the Army&rsquo;s official map. Not to scale.</text>`;
+   return h+egg(480,218,true); } },
+
+ landing:{ phases:[
+   ['4:00 to 9:00 a.m.','The convoys enter the gulf in the dark. From 7:00 the battleships and cruisers shell the shore.'],
+   ['9:30 a.m.','H-hour. Amphibious tractors carry the first waves onto every beach, four divisions abreast.'],
+   ['9:41 to 10:31','Ramped landing boats bring in the rest of the 129th on the Crimson beaches. Jess wades ashore from one of these.'],
+   ['Afternoon','The 129th turns east along the sand to the Dagupan River, takes Dagupan and probes to Calasiao.'],
+   ['January 10 to 11','Eight miles on foot to Malasiqui. The beachhead is four miles deep and growing.']],
+  draw(p){ let h='';
+   h+=`<path class="fillland" d="M0 338C150 306 300 322 420 326 560 330 700 304 800 244 860 204 900 144 930 40L1000 40V700H0z"/>`;
+   h+=`<text class="lbl ctx" x="330" y="150">LINGAYEN GULF</text>`;
+   h+=`<path class="sch water" d="M642 318C650 360 630 400 660 440 690 480 660 540 700 600"/>`;
+   const B=[['Orange','40th Div.',120,323,220,317,'#d98324'],['Green','',250,318,350,323,'#3c8d4d'],['Yellow','37th Div.',400,325,480,327,'#d9b824'],['Crimson','',500,327,600,322,'#c8102e'],['Blue','6th Div.',700,298,770,262,'#2a78b5'],['White','43rd Div.',830,222,890,150,'#f4f1e2']];
+   for(const b of B){ h+=`<path class="beach" stroke="${b[6]}" d="M${b[2]} ${b[3]}L${b[4]} ${b[5]}"/>`; }
+   h+=`<text class="mtag us" x="170" y="352" text-anchor="middle">Orange</text><text class="mtag us" x="300" y="352" text-anchor="middle">Green</text><text class="mtag us" x="440" y="356" text-anchor="middle">Yellow</text><text class="mtag jes" x="550" y="356" text-anchor="middle">Crimson</text><text class="mtag us" x="752" y="312" text-anchor="start">Blue</text><text class="mtag us" x="880" y="210" text-anchor="start">White</text>`;
+   const town=(x,y,t,a,dx,dy)=>`<circle cx="${x}" cy="${y}" r="6" style="fill:#2a2a1c"/><text class="lbl sm on-land" x="${x+(dx==null?12:dx)}" y="${y+(dy==null?7:dy)}" text-anchor="${a||'start'}">${t}</text>`;
+   h+=town(60,372,'Port Sual')+town(292,378,'Lingayen')+town(652,392,'Dagupan')+town(668,456,'Calasiao')+town(930,262,'San Fabian','end',-12)+(p>=4?town(716,584,'Malasiqui'):'');
+   if(p===0){ for(let i=0;i<14;i++){ h+=`<rect class="shipm" x="${120+i*56}" y="${60+(i%2)*26}" width="34" height="8" rx="3"/>`; }
+     h+=`<text class="mtag sea" x="500" y="40" text-anchor="middle">transports, 8 to 10 miles out</text>`;
+     for(const x of [220,470,740]){ h+=`<rect class="shipm" x="${x}" y="206" width="50" height="10" rx="4" style="fill:var(--map-ink)"/>`+arr(x+25,222,x+25,290,'us',.7); } h+=`<text class="mtag sea" x="500" y="190" text-anchor="middle">bombardment line</text>`; }
+   if(p>=1&&p<=2){ const xs=[[170,320],[300,320],[440,326],[550,324],[735,280],[860,186]]; xs.forEach((q,i)=>{ const top=i<4?[q[0],190]:[q[0]-70,q[1]-110]; h+=arr(top[0],top[1],q[0]-(i<4?0:8),q[1]-(i<4?12:-4),i===3&&p===2?'jes':'us'); });
+     h+=`<text class="mtag us" style="stroke:var(--sea);fill:var(--map-ink)" x="235" y="176" text-anchor="middle">40th Division</text><text class="mtag us" style="stroke:var(--sea);fill:var(--map-ink)" x="495" y="176" text-anchor="middle">37th Division</text><text class="mtag us" style="stroke:var(--sea);fill:var(--map-ink)" x="640" y="150" text-anchor="middle">6th Division</text><text class="mtag us" style="stroke:var(--sea);fill:var(--map-ink)" x="770" y="62" text-anchor="middle">43rd Division</text>`;
+     h+=`<text class="mtag jes" x="556" y="380" text-anchor="middle">129th Inf.</text><text class="mtag us" x="440" y="380" text-anchor="middle">148th Inf.</text>`; }
+   if(p>=3){ h+=arr(560,336,636,338,'jes')+arr(640,350,650,384,'jes')+arr(655,402,666,446,'jes',p>=4?1:.8)+arr(300,330,294,368,'us')+arr(170,330,80,366,'us')+arr(440,336,560,440,'us')+arr(735,290,760,360,'us')+arr(866,196,896,228,'us');
+     h+=`<text class="mtag jes" x="560" y="372" text-anchor="end">129th</text><text class="mtag us" x="470" y="420" text-anchor="end">148th</text>`; }
+   if(p>=4){ h+=arr(672,466,712,574,'jes')+`<path class="bl usd" d="M40 430C200 470 400 520 560 560 700 600 860 480 960 330"/><text class="mtag us" x="330" y="548">beachhead line, January 11</text>`; }
+   h+=`<text class="note" style="fill:#2a2a1c" x="40" y="684">Schematic after the Army&rsquo;s official map. Not to scale.</text>`;
+   const j=[[550,150],[550,236],[550,322],[652,392],[716,584]][p]; return h+egg(j[0],j[1],true); } },
+
+ drive:{ box:[119.8,14.4,121.4,16.35], land:'luzon', scale:25,
+  ctx:[['LINGAYEN GULF',120.12,16.22,'middle'],['MANILA BAY',120.72,14.62,'middle']],
+  phases:[['January 9','Ashore at the Crimson beaches, into Dagupan and Calasiao.'],['January 10 to 11','Eight miles to Malasiqui. Filipino guerrillas come out to meet the column.'],['January 15','A battalion of the 129th crosses the Agno River and marches to Camiling.'],['January 19 to 22','Down Route 3 to Moncada: about 200 prisoners, the first large group taken on Luzon.'],['January 26 to 30','Clark Field, then the ruins of Fort Stotsenburg. The 129th loses 50 killed and 230 wounded.'],['February 1 to 4','The race for Manila. The 148th Infantry and the 1st Cavalry get there first; the 129th follows from February 2.']],
+  lines:[ {pts:['lingayen','dagupan','calasiao'],cls:'jes',ph:0},{pts:['lingtown','aguilar'],cls:'usd',ph:0},
+   {pts:['calasiao','malasiqui'],cls:'jes',ph:1},{pts:['malasiqui','bayambang','camiling'],cls:'jes',ph:2},{pts:['aguilar','camiling'],cls:'usd',ph:2},
+   {pts:['malasiqui','carmen','moncada'],cls:'jes',ph:3},{pts:['camiling','tarlac'],cls:'usd',ph:3},
+   {pts:['moncada','tarlac','bamban','stotsenburg'],cls:'jes',ph:4},{pts:['tarlac','bamban'],cls:'usd',ph:4,arrow:false},
+   {pts:['angeles','sanfernando','calumpit','malolos','marilao','manila'],cls:'us',ph:5},{pts:['stotsenburg','angeles','sanfernando','calumpit','malolos','marilao',[120.975,14.63]],cls:'jes',ph:5},
+   {pts:['guimba','cabanatuan','gapan','baliuag','novaliches',[121.0,14.62]],cls:'usd',ph:5} ],
+  zones:[{at:'stotsenburg',r:34,ph:3,until:3},{at:[120.47,15.2],r:30,ph:4}],
+  stops:[ ['dagupan','Dagupan',12,-6,0],['malasiqui','Malasiqui',12,0,1],['camiling','Camiling',-12,0,2,'end'],['moncada','Moncada',12,0,3],['tarlac','Tarlac',12,0,4],['stotsenburg','Fort Stotsenburg',-14,-6,4,'end'],['sanfernando','San Fernando',12,10,5],['manila','Manila',14,12,5],['cabanatuan','Cabanatuan',12,-4,5],
+   [[120.2,15.78],'40th Division',0,0,0,'end','mtag us'],[[121.12,15.25],'1st Cavalry',0,0,5,'start','mtag us'],[[120.66,14.9],'148th leads',0,0,5,'end','mtag us'],[[120.44,15.37],'Kembu Group: 30,000',0,0,4,'end','mtag jp'] ],
+  jess:['calasiao','malasiqui','camiling','moncada','stotsenburg','manila'] },
+
+ baguio:{ box:[120.26,16.2,120.74,16.6], land:'luzon', scale:5,
+  ctx:[],
+  phases:[['March 19 to 23','The 33rd Division opens Route 9 at the coast: Bauang, then Naguilian.'],['March 28','The 129th, attached to the 33rd, takes Burgos after a sharp fight.'],['April 1 to 9','Salat. The outpost line in front of Sablan is broken on April 9.'],['April 11 to 14','The 129th breaks the main Japanese line at Sablan with tanks and artillery.'],['April 15 to 21','The 148th passes through and fights four days for the Irisan Gorge.'],['April 22 to 26','The 129th takes the lead again. A patrol is in Baguio on the 24th; the city is secured on the 26th.'],['April 27','The 33rd Division’s patrols come up from the south and find the sign.']],
+  lines:[ {pts:['bauang','naguilian'],cls:'usd',ph:0},{pts:['naguilian','burgos'],cls:'jes',ph:1},{pts:['burgos','salat'],cls:'jes',ph:2},{pts:['salat','sablan'],cls:'jes',ph:3},
+   {pts:['sablan','irisan'],cls:'us',ph:4},{pts:['irisan','baguio'],cls:'jes',ph:5},{pts:['rosario','camp3',[120.6,16.39]],cls:'usd',ph:6} ],
+  zones:[{at:'sablan',r:26,ph:0,until:2},{at:'irisan',r:26,ph:0,until:3},{at:'baguio',r:34,ph:0,until:4}],
+  stops:[ ['bauang','Bauang',10,-14,0],['naguilian','Naguilian',0,-18,0,'middle'],['burgos','Burgos',0,-18,1,'middle'],['sablan','Sablan',0,-22,0,'middle'],['irisan','Irisan Gorge',14,-8,0],['baguio','Baguio',16,6,0],['rosario','Rosario',12,6,6],
+   [[120.37,16.565],'33rd Division',0,0,0,'middle','mtag us'],[[120.5,16.44],'148th Infantry',0,0,4,'end','mtag us'],[[120.66,16.5],'58th Brigade,',0,0,0,'start','mtag jp'],[[120.66,16.475],'23rd Division',0,0,0,'start','mtag jp'],[[120.62,16.28],'33rd Division',0,0,6,'start','mtag us'] ],
+  jess:[[120.36,16.53],'burgos','salat','sablan','sablan','baguio','baguio'] },
+
+ cagayan:{ box:[120.5,15.95,122.7,18.75], land:'luzon', scale:25,
+  ctx:[['CAGAYAN VALLEY',122.05,17.38,'start','land'],['BABUYAN CHANNEL',121.6,18.62,'middle']],
+  phases:[['May 31','The 129th leads the division north from Santa Fe, through the troops who took Balete Pass.'],['June 5 to 7','A running fight to Aritao, then Bambang and Bayombong in two days.'],['June 8 to 13','The 145th takes over: Bagabag, the fight at Oriung Pass, Santiago.'],['June 14 to 19','The 148th runs down the valley: Echague, Cauayan, Naguilian.'],['June 21 to 23','Another force takes Aparri. Paratroopers of the 11th Airborne drop just south of it.'],['June 23 to 26','The 129th leads again, takes Tuguegarao on the 25th and meets the paratroopers at the Paret River.'],['July to September','Patrols for holdouts. Jess remembered a wide shallow beach on the north coast, and hearing there that the war was over.']],
+  lines:[ {pts:['santafe','aritao'],cls:'jes',ph:1},{pts:['aritao','bambang','bayombong'],cls:'jes',ph:1},{pts:['bayombong','bagabag','santiago'],cls:'us',ph:2},{pts:['santiago','echague','cauayan','naguilianI'],cls:'us',ph:3},
+   {pts:['aparri','camalaniugan',[121.69,18.02]],cls:'usd',ph:4},{pts:['naguilianI','tuguegarao','iguig','paret'],cls:'jes',ph:5},{pts:['paret','camalaniugan','aparri'],cls:'jes',ph:6,arrow:false} ],
+  stops:[ ['santafe','Santa Fe',-12,4,0,'end'],['bayombong','Bayombong',-12,-2,1,'end'],['santiago','Santiago',12,10,2],['cauayan','Cauayan',12,4,3],['tuguegarao','Tuguegarao',-12,0,5,'end'],['aparri','Aparri',12,-8,4],
+   [[121.45,16.45],'145th Infantry',0,0,2,'start','mtag us'],[[121.95,16.95],'148th Infantry',0,0,3,'start','mtag us'],[[121.9,18.12],'11th Airborne',0,0,4,'start','mtag us'],[[121.95,17.7],'Paret River',0,0,5,'start','mtag us'] ],
+  jess:['santafe','bayombong','bayombong','bayombong','naguilianI','paret','aparri'] },
+
+ manila:{ phases:[
+   ['February 3','The 1st Cavalry’s flying column reaches Santo Tomas University at dusk and frees 3,700 internees.'],
+   ['February 4','The 37th Division enters from the north and finds 1,300 prisoners and internees in Bilibid Prison.'],
+   ['February 7','Jess’s battalion takes over the north bank of the Pasig, from the palace to Santa Mesa.'],
+   ['February 8','The 129th crosses the river in the afternoon beside the palace and turns west.'],
+   ['February 9 to 12','Companies G and E fight for the Provisor Island power plant. The battalion loses about 25 killed and 75 wounded.'],
+   ['February 12 to 17','West along the south bank toward the Post Office, 150 yards on the first day. The other battalions fight for the New Police Station.'],
+   ['February 23 to 24','The regiment’s 3rd Battalion crosses in assault boats into the Walled City and takes Fort Santiago. Where Jess’s battalion was that day is not recorded.']],
+  draw(p){ let h='';
+   h+=`<rect class="fillland" x="0" y="0" width="1000" height="700"/><path class="fillsea" d="M0 0h250C230 150 250 260 300 330 250 420 200 560 190 700H0z"/>`;
+   h+=`<text class="lbl ctx" x="40" y="400" text-anchor="start">MANILA BAY</text>`;
+   h+=`<path d="M300 352C420 345 560 420 640 450 760 470 900 410 1000 410V700H190C200 560 250 420 300 352z" class="zone" opacity="${p>=6?.08:.16}"/>`;
+   h+=`<path class="sch water" style="stroke-width:16;stroke:var(--sea2)" d="M290 335C360 330 420 318 480 330 540 345 560 400 610 420 670 440 700 380 760 370 830 360 880 400 1000 390"/>`;
+   h+=`<text class="note" style="fill:#2a2a1c" x="870" y="352">Pasig River</text>`;
+   h+=`<path d="M320 352h120l14 110-150 40z" style="fill:none;stroke:#2a2a1c;stroke-width:4"/><text class="lbl sm on-land" x="378" y="430" text-anchor="middle">Walled City</text>`;
+   const pin=(x,y,t,a,dx,dy)=>`<circle cx="${x}" cy="${y}" r="7" style="fill:#2a2a1c"/><text class="lbl sm on-land" x="${x+(dx||12)}" y="${y+(dy||6)}" text-anchor="${a||'start'}">${t}</text>`;
+   h+=pin(322,340,'Fort Santiago','end',-12,-10)+pin(470,300,'Post Office','middle',0,-16)+pin(520,150,'Bilibid Prison','start')+pin(640,110,'Santo Tomas University','start')+pin(720,352,'Malaca&ntilde;ang Palace','middle',0,-18)+pin(900,300,'Santa Mesa','middle',0,-18)+pin(520,540,'New Police Station','start');
+   h+=`<rect x="575" y="418" width="64" height="22" rx="4" style="fill:#2a2a1c"/><text class="lbl on-land" x="610" y="478" text-anchor="middle">Provisor Island</text>`;
+   h+=`<text class="mtag jp" x="700" y="600" text-anchor="middle">Japanese naval defense force,</text><text class="mtag jp" x="700" y="624" text-anchor="middle">about 17,000 in and around the city</text>`;
+   h+=`<text class="note" style="fill:#2a2a1c" x="560" y="30">&#8593; Balintawak brewery, 4 miles north</text>`;
+   h+=arr(900,40,660,104,'us',p>0?.45:1)+`<text class="mtag us" x="910" y="62" text-anchor="end">1st Cavalry</text>`;
+   if(p>=1) h+=arr(470,20,512,138,'us',p>1?.45:1)+`<text class="mtag us" x="456" y="60" text-anchor="end">37th Division</text>`;
+   if(p>=2) h+=`<path class="bl jes" d="M700 374h192"/>`;
+   if(p>=3) h+=arr(742,378,690,440,'jes',p>3?.6:1)+(p===3?`<text class="mtag jes" x="770" y="446">crossing, by the</text><text class="mtag jes" x="770" y="468">palace golf course</text>`:'');
+   if(p>=4) h+=arr(690,444,646,436,'jes')+(p===4?`<g class="burst"><circle cx="607" cy="430" r="44"/></g>`:'');
+   if(p>=5) h+=arr(572,450,496,372,'jes')+arr(640,500,560,536,'us')+(p===5?`<text class="mtag us" x="650" y="522">1st and 3rd Battalions</text>`:'');
+   if(p>=6) h+=arr(420,300,392,356,'us')+arr(380,372,334,350,'us')+`<text class="mtag us" x="330" y="286" text-anchor="middle">3rd Battalion, Feb 23</text>`;
+   h+=`<text class="note" style="fill:#2a2a1c" x="270" y="684">Schematic of central Manila. Not to scale.</text>`;
+   const j=[null,null,[796,374],[716,410],[607,430],[530,404],null][p]; return h+(j?egg(j[0],j[1],true):''); } }
+};
+for(const k of ['drive','baguio','cagayan']) BATTLES[k].draw = function(p){ return geoBattle(this,p); };
+
+// ---------- phase player ----------
+let battle=null, phase=0, timer=null;
+const phaseBox=document.getElementById('phase'), playB=document.getElementById('play'), phaseR=document.getElementById('phaseR'), phaseT=document.getElementById('phaseT');
+function render(){ const c=chapters[cur], name=c.dataset.view;
+  svg.innerHTML = battle ? battle.draw(phase) : drawGeo(name,cur,c.dataset.at);
+  if(battle){ phaseR.value=phase; const ph=battle.phases[phase]; phaseT.innerHTML='<b>'+ph[0]+'</b>'+ph[1]; } }
+function stopPlay(){ if(timer){ clearInterval(timer); timer=null; } playB.innerHTML='&#9654; Play'; }
+playB.onclick=()=>{ if(timer){ stopPlay(); return; } phase=0; render(); playB.innerHTML='&#10073;&#10073; Pause';
+  timer=setInterval(()=>{ if(phase>=battle.phases.length-1){ stopPlay(); return; } phase++; render(); }, 2600); };
+phaseR.oninput=()=>{ stopPlay(); phase=+phaseR.value; render(); };
+function show(i){ if(i===cur||i<0||i>=chapters.length) return; cur=i; const c=chapters[i]; stopPlay();
+  battle=BATTLES[c.dataset.battle]||null; phase=battle?battle.phases.length-1:0; phaseBox.hidden=!battle; if(battle){ phaseR.max=battle.phases.length-1; }
+  render();
+  document.getElementById('chartTitle').textContent=c.dataset.title; document.getElementById('chartDate').textContent=c.dataset.date;
+  [...rail.querySelectorAll('button[data-i]')].forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('done',j<i);});
+  prev.disabled=i===0; next.disabled=i===chapters.length-1; }
+
+// ---------- tooltip ----------
+const tip=document.createElement('div'); tip.id='tip'; tip.hidden=true; document.body.appendChild(tip);
+function tipAt(e,t){ tip.textContent=t; tip.hidden=false; const x=Math.min(innerWidth-270,Math.max(8,e.clientX+14)), y=e.clientY+18; tip.style.left=x+'px'; tip.style.top=Math.min(innerHeight-60,y)+'px'; }
+document.addEventListener('pointermove',e=>{ const t=e.target.closest&&e.target.closest('[data-tip]'); if(t) tipAt(e,t.dataset.tip); else tip.hidden=true; });
+document.addEventListener('pointerleave',()=>tip.hidden=true);
+
+// ---------- unit charts (one square = N people) ----------
+const fmt=n=>n.toLocaleString('en-US');
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+['us','usl','jp','civ','mute','ink','red'].map(k=>`<pattern id="pt-${k}" width="7" height="7" patternUnits="userSpaceOnUse"><rect width="5" height="5" class="f-${k}"/></pattern>`).join('')+'</defs></svg>');
+function units(id,per,groups,cols){ cols=cols||100; const el=document.getElementById(id); if(!el) return; let h='';
+  for(const g of groups){ const k=Math.max(1,Math.round(g.n/per)), full=Math.floor(k/cols), rem=k%cols, rows=full+(rem?1:0);
+    h+=`<div class="ug" data-tip="${g.label}: ${g.txt||fmt(g.n)}"><div class="hd"><span><span class="sw ${g.cls}"></span>${g.label}</span><b>${g.txt||fmt(g.n)}</b>${g.note?`<span class="n">${g.note}</span>`:''}</div>`+
+      `<svg viewBox="0 0 ${cols*7} ${rows*7}" role="img" aria-label="${g.label}: ${g.txt||fmt(g.n)}">${full?`<rect width="${cols*7}" height="${full*7}" fill="url(#pt-${g.cls})"/>`:''}${rem?`<rect y="${full*7}" width="${rem*7}" height="7" fill="url(#pt-${g.cls})"/>`:''}</svg></div>`; }
+  el.innerHTML=h; }
+function waffle(id,per,cols,parts){ const el=document.getElementById(id); if(!el) return; let k0=0, rects=''; const total=parts.reduce((a,p)=>a+Math.round(p.n/per),0), rows=Math.ceil(total/cols);
+  for(const p of parts){ let k=Math.round(p.n/per); while(k>0){ const r=Math.floor(k0/cols), c=k0%cols, take=Math.min(k,cols-c); rects+=`<rect x="${c*7}" y="${r*7}" width="${take*7}" height="7" fill="url(#pt-${p.cls})" data-tip="${p.label}: ${fmt(p.n)}"/>`; k0+=take; k-=take; } }
+  el.innerHTML=`<div class="ug"><svg viewBox="0 0 ${cols*7} ${rows*7}" role="img" aria-label="${parts.map(p=>p.label+' '+fmt(p.n)).join(', ')}">${rects}</svg></div><div class="lg">${parts.map(p=>`<span><span class="sw ${p.cls}"></span>${p.label} <b style="color:var(--ink)">${fmt(p.n)}</b></span>`).join('')}</div>`; }
+function hbars(id,rows,max,legend){ const el=document.getElementById(id); if(!el) return; let h='<div class="hb">';
+  for(const r of rows){ const tot=r.segs.reduce((a,s)=>a+s.v,0);
+    h+=`<div class="lab">${r.label}${r.small?`<small>${r.small}</small>`:''}</div><div class="row" data-tip="${r.label}: ${r.segs.map(s=>s.name+' '+fmt(s.v)).join(', ')}"><div class="bar" style="width:${(tot/max*82).toFixed(1)}%">${r.segs.map(s=>`<i class="sw ${s.cls}" style="flex:${s.v};margin:0;width:auto;height:100%"></i>`).join('')}</div><span class="val">${r.val||fmt(tot)}</span></div>`; }
+  h+='</div>'; if(legend) h+=`<div class="lg">${legend.map(l=>`<span><span class="sw ${l[0]}"></span>${l[1]}</span>`).join('')}</div>`; el.innerHTML=h; }
+
+units('u-boug',10,[{label:'American dead, XIV Corps',n:263,cls:'us'},{label:'Japanese killed',n:5000,txt:'more than 5,000',cls:'jp',note:'plus more than 3,000 wounded'}]);
+units('u-manila',100,[{label:'American soldiers killed',n:1010,cls:'us',note:'300 of them from the 37th Division'},{label:'Japanese killed',n:16000,txt:'about 16,000',cls:'jp'},{label:'Filipino civilians killed',n:100000,txt:'an estimated 100,000',cls:'civ'}]);
+units('u-luzon',100,[{label:'American soldiers killed',n:8310,cls:'us'},{label:'American soldiers wounded',n:29560,cls:'usl'},{label:'Americans put in hospital by sickness',n:86950,cls:'ink',note:'January to June 1945'},{label:'Japanese dead, from battle, starvation and disease',n:205535,cls:'jp'}]);
+waffle('u-37',10,100,[{label:'Killed in action',n:1094,cls:'red'},{label:'Died of wounds',n:250,cls:'ink'},{label:'Wounded, sent home',n:1386,cls:'us'},{label:'Wounded, returned to duty',n:3225,cls:'usl'},{label:'The rest of a full-strength division',n:14253-5955,cls:'mute'}]);
+hbars('b-clark',[{label:'129th Infantry',small:'Jess’s regiment',segs:[{v:50,cls:'red',name:'killed'},{v:230,cls:'us',name:'wounded'}]},{label:'160th Infantry',segs:[{v:45,cls:'red',name:'killed'},{v:215,cls:'us',name:'wounded'}]},{label:'108th Infantry',segs:[{v:30,cls:'red',name:'killed'},{v:125,cls:'us',name:'wounded'}]},{label:'145th Infantry',segs:[{v:5,cls:'red',name:'killed'},{v:10,cls:'us',name:'wounded'}]}],280,[['red','Killed'],['us','Wounded']]);
+hbars('b-manila',[{label:'37th Division',small:'Jess’s division',segs:[{v:300,cls:'red',name:'killed'},{v:2700,cls:'us',name:'wounded'}]},{label:'1st Cavalry Division',segs:[{v:250,cls:'red',name:'killed'},{v:1250,cls:'us',name:'wounded'}]},{label:'11th Airborne Division',segs:[{v:210,cls:'red',name:'killed'},{v:865,cls:'us',name:'wounded'}]},{label:'Corps troops',segs:[{v:250,cls:'red',name:'killed'},{v:750,cls:'us',name:'wounded'}]}],3000,[['red','Killed'],['us','Wounded']]);
+hbars('b-ech',[{label:'November 1',small:'Marines, 12 ships',segs:[{v:14321,cls:'mute',name:'men'}]},{label:'November 6',small:'16 ships',segs:[{v:3548,cls:'mute',name:'men'}]},{label:'November 8',small:'148th Infantry, 6 ships',segs:[{v:5715,cls:'mute',name:'men'}]},{label:'November 11',small:'16 ships',segs:[{v:3599,cls:'mute',name:'men'}]},{label:'November 13',small:'129th Infantry, 6 ships',segs:[{v:6678,cls:'red',name:'men'}]}],14321);
+
+// ---------- ships ----------
+const SH={ tr:[54,'M0 8l3 5h47l4-5zM20 3h14v5H20zM25 0h4v3h-4zM9 1h1.6v7H9zM43 1h1.6v7H43z'], lst:[36,'M0 8l2 5h33l1-5zM26 4h7v4h-7z'], lsm:[22,'M0 8l2 5h19l1-5zM13 4h4v4h-4z'], lci:[17,'M0 9l2 4h14l1-4zM6 5h6v4H6z'], lct:[13,'M0 10l1 3h11l1-3zM9 7h3v3H9z'],
+  sm:[15,'M0 9l2 4h12l1-4zM5 6h5v3H5z'], dd:[41,'M0 9l2 4h37l2-4zM12 6h9v3h-9zM15 3h2v3h-2zM22 3h2v6h-2zM30 7h5v2h-5z'], de:[33,'M0 9l2 4h29l2-4zM10 6h8v3h-8zM13 3h2v3h-2z'],
+  cve:[56,'M2 9l2 4h48l2-4zM0 7h56v2H0zM34 3h5v4h-5z'], bb:[68,'M0 8l3 5h62l3-5zM26 2h10v6H26zM30 0h3v2h-3zM12 5h9v3h-9zM44 5h9v3h-9zM38 3h3v5h-3z'], ca:[60,'M0 8l3 5h54l3-5zM24 3h9v5h-9zM27 0h2v3h-2zM11 5h8v3h-8zM40 5h8v3h-8z'] };
+function ship(t,cls,tipTxt){ const s=SH[t]; return `<svg class="${cls}" viewBox="0 0 ${s[0]} 14" width="${s[0]}" height="14"${tipTxt?` data-tip="${tipTxt}"`:''}><path d="${s[1]}"/></svg>`; }
+function fleet(id,rows){ const el=document.getElementById(id); if(!el) return; el.innerHTML=rows.map(r=>`<div class="fl"><div><span class="ct">${r.n}</span>${r.label}</div><div class="ships">${Array.from({length:r.n},(_,i)=>ship(r.t,r.cls||'tr',(r.names&&r.names[i])||r.tip||r.label)).join('')}</div></div>`).join(''); }
+fleet('f-carry',[
+ {n:8,t:'tr',label:'attack transports',tip:'Attack transport (APA): about 1,000 troops and their landing boats'},
+ {n:4,t:'tr',label:'troopship and Australian landing ships',tip:'Troopship (AP) or Australian infantry landing ship (LSI)'},
+ {n:3,t:'tr',label:'attack cargo ships',tip:'Attack cargo ship (AKA)'},
+ {n:3,t:'tr',label:'vehicle, dock and casualty ships',tip:'Vehicle landing ship, dock landing ship or evacuation transport'},
+ {n:19,t:'lst',label:'tank landing ships (LST)'},
+ {n:18,t:'lsm',label:'medium landing ships (LSM)'},
+ {n:21,t:'lci',label:'infantry landing craft, most fitted as gunboats and mortar boats'},
+ {n:6,t:'lct',label:'tank landing craft, carried inside the dock ship'},
+ {n:11,t:'sm',cls:'war',label:'escorts, patrol craft and minesweepers'}]);
+fleet('f-guns',[
+ {n:6,t:'bb',cls:'war',label:'old battleships'},{n:5,t:'ca',cls:'war',label:'heavy cruisers'},{n:19,t:'dd',cls:'war',label:'destroyers in the bombardment group'},{n:17,t:'cve',cls:'war',label:'escort carriers for air cover'}]);
+fleet('f-kami',[{n:24,t:'de',cls:'sunk',label:'ships sunk'},{n:30,t:'de',cls:'hv',label:'heavily damaged'},{n:37,t:'de',cls:'lt',label:'lightly damaged'}]);
+
+// ---------- landing waves ----------
+(function(){ const el=document.getElementById('waves'); if(!el) return; const W=[[0,7,'a'],[1,16,'a'],[2,10,'a'],[4,16,'a'],[6,5,'a'],[11,12,'b'],[16,12,'b'],[21,10,'b'],[26,12,'b'],[41,7,'b'],[45,24,'c'],[46,7,'b'],[51,7,'b'],[56,7,'b'],[61,7,'b']];
+  const X=m=>40+m*10.4, Y=n=>150-n*4.6; let h=`<svg class="wv" viewBox="0 0 720 200" role="img" aria-label="Landing waves of the 129th Infantry by minute"><path class="ax" d="M36 150h660"/>`;
+  for(const t of [0,10,20,30,40,50,60]) h+=`<text x="${X(t)}" y="170" text-anchor="middle">${t===0?'9:30':'+'+t}</text>`;
+  h+=`<text x="696" y="188" text-anchor="end">minutes after H-hour</text>`;
+  for(const [m,n,k] of W){ const cls=k==='a'?'f-us':k==='b'?'f-red':'f-ink', nm=k==='a'?'amphibious tractors':k==='b'?'ramped landing boats':'amphibious trucks'; h+=`<path class="${cls}" d="M${X(m)-3.5} 150V${Y(n)+3}a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3V150z" data-tip="9:30 plus ${m} min: ${n} ${nm}"/>`; }
+  h+=`<text class="t" x="${X(1)+18}" y="${Y(16)-8}">16 tractors</text><text class="t" x="${X(16)}" y="${Y(12)-10}" text-anchor="middle">12 boats a wave</text><text class="t" x="${X(45)-8}" y="${Y(24)+4}" text-anchor="end">24 amphibious trucks</text></svg>`;
+  el.innerHTML=h+`<div class="lg"><span><span class="sw us"></span>Amphibious tractors (LVT), first five waves</span><span><span class="sw red"></span>Ramped landing boats (LCVP and LCM), 36 men each</span><span><span class="sw ink"></span>Amphibious trucks (DUKW)</span></div>`; })();
+
+// ---------- one man in a division ----------
+(function(){ const el=document.getElementById('nest'); if(!el) return; const L=[[14253,'37th Infantry Division','f-mute'],[3118,'129th Infantry Regiment','f-usl'],[871,'2nd Battalion','f-us'],[160,'Company H, heavy weapons','f-ink'],[60,'81 mm mortar platoon, six guns','f-jp'],[8,'One mortar squad','f-red']];
+  const k=3.3, base=410; let h=`<svg class="nest" viewBox="0 0 720 430" role="img" aria-label="Authorized strengths from division down to one mortar squad">`;
+  L.forEach(([n,label,cls],i)=>{ const s=Math.sqrt(n)*k; h+=`<rect class="${cls}" x="10" y="${(base-s).toFixed(1)}" width="${s.toFixed(1)}" height="${s.toFixed(1)}" data-tip="${label}: ${fmt(n)} men authorized"/>`; });
+  L.forEach(([n,label],i)=>{ const s=Math.sqrt(n)*k, y=44+i*62, ax=10+s-(i===0?30:Math.min(8,s/2)), ay=base-s+(i===0?30:Math.min(8,s/2)); h+=`<path class="ld" d="M${ax.toFixed(1)} ${ay.toFixed(1)}L430 ${y-6}H444"/><circle cx="${ax.toFixed(1)}" cy="${ay.toFixed(1)}" r="2.5" class="f-ink" style="stroke:none"/><text x="450" y="${y}">${label}</text><text class="m" x="450" y="${y+18}">${fmt(n)} men</text>`; });
+  el.innerHTML=h+'</svg>'; })();
+
+// ---------- his months in uniform ----------
+(function(){ const el=document.getElementById('strip'); if(!el) return; const m0=new Date(1943,3,1), X=d=>30+(d-m0)/(864e5*30.44)*20.2; const D=(y,m,d)=>new Date(y,m-1,d||1);
+  const S=[[D(1943,4),D(1943,9),'s0','Training, California'],[D(1943,9),D(1943,11,13),'s0','At sea and in depots'],[D(1943,11,13),D(1944,12,12),'s1','Bougainville, 13 months'],[D(1944,12,12),D(1945,1,9),'s0','At sea'],[D(1945,1,9),D(1945,8,15),'s1','Luzon'],[D(1945,8,15),D(1945,12,20),'s0','Waiting to go home']];
+  const C=[[D(1944,3,11),D(1944,3,24),'March 1944'],[D(1945,1,9),D(1945,2,17),'Lingayen to Manila'],[D(1945,3,28),D(1945,4,26),'Baguio'],[D(1945,5,31),D(1945,6,26),'Cagayan']];
+  let h=`<svg viewBox="0 0 720 96" role="img" aria-label="Jess Rowley's 32 months in uniform, April 1943 to December 1945">`;
+  for(const [a,b,c,t] of S) h+=`<rect class="${c}" x="${X(a).toFixed(1)}" y="30" width="${(X(b)-X(a)-2).toFixed(1)}" height="20" data-tip="${t}"/>`;
+  for(const [a,b,t] of C) h+=`<rect class="s2" x="${X(a).toFixed(1)}" y="30" width="${Math.max(4,X(b)-X(a)).toFixed(1)}" height="20" data-tip="In battle: ${t}"/>`;
+  for(const [y,m,t] of [[1943,4,'Apr 1943'],[1944,1,'1944'],[1945,1,'1945'],[1945,12,'Dec 1945']]){ const x=X(D(y,m,y===1945&&m===12?20:1)); h+=`<path class="ax" d="M${x.toFixed(1)} 52v8"/><text x="${x.toFixed(1)}" y="74" text-anchor="${m===12?'end':m===4?'start':'middle'}">${t}</text>`; }
+  h+=`<text class="t" x="${X(D(1944,5,25)).toFixed(1)}" y="22" text-anchor="middle">Bougainville, 13 months</text><text class="t" x="${X(D(1945,4,25)).toFixed(1)}" y="22" text-anchor="middle">Luzon</text><text class="t" x="${X(D(1943,6,15)).toFixed(1)}" y="22" text-anchor="middle">Training</text></svg>`;
+  el.innerHTML=h+`<div class="lg"><span><span class="sw red"></span>His regiment in battle</span><span><span class="sw ink"></span>Overseas with the regiment</span><span><span class="sw mute"></span>Training, travel, waiting. His own dates before November 1943 are estimates.</span></div>`; })();
+
 addEventListener('scroll',pick,{passive:true}); addEventListener('resize',pick); show(0); pick();
 </script>
 
