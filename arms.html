@@ -424,6 +424,9 @@ figure.now img{width:100%;display:block}
 #other .rec .rsrc{font-size:13.5px;color:var(--muted);line-height:1.45;margin:10px 0 0}
 @media (max-width:640px){ #other .mtw svg{min-width:620px} }
 
+.acts{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
+@media print{.acts{display:none!important}}
+
 
 
 .arms .mast h1{font-size:clamp(46px,8vw,96px)}
@@ -463,6 +466,126 @@ figure.now img{width:100%;display:block}
 .arms .plate figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;max-width:520px;line-height:1.4}
 @media (max-width:640px){ .arms .mtab{min-width:700px} .arms .mtw svg{min-width:620px} }
 </style>
+<style>/* Print edition. Inlined by build.js; only applies when printing. */
+@page{size:8.5in 11in;margin:.8in .85in .85in;
+  @bottom-center{content:counter(page);font-family:"Source Serif 4",Georgia,serif;font-size:9.5pt;color:#566360}}
+@page :first{@bottom-center{content:""}}
+.pmap,.pmap-legend{display:none}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html{scroll-behavior:auto}
+  html,body{background:#fff!important;color:#111}
+  body{font-size:11pt;line-height:1.45}
+  .wrap{max-width:none;padding:0}
+  .journey{display:block}
+  .chart,#tip,#gl,#lab3d,#note3d,#zoom3d,#b3d,#bfs,#bclose,.rail,.phase,button,.watch,.no-print{display:none!important}
+  .chapters{display:block;padding-bottom:0}
+  a{color:inherit;text-decoration:none}
+  blockquote footer a{border:0}
+
+  /* title page */
+  .mast{display:block;padding:0}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) 2.3in;gap:.35in;align-items:end;padding-top:.5in}
+  h1{font-size:60pt;line-height:.92}
+  .eyebrow{font-size:9.5pt}
+  .lede{font-size:14pt;line-height:1.45;max-width:none;margin-top:.25in}
+  .hero-t{gap:.15in}
+  .portrait{max-width:none}
+  .id{margin-top:.4in;grid-template-columns:1fr 1fr 1fr;gap:12pt 18pt;break-after:page}
+  .id dd{font-size:15pt}
+  .key{display:block;font-size:10.5pt;color:#333;margin-bottom:14pt}
+  .key li{margin-bottom:8pt}
+  .key b{font-size:12pt}
+  .pmap-legend{display:flex;flex-wrap:wrap;gap:3pt 14pt;font-family:var(--mono);font-size:8.5pt;color:#333;margin:6pt 0 14pt;break-inside:avoid}
+  .pmap-legend i{display:inline-block;width:24px;height:0;border-top:3px solid #ff5a6e;vertical-align:middle;margin-right:5px}
+  .pmap-legend i.p{border-top-style:dashed}
+  .pmap-legend i.e{width:11px;height:11px;border:3px solid #fff;outline:1px solid #888;background:#c8102e;border-radius:50%}
+  .pmap-legend i.u{border-top-color:#1d5fa0}.pmap-legend i.j{border-top-color:#a34a00}
+  .strip{break-inside:avoid;margin-bottom:12pt}
+
+  /* chapters */
+  .ch{display:block;padding:0 0 20pt;margin-top:22pt;border-top:2px solid #111;padding-top:14pt}
+  .ch > *{margin:0 0 9pt}
+  .ch-meta{font-size:9pt;break-after:avoid}
+  .ch h2,.after h2{font-size:25pt;break-after:avoid;margin-bottom:8pt}
+  .ch p,.after p{max-width:none;orphans:3;widows:3;margin:0 0 8pt}
+  .ch h2+*,.ch-meta+*{break-before:avoid}
+  .pmap{display:block;break-inside:avoid;break-before:avoid;max-width:5.7in;margin:2pt 0 12pt!important}
+  .pmap .pm-wrap{background:var(--sea);border:1px solid #333}
+  .pmap svg#map{display:block;width:100%;height:auto;position:static;background:var(--sea);border:0}
+  .pmap .egg-pulse{display:none}
+  .pmap figcaption{font-size:8.5pt;margin-top:3pt}
+
+  blockquote{max-width:none;font-size:12pt;line-height:1.45;background:#f4f4f1;border-left:3pt solid var(--red);padding:9pt 14pt;break-inside:avoid;margin:2pt 0 10pt;page-break-inside:avoid}
+  blockquote footer{font-size:8.5pt;color:#444}
+  .rec,.diff,.viz{max-width:none;break-inside:avoid;font-size:10.5pt;line-height:1.42;padding:9pt 13pt;margin-bottom:10pt}
+  .rec{background:#fff;border:1px solid #888;break-inside:auto}
+  .rec li{break-inside:avoid}
+  .diff{background:#f6efd9}
+  .rec h3,.diff h3{break-after:avoid;font-size:11.5pt}
+  .rec ul{gap:3pt}
+  .facts dd{font-size:17pt}
+  figure,figure.now,.film{max-width:none;break-inside:avoid;margin-bottom:10pt}
+  figure img,figure svg{max-height:4.6in;width:auto;max-width:100%;margin:0 auto}
+  figure.now img{width:100%;max-height:3.6in;object-fit:contain}
+  figcaption{font-size:9pt;color:#333;break-before:avoid}
+  .pair{max-width:none;break-inside:avoid;gap:12pt}
+  .pair img{max-height:none}
+  .who .ph img{max-height:none;width:100%}
+  figure:not(.portrait) img{max-height:4.2in}
+  .portrait img{max-height:none;width:100%}
+
+  /* film stills */
+  .film{max-width:4.4in}
+  .film .play{aspect-ratio:auto;background:none}
+  .film .play img{opacity:1;height:auto;max-height:3.4in;width:100%;object-fit:contain}
+  .film .pb{display:none}
+  .film figcaption::after{content:" Film at jesserowley.com."}
+
+  /* sky: light box, dark text, thin rule */
+  .sky{--sea:#fff;--map-ink:#1a2220;--map-dim:#4a5855;--route:#b90f2b;background:#fff;color:#1a2220;border:1px solid #777;max-width:none;break-inside:avoid;font-size:10.5pt;padding:9pt 13pt}
+  .sky h3,.sky .mnl,.sky .mkey{color:#333}
+  .sky .tg{border-color:#555}
+  .mstrips{display:block}
+  .mstrip .sd,.mstrip .sh{fill:#1a2220}
+  .sky .mn{width:44px;height:44px}
+
+  /* closing sections */
+  .after{display:block;padding:14pt 0 8pt;margin-top:22pt}
+  .after.pb-before,#coh,#cost,#compare,#next,#sources{break-before:page}
+  .cols{display:block}
+  .cols > *{margin-bottom:10pt}
+  .viz.wide{break-inside:auto}
+  .viz svg,.cohc{break-inside:avoid}
+  .viz h3{break-after:avoid}
+  .mlog li,.men li{break-inside:avoid}
+  .tblwrap{overflow:visible}
+  table{min-width:0;font-size:10pt;break-inside:auto}
+  tr{break-inside:avoid}
+  th{font-size:8pt}
+  ol.todo li{break-inside:avoid}
+  .src{columns:1;font-size:9.5pt;color:#222;padding-left:1.4em}
+  .src li{break-inside:avoid;margin-bottom:5pt}
+  #sources a[href]::after{content:" <" attr(href) ">";font-size:8pt;color:#444;word-break:break-all}
+  .colophon{font-size:9.5pt;color:#333;padding-block:14pt 0;margin-top:14pt}
+}
+
+@media print{
+  .arms .jump{display:none!important}
+  .arms .mtw{overflow:visible}
+  .arms .mtab,.arms .mtw svg{min-width:0!important}
+  .arms .mast{padding-block:0 10pt}
+  .arms .id{break-after:auto;margin-bottom:12pt}
+  .arms .mast h1{font-size:44pt}
+  .arms .cols{display:grid;grid-template-columns:1fr 1fr;gap:14pt}
+  .arms .plate img{max-width:100%}
+  .arms .viz,.arms .rec,.arms .diff,.arms figure,.arms blockquote{break-inside:avoid;margin-bottom:10pt}
+  .arms .after{break-before:page}
+  .arms #scale{break-before:auto}
+  .arms a{text-decoration:none}
+}
+</style>
+<script>(function(){function p(){document.querySelectorAll('img[loading]').forEach(function(i){i.removeAttribute('loading')})}if(/[?&]print=1/.test(location.search))p();addEventListener('beforeprint',p)})()</script>
 </head>
 <body>
 
@@ -477,6 +600,7 @@ figure.now img{width:100%;display:block}
       <div><dt>Page last updated</dt><dd>November 20, 2026</dd></div>
     </dl>
     <p class="how">Near the end of the family recording Jess lists the weapons he had over the years; the line above is that list as he gave it, at <a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=2822s" target="_blank" rel="noopener">47:02</a>. Figures here come from the Army&rsquo;s own manuals of 1940 to 1943 unless a line says otherwise. Where the manuals are silent, or where we do not know which weapon was his, the page says so.</p>
+    <div class="acts"><a class="watch" href="index.html">&#8592; The main page</a><a class="watch" href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">&#8595; Print edition &middot; PDF, 18 MB</a></div>
     <nav class="jump" aria-label="On this page"><a href="#scale">To scale</a><a href="#rifle">The rifle</a><a href="#carbine">The carbine</a><a href="#pistol">The pistol</a><a href="#bayonet">The bayonet</a><a href="#bar">The automatic rifle</a><a href="#squad">Who carried what</a><a href="#manuals">Manuals and films</a></nav>
   </header>
 
@@ -632,7 +756,7 @@ figure.now img{width:100%;display:block}
     </ul></div>
   </section>
 
-  <footer class="colophon">A second page of <a href="index.html">Jess Rowley&rsquo;s War</a>, made for the Rowley family. Last updated November 20, 2026. Where this page says &ldquo;not known,&rdquo; nothing was guessed.</footer>
+  <footer class="colophon">A second page of <a href="index.html">Jess Rowley&rsquo;s War</a>, made for the Rowley family. Last updated November 20, 2026. <a href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">Print edition (PDF)</a>. Where this page says &ldquo;not known,&rdquo; nothing was guessed.</footer>
 </div>
 
 </body>
