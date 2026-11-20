@@ -427,6 +427,46 @@ figure.now img{width:100%;display:block}
 .acts{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
 @media print{.acts{display:none!important}}
 
+/*frag:start*/
+/* "One man among fourteen thousand" (#org) */
+#org .viz.wide{max-width:60em}
+#org .viz > *{min-width:0}
+#org .mtw{overflow-x:auto;min-width:0;max-width:100%}
+#org .dg .thin{stroke-width:1}
+#org .dg .num{font-family:var(--mono);font-weight:500;font-size:16px}
+#org .dg .un{stroke-dasharray:4 3;stroke-width:1.5;fill:none}
+#org .dg .hi{fill:var(--red);font-weight:500}
+#org .rec{max-width:60em}
+#org .rec .rsrc{font-size:13.5px;color:var(--muted);line-height:1.45;margin:10px 0 0}
+#org .gl{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px 32px}
+#org .gl dt{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.03em}
+#org .gl dd{margin:0}
+#org .gl .src{display:block;margin-top:2px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+@media (max-width:640px){ #org .mtw svg{min-width:640px} }
+
+/* Scale against home: extra rules, all prefixed with #home. Colour only through the page tokens. */
+#home .viz{max-width:60em;margin:0 0 20px}
+#home .viz.wide{max-width:60em}
+#home .viz p{max-width:46em}
+#home .mtw{overflow-x:auto;min-width:0;max-width:100%}
+#home .dg .thin{stroke-width:1}
+#home .dg .hmbox{fill:none;stroke:var(--rule);stroke-width:1}
+#home .dg .hmroad{stroke:var(--muted);stroke-width:1.5;fill:none;stroke-dasharray:2 4}
+#home .dg .hmf{fill:var(--muted)}
+#home .dg text.hm{font-family:var(--display);font-weight:600;font-size:15px;fill:var(--muted)}
+#home .dg text.ov{font-family:var(--display);font-weight:700;font-size:16px;fill:var(--red);paint-order:stroke;stroke:var(--panel);stroke-width:4px;stroke-linejoin:round}
+#home .dg text.ovm{font-family:var(--mono);font-weight:400;font-size:12px;fill:var(--red);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+#home .dg .ov-line{stroke:var(--red);stroke-width:2;fill:none}
+#home .dg .ov-thick{stroke:var(--red);stroke-width:6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#home .dg .ov-dash{stroke:var(--red);stroke-width:2;fill:none;stroke-dasharray:7 5}
+#home .dg .ov-ring{stroke:var(--red);stroke-width:1.5;fill:none;stroke-dasharray:1 5;stroke-linecap:round}
+#home .dg .ov-lead{stroke:var(--red);stroke-width:1.5;fill:none}
+#home .rec{max-width:60em}
+#home .rsrc{font-size:14px;color:var(--muted);max-width:46em}
+@media (max-width:640px){ #home .mtw svg{min-width:620px} }
+
+/*frag:end*/
+
 
 
 .arms .mast h1{font-size:clamp(46px,8vw,96px)}
