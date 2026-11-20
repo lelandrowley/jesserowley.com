@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What He Carried</title>
+<meta name="description" content="The rifle, carbine, pistol and bayonet of Cpl. Jesse V. Rowley, Company H, 129th Infantry, from the Army's own manuals.">
+<meta property="og:title" content="What He Carried: Jess Rowley's War">
+<meta property="og:description" content="The rifle, carbine, pistol and bayonet of Cpl. Jesse V. Rowley, Company H, 129th Infantry, from the Army's own manuals.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23999'/%3E%3Ccircle cx='16' cy='16' r='8.5' fill='%23c8102e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Layout: a field chart pinned beside a column of dated chapters; the chart follows the reader. */
+:root{
+  --bg:#f2f4f1; --panel:#ffffff; --ink:#1a2220; --muted:#566360; --rule:#cfd6d2;
+  --red:#b90f2b; --olive:#56602f; --amber:#8a5a00; --amber-bg:#fbf1d8; --quote-bg:#ffffff;
+  --sea:#254651; --sea2:#2c525e; --land:#d9d2b4; --coast:#8b8563; --map-ink:#f4f1e2; --map-dim:#a9bcc0; --route:#ff5a6e; --egg:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11181a; --panel:#182124; --ink:#e7ebe6; --muted:#9aa8a5; --rule:#2c393c;
+  --red:#ff6b7f; --olive:#b3bc82; --amber:#e6b450; --amber-bg:#2a2412; --quote-bg:#1c272a;
+  --sea:#16303a; --sea2:#1b3944; --land:#b8b294; --coast:#6f6a4e; --map-ink:#f4f1e2; --map-dim:#8fa5aa; --route:#ff6b7f; --egg:#ffffff; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11181a; --panel:#182124; --ink:#e7ebe6; --muted:#9aa8a5; --rule:#2c393c;
+  --red:#ff6b7f; --olive:#b3bc82; --amber:#e6b450; --amber-bg:#2a2412; --quote-bg:#1c272a;
+  --sea:#16303a; --sea2:#1b3944; --land:#b8b294; --coast:#6f6a4e; --map-ink:#f4f1e2; --map-dim:#8fa5aa; --route:#ff6b7f; --egg:#ffffff; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .egg-pulse{animation:none!important} }
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+a{color:inherit;text-decoration-color:var(--red);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* masthead */
+.mast{padding-block:44px 28px;display:grid;gap:22px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(52px,9vw,112px);line-height:.92;letter-spacing:-.01em;margin:0;text-transform:uppercase;text-wrap:balance}
+h1 .patch{display:inline-block;width:.62em;height:.62em;border-radius:50%;background:#fff;border:1px solid var(--rule);vertical-align:.04em;margin-left:.18em;position:relative}
+h1 .patch::after{content:"";position:absolute;inset:23%;border-radius:50%;background:#c8102e}
+.lede{font-size:clamp(19px,2.2vw,23px);max-width:44em;margin:0;text-wrap:pretty}
+.id{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+.id div{padding:12px 14px 12px 0}
+.id dt{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.id dd{margin:2px 0 0;font-family:var(--display);font-weight:600;font-size:25px;line-height:1.15}
+.key{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px 28px;font-size:16px;color:var(--muted);margin:0;padding:0;list-style:none}
+.key b{color:var(--ink);font-family:var(--display);font-size:19px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.watch{display:inline-flex;gap:10px;align-items:center;font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);padding:8px 16px;justify-self:start}
+.watch:hover{background:var(--ink);color:var(--bg)}
+
+/* journey grid */
+.journey{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:start}
+.chart{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);height:calc(100vh - 24px);max-height:860px;min-height:420px;display:flex;flex-direction:column;background:var(--sea);color:var(--map-ink);border-radius:4px;overflow:hidden}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 16px 8px}
+.chart-title{font-family:var(--display);font-weight:600;font-size:24px;letter-spacing:.05em;text-transform:uppercase;line-height:1.1}
+.chart-date{font-family:var(--mono);font-size:13px;color:var(--map-dim);text-align:right;white-space:nowrap}
+#map{display:block}
+.chart-foot{padding:8px 12px 12px;display:grid;gap:8px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-family:var(--mono);font-size:11.5px;color:var(--map-dim)}
+.legend i{display:inline-block;width:26px;height:0;border-top:3px solid var(--route);vertical-align:middle;margin-right:6px}
+.legend i.p{border-top-style:dashed}
+.legend i.e{width:12px;height:12px;border:3px solid #fff;background:#c8102e;border-radius:50%}
+.rail{display:flex;gap:3px;align-items:center}
+.rail button{flex:1;height:22px;min-width:0;border:0;background:transparent;padding:8px 0;cursor:pointer}
+.rail button span{display:block;height:6px;background:var(--sea2);border-radius:1px}
+.rail button.done span{background:var(--map-dim)}
+.rail button.on span{background:var(--route)}
+.step{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--map-ink);border:1px solid var(--map-dim);padding:2px 12px;cursor:pointer;border-radius:2px;flex:none!important;height:auto!important}
+.step:disabled{opacity:.35;cursor:default}
+
+/* svg */
+#map .land{fill:var(--land);stroke:var(--coast);stroke-width:1}
+#map .lbl{font-family:var(--display);font-weight:600;font-size:27px;fill:var(--map-ink);paint-order:stroke;stroke:var(--sea);stroke-width:5px;stroke-linejoin:round;letter-spacing:.03em}
+#map .lbl.sm{font-size:22px;font-weight:500}
+#map .lbl.ctx{fill:var(--map-dim);font-weight:500;font-size:20px;letter-spacing:.2em}
+#map .lbl.on-land{stroke:var(--land);fill:#2a2a1c}
+#map .note{font-family:var(--mono);font-size:17px;fill:var(--map-dim)}
+#map .leg{fill:none;stroke:var(--route);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+#map .leg.personal{stroke-dasharray:3 10}
+#map .leg.air{stroke-dasharray:14 9;stroke-width:3}
+#map .leg.before{stroke:var(--map-dim);stroke-width:2.5;stroke-dasharray:2 8}
+#map .dot{fill:var(--map-ink);stroke:var(--sea);stroke-width:2}
+#map .dot.dim{fill:var(--map-dim)}
+#map .egg-ring{fill:#fff;stroke:#1a2220;stroke-width:1.5}
+#map .egg-yolk{fill:#c8102e}
+#map .egg-pulse{fill:none;stroke:#fff;stroke-width:2;opacity:.7;transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{from{transform:scale(1);opacity:.7}to{transform:scale(2.6);opacity:0}}
+#map .sch{fill:none;stroke:var(--map-ink);stroke-width:3}
+#map .sch.thin{stroke-width:1.5;stroke:var(--map-dim)}
+#map .sch.water{stroke:#8fc0cf;stroke-width:2.5}
+#map .jp{fill:none;stroke:#ffd34d;stroke-width:4}
+#map .jpf{fill:#ffd34d}
+#map .us{fill:var(--route)}
+#map .fillsea{fill:var(--sea2)}
+#map .fillland{fill:var(--land)}
+
+/* chapters */
+.chapters{display:grid;gap:0;padding-bottom:30vh}
+.ch{padding-block:34px 44px;border-top:2px solid var(--ink);display:grid;gap:16px;scroll-margin-top:16px}
+.ch > *{min-width:0}
+.ch-meta{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}
+.ch h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.4vw,50px);line-height:1;text-transform:uppercase;margin:0;text-wrap:balance}
+.ch p{margin:0;max-width:36em}
+blockquote{margin:0;background:var(--quote-bg);border-left:5px solid var(--red);padding:14px 18px;font-size:19px;font-style:italic;max-width:36em}
+blockquote footer{font-style:normal;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:8px}
+blockquote footer a{text-decoration:none;border-bottom:1px solid var(--red)}
+.rec{border:1px solid var(--rule);background:var(--panel);padding:14px 18px;font-size:16px;line-height:1.5;max-width:40em}
+.rec h3,.diff h3{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px;color:var(--olive)}
+.rec ul{margin:0;padding-left:1.1em;display:grid;gap:5px}
+.diff{background:var(--amber-bg);padding:12px 18px;font-size:16px;line-height:1.5;max-width:40em}
+.diff h3{color:var(--amber)}
+.facts{display:flex;flex-wrap:wrap;gap:0 26px;margin:0;border-top:1px solid var(--rule);padding-top:10px}
+.facts div{padding:4px 0}
+.facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.15}
+figure{margin:0;max-width:40em}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,220px);gap:32px;align-items:end}
+.hero-t{display:grid;gap:22px}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:35% 100%;display:block;border:1px solid var(--rule);filter:grayscale(1)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:40em;align-items:start}
+.pair img,.who img{width:100%;display:block}
+.who .ph{position:relative;display:block}
+.who .ring{position:absolute;left:43.7%;top:66%;width:9.5%;aspect-ratio:1;transform:translate(-50%,-50%);border:3px solid var(--route);border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.55)}
+@media(max-width:640px){.hero{grid-template-columns:1fr}.portrait{max-width:220px}}
+
+figure svg,figure img{display:block;width:100%;height:auto;background:var(--panel);border:1px solid var(--rule)}
+figcaption{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.45}
+.dg text{font-family:var(--display);font-weight:600;font-size:17px;fill:var(--ink)}
+.dg .m{font-family:var(--mono);font-weight:400;font-size:12.5px;fill:var(--muted)}
+.dg .ln{stroke:var(--ink);stroke-width:2;fill:none}
+.dg .fl{fill:var(--ink)}
+.dg .rd{fill:var(--red)} .dg .rs{stroke:var(--red);stroke-width:3;fill:none}
+.dg .ol{fill:var(--olive)} .dg .mu{fill:var(--rule)} .dg .am{fill:var(--amber)} .dg .ams{stroke:var(--amber);stroke-width:3;fill:none}
+
+/* after sections */
+.after{border-top:2px solid var(--ink);padding-block:40px;display:grid;gap:18px}
+.after h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.4vw,50px);line-height:1;text-transform:uppercase;margin:0}
+.after p{margin:0;max-width:40em}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 40px}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:16px;line-height:1.45}
+th{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 14px 8px 0;border-bottom:2px solid var(--ink)}
+td{vertical-align:top;padding:10px 14px 10px 0;border-bottom:1px solid var(--rule)}
+td:first-child{font-style:italic}
+.tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.tag.ok{color:var(--olive)} .tag.part{color:var(--amber)} .tag.no{color:var(--red)} .tag.q{color:var(--muted)}
+ol.todo{margin:0;padding-left:1.3em;display:grid;gap:12px;max-width:42em}
+.src{font-size:15px;color:var(--muted);columns:2 320px;column-gap:40px;padding-left:1.2em;margin:0}
+.src li{break-inside:avoid;margin-bottom:8px;overflow-wrap:anywhere}
+.colophon{font-size:14px;color:var(--muted);padding-block:24px 60px;border-top:1px solid var(--rule)}
+
+@media (max-width: 899px){
+  body{font-size:17px}
+  .journey{grid-template-columns:minmax(0,1fr);gap:0}
+  .chart{top:env(safe-area-inset-top,0px);height:46vh;min-height:300px;border-radius:0;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));z-index:5}
+  .chart-title{font-size:19px} .chart-date{font-size:11.5px} .legend{display:none}
+  #map .lbl{font-size:30px} #map .lbl.sm{font-size:25px} #map .lbl.ctx{font-size:24px} #map .note{font-size:20px}
+  .chapters{padding-bottom:20vh}
+}
+/* ---- battle player, charts, fleet ---- */
+:root{ --c-us:#2a78b5; --c-jp:#b87800; --c-civ:#8a5a9e; --c-mute:#c3ccc8; --c-ink2:#59666a; --us-map:#1d5fa0; --jp-map:#a34a00; --tip-bg:#1a2220; --tip-fg:#f2f4f1 }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --c-us:#3f8fd0; --c-jp:#b07d1c; --c-civ:#a070b8; --c-mute:#3a484b; --c-ink2:#a9b6b3; --us-map:#1d5fa0; --jp-map:#a34a00; --tip-bg:#e7ebe6; --tip-fg:#11181a } }
+:root[data-theme="dark"]{ --c-us:#3f8fd0; --c-jp:#b07d1c; --c-civ:#a070b8; --c-mute:#3a484b; --c-ink2:#a9b6b3; --us-map:#1d5fa0; --jp-map:#a34a00; --tip-bg:#e7ebe6; --tip-fg:#11181a }
+
+.phase{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:center;border-top:1px solid var(--sea2);padding-top:8px}
+.phase input[type=range]{width:100%;accent-color:var(--route);min-width:0}
+.phase #phaseT{grid-column:1/-1;font-size:14.5px;line-height:1.35;color:var(--map-ink);min-height:2.7em;font-family:var(--body)}
+.phase #phaseT b{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--route);margin-right:8px}
+.legend i.u{border-top-color:#6db3ea} .legend i.j{border-top-color:#e08a3c}
+#map .bl{fill:none;stroke-linecap:round;stroke-linejoin:round}
+#map .bl.jes{stroke:#c8102e;stroke-width:6}
+#map .bl.us{stroke:var(--us-map);stroke-width:4.5}
+#map .bl.usd{stroke:var(--us-map);stroke-width:3.5;stroke-dasharray:3 9}
+#map .bl.jp{stroke:var(--jp-map);stroke-width:4.5}
+#map .hd.jes{fill:#c8102e} #map .hd.us,#map .hd.usd{fill:var(--us-map)} #map .hd.jp{fill:var(--jp-map)}
+#map .jp{stroke:var(--jp-map)} #map .jpf{fill:var(--jp-map)}
+#map .zone{fill:var(--jp-map);opacity:.16}
+#map .mtag{font-family:var(--mono);font-size:16px;paint-order:stroke;stroke:var(--land);stroke-width:5px;stroke-linejoin:round}
+#map .mtag.us{fill:#123f6c} #map .mtag.jp{fill:#6b3000} #map .mtag.jes{fill:#8a0a1f} #map .mtag.sea{stroke:var(--sea);fill:var(--map-ink)}
+#map .beach{stroke-width:12;stroke-linecap:butt;fill:none}
+#map .shipm{fill:var(--map-dim)}
+#map .mark{fill:var(--jp-map)}
+#map .burst{fill:none;stroke:#c8102e;stroke-width:3}
+@media (max-width: 899px){ #map .mtag{font-size:22px} .phase #phaseT{font-size:13px;min-height:3.9em} }
+
+/* service strip */
+.strip svg{display:block;width:100%;height:auto}
+.strip text{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.strip .t{font-family:var(--display);font-weight:600;font-size:16px;fill:var(--ink)}
+.strip .s0{fill:var(--c-mute)} .strip .s1{fill:var(--c-ink2)} .strip .s2{fill:var(--red)} .strip .ax{stroke:var(--rule);stroke-width:1}
+.strip .lg{display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.sw.us,.f-us{background:var(--c-us);fill:var(--c-us)} .sw.jp,.f-jp{background:var(--c-jp);fill:var(--c-jp)} .sw.civ,.f-civ{background:var(--c-civ);fill:var(--c-civ)}
+.sw.mute,.f-mute{background:var(--c-mute);fill:var(--c-mute)} .sw.ink,.f-ink{background:var(--c-ink2);fill:var(--c-ink2)} .sw.red,.f-red{background:var(--red);fill:var(--red)}
+.sw.usl,.f-usl{background:color-mix(in srgb,var(--c-us) 45%,var(--panel));fill:color-mix(in srgb,var(--c-us) 45%,var(--panel))}
+
+/* chart card */
+.viz{border:1px solid var(--rule);background:var(--panel);padding:16px 18px;max-width:40em;display:grid;gap:12px;align-content:start}
+.viz.wide{max-width:none}
+.viz h3{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.15;margin:0;text-transform:none;letter-spacing:0;color:var(--ink)}
+.viz .sub{font-size:14.5px;color:var(--muted);margin:-6px 0 0;line-height:1.4;max-width:none}
+.viz .note{font-size:13.5px;color:var(--muted);line-height:1.45;margin:0;max-width:none}
+.viz .lg{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13.5px;color:var(--muted)}
+.ug{display:grid;gap:5px}
+.ug .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:15px;line-height:1.3}
+.ug .hd b{font-family:var(--display);font-weight:600;font-size:22px}
+.ug .hd span.n{color:var(--muted);font-size:13.5px}
+.ug svg{display:block;width:100%;height:auto;background:none;border:0}
+.hb{display:grid;grid-template-columns:minmax(90px,max-content) 1fr;gap:8px 12px;align-items:center;font-size:14.5px}
+.hb .lab{line-height:1.2}
+.hb .lab small{display:block;color:var(--muted);font-size:12.5px}
+.hb .row{display:flex;align-items:center;gap:8px;min-width:0}
+.hb .bar{display:flex;gap:2px;height:20px;min-width:2px}
+.hb .bar i{display:block;height:100%;border-radius:0}
+.hb .bar i:last-child{border-radius:0 4px 4px 0}
+.hb .val{font-family:var(--mono);font-size:12.5px;color:var(--ink);white-space:nowrap}
+.fleet{display:grid;gap:10px}
+.fl{display:grid;grid-template-columns:minmax(0,13.5em) 1fr;gap:4px 14px;align-items:start;font-size:14px;line-height:1.3}
+.fl .ct{font-family:var(--display);font-weight:600;font-size:20px;margin-right:6px}
+.fl .ships{display:flex;flex-wrap:wrap;gap:5px 6px;align-items:flex-end;padding-top:4px}
+.fl svg{display:block;background:none;border:0;width:auto;height:14px}
+.fl svg.tr{fill:var(--c-us)} .fl svg.war{fill:var(--c-ink2)} .fl svg.sunk{fill:var(--red)} .fl svg.hv{fill:var(--c-ink2)} .fl svg.lt{fill:var(--c-mute)}
+@media (max-width:560px){ .fl{grid-template-columns:1fr} .hb{grid-template-columns:1fr} }
+.wv text{font-family:var(--mono);font-size:12px;fill:var(--muted)} .wv .t{font-family:var(--display);font-weight:600;font-size:16px;fill:var(--ink)}
+.wv .ax{stroke:var(--rule);stroke-width:1}
+.nest text{font-family:var(--display);font-weight:600;font-size:17px;fill:var(--ink)} .nest .m{font-family:var(--mono);font-weight:400;font-size:12.5px;fill:var(--muted)}
+.nest rect{stroke:var(--panel);stroke-width:2}
+.nest .ld{stroke:var(--muted);stroke-width:1;fill:none}
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--tip-bg);color:var(--tip-fg);font-family:var(--mono);font-size:12.5px;line-height:1.35;padding:6px 9px;border-radius:3px;max-width:260px}
+[data-tip]{cursor:default}
+
+.phase[hidden]{display:none}
+
+/* 3D */
+.mapwrap{flex:1;min-height:0;position:relative}
+.mapwrap #map{position:absolute;inset:0;width:100%;height:100%}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#gl:active{cursor:grabbing}
+#lab3d{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.l3{position:absolute;transform:translate(-50%,-150%);white-space:nowrap;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.03em;color:#fff;text-shadow:0 0 3px #10201f,0 0 3px #10201f,0 1px 2px #10201f}
+.l3.chip{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:0;padding:1px 6px;border-radius:2px;text-shadow:none;transform:translate(-50%,-170%)}
+.l3.chip.us{background:#1d5fa0} .l3.chip.jp{background:#a34a00} .l3.chip.jes{background:#c8102e}
+.l3.egg{transform:translate(-50%,-50%)}
+.egg3{display:block;width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid #1a2220;position:relative}
+.egg3::after{content:"";position:absolute;inset:5px;border-radius:50%;background:#c8102e}
+#note3d{position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:11.5px;color:var(--map-ink);background:rgba(16,32,31,.6);padding:3px 7px;border-radius:2px;pointer-events:none}
+#zoom3d{position:absolute;right:10px;bottom:8px;display:flex;flex-direction:column;gap:4px}
+#zoom3d button{width:34px;height:34px;border:1px solid var(--map-dim);background:rgba(16,32,31,.7);color:var(--map-ink);font-size:20px;line-height:1;border-radius:2px;cursor:pointer}
+.chart-side{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+#b3d{font-size:15px;padding:3px 10px;white-space:nowrap}
+#b3d.on{background:var(--map-ink);color:var(--sea)}
+#gl[hidden],#lab3d[hidden],#note3d[hidden],#zoom3d[hidden]{display:none}
+@media (max-width: 899px){ .l3{font-size:13px} #note3d{font-size:10px} }
+
+#map .bl.jp[stroke-dasharray]{stroke-width:3.5}
+
+#map .bl.halo{stroke:#fff;stroke-width:9;opacity:.75}
+#map .mtag.onmap{stroke:#fff;stroke-width:6px}
+
+/* documentary touches */
+.phase #phaseT q{display:block;margin-top:5px;font-style:italic;color:var(--map-dim);quotes:"\201C" "\201D"}
+#bclose{position:absolute;left:10px;top:10px;font-size:15px;padding:3px 10px;background:rgba(16,32,31,.7)}
+#bclose[hidden]{display:none}
+#bfs{font-size:15px;padding:3px 10px;white-space:nowrap}
+#bfs.on{background:var(--map-ink);color:var(--sea)}
+html.lock{overflow:hidden}
+.chart.theater{position:fixed;inset:0;height:100%;max-height:none;min-height:0;z-index:60;border-radius:0;margin:0;top:0}
+.chart.theater .chart-title{font-size:clamp(22px,3vw,40px)}
+.chart.theater .chart-foot{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:60px max(16px,4vw) calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,rgba(10,18,24,.92) 55%,rgba(10,18,24,0));pointer-events:none}
+.chart.theater .chart-foot > *{pointer-events:auto}
+.chart.theater .chart-head{position:absolute;left:0;right:0;top:0;z-index:2;padding:calc(14px + env(safe-area-inset-top,0px)) max(16px,4vw) 40px;background:linear-gradient(to bottom,rgba(10,18,24,.85),rgba(10,18,24,0));pointer-events:none}
+.chart.theater .chart-head > *{pointer-events:auto}
+.chart.theater .legend{display:none}
+.chart.theater .phase{border-top:0;max-width:980px}
+.chart.theater .phase #phaseT{font-size:clamp(17px,1.9vw,24px);line-height:1.4;min-height:0}
+.chart.theater .phase #phaseT b{font-size:clamp(13px,1.2vw,16px);display:block;margin-bottom:4px}
+.chart.theater .phase #phaseT q{font-size:clamp(17px,1.9vw,24px);color:#fff;margin-top:10px;border-left:4px solid #c8102e;padding-left:14px}
+.chart.theater #note3d{bottom:auto;top:76px;left:max(16px,4vw)}
+.chart.theater #bclose{top:112px;left:max(16px,4vw)}
+.chart.theater #zoom3d{bottom:auto;top:76px;right:max(16px,4vw)}
+.chart.theater .l3{font-size:18px} .chart.theater .l3.chip{font-size:13px}
+@media (max-width: 899px){ .chart.theater{margin-inline:0} .chart-side{gap:6px} #b3d,#bfs{font-size:13px;padding:2px 7px} }
+figure img{cursor:zoom-in}
+#lightbox{position:fixed;inset:0;z-index:1000;background:rgba(10,14,13,.93);display:grid;grid-template-rows:1fr auto;place-items:center;padding:16px;gap:10px;cursor:zoom-out}
+#lightbox[hidden]{display:none}
+#lightbox img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+#lightbox p{margin:0;color:#e6ebe8;font-size:14px;line-height:1.45;max-width:60em;text-align:center}
+#lightbox button{position:absolute;top:10px;right:12px;background:none;border:1px solid #e6ebe8;color:#e6ebe8;font:inherit;font-size:14px;padding:6px 12px;cursor:pointer}
+
+.film .play{position:relative;display:block;background:#000;aspect-ratio:4/3}
+.film .play img{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;opacity:.86}
+.film .pb{position:absolute;left:12px;bottom:12px;background:rgba(10,14,13,.82);color:#fff;font-size:14px;padding:7px 12px;border:1px solid rgba(255,255,255,.55)}
+.film .play:hover img{opacity:1}
+.film iframe{width:100%;aspect-ratio:4/3;border:0;display:block;background:#000}
+
+/* sky and weather, then and now */
+.sky{background:var(--sea);color:var(--map-ink);padding:14px 18px;max-width:40em;font-size:16px;line-height:1.5;display:grid;grid-template-columns:56px 1fr;gap:4px 16px;align-items:start}
+.sky.wide{grid-template-columns:1fr}
+.sky h3{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin:0;color:var(--map-ink)}
+.sky .mnl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--map-dim);margin:0 0 8px}
+.sky ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.sky a{color:inherit}
+.sky .tg{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--map-dim);border-radius:2px;padding:1px 5px;margin-right:4px;white-space:nowrap;color:var(--map-ink)}
+.sky .mn{width:56px;height:56px;margin-top:2px}
+.mn-d{fill:#0d1f25;stroke:var(--map-dim);stroke-width:.6}
+.mn-l{fill:#f4f1e2}
+.mstrip{width:100%;height:auto;display:block;margin:2px 0 4px}
+.mstrip .sd{font-family:var(--mono);font-size:10px;fill:var(--map-ink);text-anchor:middle}
+.mstrip .sh{font-family:var(--mono);font-size:9px;fill:var(--map-dim);text-anchor:middle}
+.mstrip .mk{fill:var(--route)}
+.sky .mkey{font-size:13px;line-height:1.4;color:var(--map-dim);margin:0 0 10px}
+.sky .mkd{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--route);vertical-align:1px}
+figure.now{max-width:40em}
+figure.now img{width:100%;display:block}
+.pair.now2 figure.now{max-width:none}
+@media (max-width:520px){.sky{grid-template-columns:40px 1fr;gap:4px 12px}.sky .mn{width:40px;height:40px}}
+
+/* Company H day by day */
+.cohc{width:100%;height:auto;display:block;margin-top:6px}
+.cohc .gr{stroke:var(--rule);stroke-width:1}
+.cohc .tk{stroke:var(--muted);stroke-width:1}
+.cohc .ax{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.cohc .la{fill:none;stroke:var(--muted);stroke-width:1.4}
+.cohc .lp{fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round}
+.cohc .bt{fill:var(--amber);opacity:.16}
+.cohc .mkl{stroke:var(--ink);stroke-width:.7;stroke-dasharray:2 3}
+.cohc .mkc{fill:var(--ink)}
+.cohc .mkt{font-family:var(--mono);font-size:10px;fill:var(--panel);text-anchor:middle}
+.cohc .ll{font-family:var(--mono);font-size:10px}
+.cohc .ll.a{fill:var(--muted)} .cohc .ll.p{fill:var(--ink)}
+.cohc .jon{fill:var(--red)} .cohc .joff{fill:none;stroke:var(--red);stroke-width:1}
+.cohc .hv{fill:transparent}
+.cohc .hv:hover{fill:var(--ink);opacity:.35}
+.cohk{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:4px;font-size:15px;line-height:1.45}
+.cohk b{display:inline-block;min-width:1.5em;height:1.5em;line-height:1.5em;text-align:center;border-radius:50%;background:var(--ink);color:var(--panel);font-family:var(--mono);font-size:11px;margin-right:6px}
+.mlog{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.mlog li{display:grid;grid-template-columns:7.2em 1fr;gap:2px 14px;padding:9px 0;border-top:1px solid var(--rule)}
+.mlog .md{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.04em;text-transform:uppercase;grid-row:1}
+.mlog .ms{font-family:var(--mono);font-size:11px;color:var(--muted);grid-column:1;grid-row:2}
+.mlog p{grid-column:2;grid-row:1 / span 2;margin:0;font-size:16px;line-height:1.5}
+.mlog .cd{color:var(--red);font-weight:600}
+.mlog .cw{color:var(--amber);font-weight:600}
+#coh h4{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin:14px 0 4px}
+.men{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:16px;line-height:1.45}
+.men li span{font-weight:600}
+@media (max-width:560px){.mlog li{grid-template-columns:1fr}.mlog p{grid-column:1;grid-row:auto}.mlog .ms{grid-row:auto}}
+#coh .cols{display:block}
+#coh .viz{max-width:60em;margin:0 0 20px}
+#coh .mlog,#coh .men,#coh .cohk{max-width:46em}
+
+.mstrips{display:flex;flex-wrap:wrap;margin:2px 0 4px}
+.mstrips .mstrip{flex:1 1 280px;min-width:0;margin:0}
+.cohw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:640px){.cohc{min-width:620px}}
+
+/* ---- His gun (the mortar section; built by tools/add_mortar.py) ---- */
+#mortar .viz.wide{max-width:60em}
+#mortar .viz p{max-width:46em}
+#mortar .viz .note,#mortar .viz .sub{max-width:none}
+#mortar .dg .thin{stroke-width:1}
+#mortar .dg .grid{stroke:var(--rule);stroke-width:1;fill:none}
+#mortar .dg .arc{fill:none;stroke:var(--red);stroke-width:2.5}
+#mortar .dg .arc:hover{stroke-width:4.5}
+#mortar .dg .arc.hi{stroke:var(--ink);stroke-dasharray:6 5;stroke-width:2}
+#mortar .dg .man{fill:var(--c-ink2)}
+#mortar .dg .ring{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:7 5}
+#mortar .dg .sq{fill:color-mix(in srgb,var(--red) 14%,transparent);stroke:var(--red);stroke-width:2}
+#mortar .dg .fld{fill:color-mix(in srgb,var(--olive) 30%,transparent);stroke:var(--olive);stroke-width:1.5}
+#mortar .steps{margin:0;padding-left:1.4em;display:grid;gap:8px;max-width:46em}
+#mortar .steps li{line-height:1.45}
+#mortar .mtw{overflow-x:auto}
+#mortar .mtab{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.35}
+#mortar .mtab th,#mortar .mtab td{text-align:left;vertical-align:top;padding:8px 12px 8px 0;border-top:1px solid var(--rule)}
+#mortar .mtab thead th{border-top:0;font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#mortar .mtab tbody th{font-family:var(--display);font-weight:600;font-size:18px;white-space:nowrap}
+#mortar .mtab tbody th small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);white-space:normal}
+#mortar .mtab td{white-space:nowrap}
+#mortar .mtab td.w{white-space:normal;min-width:16em}
+#mortar .rec .rsrc{font-size:13.5px;color:var(--muted);line-height:1.45;margin:10px 0 0}
+#mortar .viz > *,#mortar .cols > *{min-width:0}
+#mortar .mtw{min-width:0;max-width:100%}
+@media (max-width:640px){ #mortar .mtab{min-width:640px} #mortar .mtw svg{min-width:620px} }
+
+/* manual plates and the target-practice panel */
+#mortar .plates{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:flex-end}
+#mortar .plate{margin:0}
+#mortar .plate img{display:block;height:300px;width:auto;max-width:100%;background:#fff;border:1px solid var(--rule)}
+#mortar .plate.one img{height:auto;width:100%;max-width:520px}
+#mortar .plate figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;max-width:520px;line-height:1.4}
+#mgame .mg-ctl{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end}
+#mgame .mg-f{display:grid;gap:6px;min-width:0}
+#mgame .mg-el{flex:1 1 260px}
+#mgame .mg-l{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#mgame .mg-l b{font-family:var(--display);font-size:20px;letter-spacing:0;color:var(--ink);margin-left:6px}
+#mgame .mg-ch,#mgame .mg-row,#mgame .mg-go{display:flex;gap:6px;align-items:center}
+#mgame button{font:inherit;font-size:15px;min-width:40px;height:40px;padding:0 12px;border:1px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:2px;cursor:pointer}
+#mgame button[aria-checked="true"]{background:var(--ink);color:var(--panel)}
+#mgame button.mg-fire{background:var(--red);border-color:var(--red);color:#fff;font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.06em;text-transform:uppercase;padding:0 22px}
+#mgame button:disabled{opacity:.5;cursor:default}
+#mgame input[type=range]{flex:1;min-width:120px;accent-color:var(--red)}
+#mgame .mg-hint{font-size:13.5px;color:var(--muted);margin:0;max-width:none}
+#mgame .mg-out{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.25;margin:0;max-width:none;min-height:1.3em}
+#mgsvg .old{fill:none;stroke:var(--muted);stroke-width:1.2;opacity:.55}
+#mgsvg .cur{fill:none;stroke:var(--red);stroke-width:2.5}
+#mgsvg .tg{fill:#fff;stroke:var(--ink);stroke-width:1.5}
+#mgsvg .hit{fill:none;stroke:var(--red);stroke-width:2}
+
+#coh .vox{margin:0;padding-left:1.1em;display:grid;gap:9px;max-width:46em;line-height:1.45}
+
+#mortar .dg .hbh{fill:var(--c-ink2)} #mortar .dg .hbd{fill:var(--red)}
+#mortar .sw.hbhs{background:var(--c-ink2)}
+
+/* From the other side */
+#other .viz.wide{max-width:60em}
+#other .viz > *{min-width:0}
+#other .mtw{overflow-x:auto;min-width:0;max-width:100%}
+#other .dg .thin{stroke-width:1}
+#other .rec .rsrc{font-size:13.5px;color:var(--muted);line-height:1.45;margin:10px 0 0}
+@media (max-width:640px){ #other .mtw svg{min-width:620px} }
+
+
+
+.arms .mast h1{font-size:clamp(46px,8vw,96px)}
+.arms .how{margin:0;max-width:44em;font-size:16px;color:var(--muted)}
+.arms .jump{display:flex;flex-wrap:wrap;gap:8px 10px}
+.arms .jump a{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--rule);background:var(--panel);padding:6px 10px}
+.arms .jump a:hover{border-color:var(--ink)}
+.arms .after{scroll-margin-top:12px}
+.arms .viz.wide{max-width:60em}
+.arms .viz > *,.arms .cols > *{min-width:0}
+.arms .mtw{overflow-x:auto;min-width:0;max-width:100%}
+.arms .dg{display:block;width:100%;height:auto}
+.arms .dg .thin{stroke-width:1}
+.arms .dg .man{fill:var(--c-ink2)}
+.arms .dg .gn{fill:var(--ink)}
+.arms .dg .bl{fill:var(--red)}
+.arms .dg .tb{fill:var(--olive)}
+.arms .dg .bar{fill:var(--c-ink2)}
+.arms .dg .sqr{fill:var(--c-ink2)}
+.arms .dg .tg{fill:var(--panel);stroke:var(--ink);stroke-width:1.5}
+.arms .dg .tg.p{fill:var(--ink)}
+.arms .dg .tg.r{stroke-dasharray:4 3}
+.arms .dg .tt{font-family:var(--mono);font-weight:500;font-size:13px;fill:var(--ink)}
+.arms .dg .tt.p{fill:var(--panel)}
+.arms .steps{margin:0;padding-left:1.4em;display:grid;gap:8px}
+.arms .steps li{line-height:1.45}
+.arms .rec .rsrc{font-size:13.5px;color:var(--muted);line-height:1.45;margin:10px 0 0}
+.arms .mtab{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.35;min-width:0}
+.arms .mtab th,.arms .mtab td{text-align:left;vertical-align:top;padding:8px 12px 8px 0;border-top:1px solid var(--rule);border-bottom:0;font-style:normal}
+.arms .mtab thead th{border-top:0;font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.arms .mtab tbody th{font-family:var(--display);font-weight:600;font-size:18px;white-space:nowrap;letter-spacing:0;text-transform:none;color:var(--ink)}
+.arms .mtab tbody th small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);white-space:normal}
+.arms .mtab td{white-space:nowrap}
+.arms .mtab td.w{white-space:normal;min-width:16em}
+.arms .plate{margin:0}
+.arms .plate img{display:block;width:100%;height:auto;max-width:520px;background:#fff;border:1px solid var(--rule)}
+.arms .plate figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;max-width:520px;line-height:1.4}
+@media (max-width:640px){ .arms .mtab{min-width:700px} .arms .mtw svg{min-width:620px} }
+</style>
+</head>
+<body>
+
+<div class="wrap arms">
+  <header class="mast">
+    <div class="eyebrow"><a href="index.html">Jess Rowley&rsquo;s War</a> &middot; a second page</div>
+    <h1>What he carried</h1>
+    <p class="lede">Jess Rowley&rsquo;s job was the 81 mm mortar, and <a href="index.html#mortar">that gun has its own section on the main page</a>. This page is about the weapons that were his alone: the rifle he trained with, the carbine he was handed in the Pacific, the .45 pistol, and the bayonet, which he never mentions.</p>
+    <dl class="id">
+      <div><dt>In his words</dt><dd>&ldquo;the .30-06 rifle, a .30 carbine, a .45 pistol, a Browning Automatic Rifle&rdquo;</dd></div>
+      <div><dt>All of them</dt><dd>Turned in when he came home</dd></div>
+      <div><dt>Page last updated</dt><dd>November 20, 2026</dd></div>
+    </dl>
+    <p class="how">Near the end of the family recording Jess lists the weapons he had over the years; the line above is that list as he gave it, at <a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=2822s" target="_blank" rel="noopener">47:02</a>. Figures here come from the Army&rsquo;s own manuals of 1940 to 1943 unless a line says otherwise. Where the manuals are silent, or where we do not know which weapon was his, the page says so.</p>
+    <nav class="jump" aria-label="On this page"><a href="#scale">To scale</a><a href="#rifle">The rifle</a><a href="#carbine">The carbine</a><a href="#pistol">The pistol</a><a href="#bayonet">The bayonet</a><a href="#bar">The automatic rifle</a><a href="#squad">Who carried what</a><a href="#manuals">Manuals and films</a></nav>
+  </header>
+
+  <section class="after" id="scale">
+    <h2>To scale</h2>
+    <p>Everything he carried on his own person, drawn at one scale beside a man of average height for the time. The mortar tube is there to show what the personal weapon was carried on top of.</p>
+    <div class="viz wide"><h3>The weapons beside a man</h3><p class="sub">Lengths are to scale. The outlines are simplified, not portraits of the weapons.</p><div class="mtw"><svg class="dg" viewBox="0 0 720 432" role="img" aria-label="Scale drawing: a man 5 feet 8 inches tall beside the M1 rifle, the rifle with a 16-inch bayonet fixed, the M1 carbine, the .45 pistol, the two bayonets and the 81 mm mortar tube"><g class="man" transform="translate(-128,-196) scale(1.955)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><text x="60" y="424" text-anchor="middle" class="m">5 ft 8 in</text><path class="gn" d="M150,39 L150,53 L206.7,48 L286.0,47 L286.0,44.5 L376.7,44.5 L376.7,41.5 L286.0,41.5 L286.0,40 L195.3,40Z"/><text x="490" y="46">M1 rifle</text><text x="490" y="63" class="m">43.6 in &middot; 9.5 lb &middot; 8 rounds</text><path class="gn" d="M150,95 L150,109 L206.7,104 L286.0,103 L286.0,100.5 L376.7,100.5 L376.7,97.5 L286.0,97.5 L286.0,96 L195.3,96Z"/><path class="bl" d="M376.7,98 L459.9,99.5 L376.7,101Z"/><text x="490" y="102">with the 16-inch bayonet</text><text x="490" y="119" class="m">about 5 ft &middot; 10.5 lb</text><path class="gn" d="M150,151 L150,165 L196.2,160 L260.8,159 L260.8,156.5 L334.6,156.5 L334.6,153.5 L260.8,153.5 L260.8,152 L186.9,152Z"/><rect class="gn" x="227.5" y="159" width="9" height="15"/><text x="490" y="158">M1 carbine</text><text x="490" y="175" class="m">35.5 in &middot; 5.1 lb &middot; 15 rounds</text><rect class="gn" x="150" y="212" width="44.7" height="9"/><path class="gn" d="M152,221 l-5,22 h12 l5,-22Z"/><text x="490" y="216">.45 pistol</text><text x="490" y="233" class="m">8.6 in &middot; 2.4 lb &middot; 7 rounds</text><rect class="gn" x="150" y="268" width="21" height="6"/><path class="bl" d="M171,268 L254.2,271 L171,274Z"/><rect class="gn" x="300" y="268" width="21" height="6"/><path class="bl" d="M321,268 L373.0,271 L321,274Z"/><text x="490" y="268">Bayonets</text><text x="490" y="285" class="m">16-inch and 10-inch blades</text><rect class="tb" x="150" y="318" width="257.4" height="14" rx="2"/><text x="490" y="322">His mortar tube</text><text x="490" y="339" class="m">49.5 in &middot; 44.5 lb</text><path class="ln thin" d="M150 376H462.0"/><path class="ln thin" d="M150.0 370v12"/><text x="150.0" y="398" text-anchor="middle" class="m">0 ft</text><path class="ln thin" d="M212.4 370v12"/><text x="212.4" y="398" text-anchor="middle" class="m">1 ft</text><path class="ln thin" d="M274.8 370v12"/><text x="274.8" y="398" text-anchor="middle" class="m">2 ft</text><path class="ln thin" d="M337.2 370v12"/><text x="337.2" y="398" text-anchor="middle" class="m">3 ft</text><path class="ln thin" d="M399.6 370v12"/><text x="399.6" y="398" text-anchor="middle" class="m">4 ft</text><path class="ln thin" d="M462.0 370v12"/><text x="462.0" y="398" text-anchor="middle" class="m">5 ft</text></svg></div>
+      <p class="note">Lengths and weights from the Army manuals for each weapon. The rifle with bayonet is the manual&rsquo;s 59.2 inches. Carbine weight is without sling or magazine; loaded and slung it was 5.8 pounds. The pistol is 2.4 pounds with an empty magazine, about 2.8 loaded.</p></div>
+    <div class="viz wide"><h3>Side by side</h3><div class="mtw"><table class="mtab">
+      <thead><tr><th>Weapon</th><th>Weight</th><th>Holds</th><th>Bullet</th><th>Speed at the muzzle</th><th>Sights</th><th>What the manual says it is for</th></tr></thead>
+      <tbody>
+        <tr><th>M1 rifle<small>U.S. Rifle, Caliber .30, M1</small></th><td>9.5 lb</td><td>8, in a clip</td><td>about 150 grains</td><td>2,700 to 2,800 ft a second</td><td>to 1,200 yd</td><td class="w">The infantryman&rsquo;s main weapon. Open fire &ldquo;normally&rdquo; at under 600 yards.</td></tr>
+        <tr><th>M1 carbine<small>U.S. Carbine, Caliber .30, M1</small></th><td>5.1 lb</td><td>15, in a magazine</td><td>110 grains</td><td>1,900 ft a second</td><td>150 and 300 yd</td><td class="w">&ldquo;Designed primarily to replace the pistol or revolver.&rdquo; Good &ldquo;at ranges up to 300 yards.&rdquo;</td></tr>
+        <tr><th>.45 pistol<small>Pistol, Automatic, Caliber .45, M1911A1</small></th><td>2.4 lb</td><td>7, in a magazine</td><td>230 grains</td><td>802 ft a second</td><td>fixed</td><td class="w">&ldquo;A comparatively short-range weapon.&rdquo; Its accuracy table stops at 75 yards.</td></tr>
+        <tr><th>Automatic rifle<small>Browning Automatic Rifle, M1918A2</small></th><td>about 20 lb</td><td>20, in a magazine</td><td>the rifle&rsquo;s</td><td>the rifle&rsquo;s</td><td>&nbsp;</td><td class="w">A rifle squad&rsquo;s automatic weapon, firing at 550 or 350 rounds a minute.</td></tr>
+      </tbody></table></div>
+      <p class="note">A grain is a weight: 7,000 to the pound. The carbine bullet weighs a quarter of an ounce, the rifle bullet a third, the pistol bullet a little over half. The rifle bullet&rsquo;s weight is not in the manuals read for this page; 150 grains is the usual figure. The pistol&rsquo;s 230 grains is not printed either, but it is the weight that makes the manual&rsquo;s own speed and energy agree.</p></div>
+    <div class="viz wide"><h3>How hard each one hit</h3><p class="sub">Energy of the bullet as it leaves the muzzle.</p><div class="mtw"><svg class="dg" viewBox="0 0 720 160" role="img" aria-label="Energy of each bullet as it leaves the muzzle: rifle about 2,430 foot-pounds, carbine about 880, pistol 329"><text x="118" y="41" text-anchor="end">M1 rifle</text><path class="bar" d="M126,26 h397.9 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-397.9Z"/><text x="535.9" y="41" class="m">about 2,430 foot-pounds</text><text x="118" y="87" text-anchor="end">M1 carbine</text><path class="bar" d="M126,72 h141.5 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-141.5Z"/><text x="279.5" y="87" class="m">about 880 foot-pounds</text><text x="118" y="133" text-anchor="end">.45 pistol</text><path class="bar" d="M126,118 h50.4 a4,4 0 0 1 4,4 v12 a4,4 0 0 1 -4,4 h-50.4Z"/><text x="188.4" y="133" class="m">329 foot-pounds</text><path class="ln thin" d="M126 14V150"/></svg></div>
+      <p class="note">The pistol figure is printed in its manual. The other two are worked out from each bullet&rsquo;s weight and speed, using the slower of the two speeds the rifle manuals give. The carbine sits between the two on purpose: more than twice the pistol, about a third of the rifle.</p></div>
+  </section>
+
+  <section class="after" id="rifle">
+    <h2>The rifle</h2>
+    <blockquote>The rifle I trained with in Camp Roberts, I learned to love that rifle. I earned sharpshooter with it.<footer><a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=2813s" target="_blank" rel="noopener">&#9654; 46:53</a> &middot; Jess Rowley</footer></blockquote>
+    <p>He calls it &ldquo;the .30-06.&rdquo; That is the name of the cartridge, caliber .30, adopted in 1906, and two Army rifles fired it in 1943: the new semiautomatic M1, which soldiers called the Garand, and the older bolt-action Springfield. Most likely his was the M1. The Army&rsquo;s training manual and training films of that year are built around it. But nothing found so far says which rifle Camp Roberts handed its trainees in the spring of 1943, so this page does not claim it.</p>
+    <div class="cols">
+      <figure class="plate one"><img src="img/a-rifle.jpg" alt="Army manual photograph of the M1 rifle from the side and from above, with its parts labelled" loading="lazy"><figcaption>The M1 rifle, from the Army&rsquo;s manual for it. Field Manual 23-5, 1940, figure 1.</figcaption></figure>
+      <div class="rec"><h3>How the M1 worked</h3><ol class="steps">
+        <li><b>Load.</b> Eight cartridges come held together in a steel clip. The soldier pulls the bolt back and presses the whole clip down into the rifle. The bolt runs forward and pushes the first round into the barrel.</li>
+        <li><b>Fire.</b> One squeeze of the trigger fires one shot.</li>
+        <li><b>Gas does the work.</b> Near the muzzle a small hole lets some of the powder gas push a rod back along the barrel. The rod unlocks the bolt, throws out the empty case and cocks the hammer.</li>
+        <li><b>Spring returns it.</b> A spring drives the bolt forward again with the next round. The rifle is ready as fast as the soldier can aim.</li>
+        <li><b>Empty.</b> After the eighth shot the bolt stays open and the empty clip is thrown clear.</li>
+      </ol>
+      <p class="rsrc">Field Manual 23-5, <i>U.S. Rifle, Caliber .30, M1</i> (1940), paragraphs 19 and 23 to 27. The five steps are this page&rsquo;s summary; the manual does not number them.</p></div>
+    </div>
+    <div class="rec"><h3>What a trainee had to know</h3><ul>
+      <li><b>The sight.</b> A peephole at the back, a post at the front. Two knobs moved the peephole, and each click moved the bullet about one inch at 100 yards, so five inches at 500. The range knob was marked out to 1,200 yards.</li>
+      <li><b>When it stopped.</b> The drill was called immediate action: pull the bolt handle all the way back, let it go, aim and fire again. If that failed he looked for a dented round or dirt.</li>
+      <li><b>Cleaning.</b> The barrel was cleaned by the evening of the day it was fired and again on each of the next three days. Hot soapy water, then dry patches, then oil.</li>
+      <li><b>Reach.</b> The bullet could travel about two miles. The manual tells riflemen to hold their fire until they are closer than 600 yards.</li>
+    </ul><p class="rsrc">Field Manual 23-5 (1940), paragraphs 10 to 12, 29, 34, 45 and 137.</p></div>
+    <div class="viz wide"><h3>What &ldquo;sharpshooter&rdquo; meant</h3><p class="sub">The rifle course a trainee fired for record, and the score each badge took.</p>
+      <div class="mtw"><svg class="dg" viewBox="0 0 720 146" role="img" aria-label="The record course: eight slow shots and nine timed shots at 200 yards, the same at 300 yards, and eight slow shots lying down at 500 yards"><path class="ln thin" d="M60.0 92H660.0"/><rect class="rd" x="52.0" y="70" width="8" height="44"/><text x="56.0" y="134" text-anchor="middle" class="m">target</text><path class="ln thin" d="M180.0 86v12"/><text x="180.0" y="134" text-anchor="middle" class="m">100 yd</text><path class="ln thin" d="M300.0 86v12"/><text x="300.0" y="134" text-anchor="middle" class="m">200 yd</text><path class="ln thin" d="M420.0 86v12"/><text x="420.0" y="134" text-anchor="middle" class="m">300 yd</text><path class="ln thin" d="M540.0 86v12"/><text x="540.0" y="134" text-anchor="middle" class="m">400 yd</text><path class="ln thin" d="M660.0 86v12"/><text x="660.0" y="134" text-anchor="middle" class="m">500 yd</text><circle class="fl" cx="300.0" cy="92" r="7"/><text x="300.0" y="42" text-anchor="middle">8 slow shots</text><text x="300.0" y="62" text-anchor="middle" class="m">9 in 68 sec</text><circle class="fl" cx="420.0" cy="92" r="7"/><text x="420.0" y="42" text-anchor="middle">8 slow shots</text><text x="420.0" y="62" text-anchor="middle" class="m">9 in 68 sec</text><circle class="fl" cx="660.0" cy="92" r="7"/><text x="660.0" y="42" text-anchor="middle">8 slow shots</text><text x="660.0" y="62" text-anchor="middle" class="m">lying down</text></svg></div><div class="mtw"><svg class="dg" viewBox="0 0 720 92" role="img" aria-label="Scores needed: Marksman 140, Sharpshooter 165, Expert 180"><path class="ln thin" d="M60.0 60H660.0"/><path class="ln thin" d="M60.0 55v10"/><text x="60.0" y="84" text-anchor="middle" class="m">120</text><path class="ln thin" d="M210.0 55v10"/><text x="210.0" y="84" text-anchor="middle" class="m">140</text><path class="ln thin" d="M360.0 55v10"/><text x="360.0" y="84" text-anchor="middle" class="m">160</text><path class="ln thin" d="M510.0 55v10"/><text x="510.0" y="84" text-anchor="middle" class="m">180</text><path class="ln thin" d="M660.0 55v10"/><text x="660.0" y="84" text-anchor="middle" class="m">200</text><circle class="fl" cx="210.0" cy="60" r="6"/><text x="210.0" y="34" text-anchor="middle">Marksman</text><text x="210.0" y="16" text-anchor="middle" class="m">140</text><circle class="rd" cx="397.5" cy="60" r="9"/><text x="397.5" y="34" text-anchor="middle">Sharpshooter</text><text x="397.5" y="16" text-anchor="middle" class="m">165</text><circle class="fl" cx="510.0" cy="60" r="6"/><text x="510.0" y="34" text-anchor="middle">Expert</text><text x="510.0" y="16" text-anchor="middle" class="m">180</text></svg></div>
+      <p class="note">Forty-two shots in all: slow fire kneeling, standing, sitting and lying down, then timed strings in which he dropped from standing into position, fired, reloaded and fired again. Five hundred yards is five football fields. Sharpshooter was the middle of three badges, and each took the score shown or better.</p>
+      <p class="note">These are the course and scores in the rifle manuals of July and September 1943, printed just after Jess finished at Camp Roberts. The regulation in force during his own weeks on the range, Army Regulations 775-10, has not been found, so the exact course and score he fired are not known. The three grades were the same.</p></div>
+    <div class="diff"><h3>Not known</h3>Which rifle he trained with. Whether he carried an M1 rifle at any time overseas: landing on Luzon he says he had &ldquo;a pistol, a rifle,&rdquo; and he may have meant his carbine.</div>
+  </section>
+
+  <section class="after" id="carbine">
+    <h2>The carbine</h2>
+    <blockquote>I was trained as a rifleman, to carry a .30-06. Down here they issued me a little .30 carbine, going into heavy weapons, in the mortars. I didn&rsquo;t know a thing about the gun and was going to the front line. I said, &ldquo;Well, give me some boxes of shells. I&rsquo;m going in the jungle to learn something about this gun.&rdquo; And so I did.<footer><a href="https://www.youtube.com/watch?v=41T6YbBgPLA&t=268s" target="_blank" rel="noopener">&#9654; 4:28</a> &middot; Jess Rowley</footer></blockquote>
+    <p>The carbine was a new weapon in 1943, and it was made for men like him. A mortar crew, a machine gun crew, a driver or a wire man already had his hands full, and the Army had been giving such men a pistol. The carbine was the answer: half the weight of the rifle, fifteen cartridges to the pistol&rsquo;s seven, and a real chance of a hit at 200 or 300 yards where a pistol had none. Its cartridge was its own, shorter and lighter than the rifle&rsquo;s, so the two could not share ammunition.</p>
+    <div class="cols">
+      <figure class="plate one"><img src="img/a-carbine.jpg" alt="Army manual photograph of the M1 carbine from above and from the side, with its parts labelled" loading="lazy"><figcaption>The M1 carbine as first issued. Field Manual 23-7, 1942, figure 1.</figcaption></figure>
+      <figure class="plate one"><img src="img/a-carbsight.jpg" alt="Manual drawing of the carbine rear sight: an L-shaped leaf with two peepholes marked 150 yards and 300 yards" loading="lazy"><figcaption>The rear sight on the early carbines: a leaf that flipped between two peepholes, one for 150 yards and one for 300. For anything between, the manual says, the soldier had to &ldquo;aim off the target.&rdquo; Field Manual 23-7, figure 2.</figcaption></figure>
+    </div>
+    <div class="rec"><h3>The record</h3><ul>
+      <li>The manual: the carbine &ldquo;was designed primarily to replace the pistol or revolver. It is highly effective at close quarters and at ranges up to 300 yards.&rdquo;</li>
+      <li>It worked the way the rifle did, by gas, one shot for each squeeze. It loaded from a 15-round box magazine pushed in from below.</li>
+      <li>The manual set a goal for training of &ldquo;25 or more accurate shots per minute.&rdquo;</li>
+      <li>It had no bayonet. The 1942 manual never uses the word. A fitting for one was added to carbines late in the war, by later accounts in 1945.</li>
+      <li>An Army pamphlet of 1944 that collected lessons from the field reported on patrols in the jungle: &ldquo;The shorter weapons (submachine gun and carbine) were preferred by small patrols as they were easier to carry and aim in the jungle growth.&rdquo;</li>
+      <li>Later writers record a complaint as well, that in close fighting the light bullet did not always stop a man. No wartime Army report saying so was found for this page.</li>
+    </ul><p class="rsrc">Field Manual 23-7, <i>U.S. Carbine, Caliber .30, M1</i> (1942), paragraphs 1 to 4, 55 and 86; War Department, <i>Combat Lessons</i> No. 4 (1944).</p></div>
+    <div class="diff"><h3>Memory and record</h3>Jess says he was handed a weapon he had never fired and taught himself in the jungle with a few boxes of shells. That fits. He trained as a rifleman, and the rifleman&rsquo;s course was fired with the rifle. The carbine was a new weapon, its manual dated May 1942.</div>
+  </section>
+
+  <section class="after" id="pistol">
+    <h2>The pistol</h2>
+    <p>Jess names &ldquo;a .45 pistol&rdquo; among the weapons he had, and he lists a pistol in what he carried ashore on Luzon in January 1945. The Army&rsquo;s .45 was the Model 1911A1, a design then more than thirty years old.</p>
+    <div class="cols">
+      <figure class="plate one"><img src="img/a-pistol.jpg" alt="Army manual photograph of the M1911A1 pistol seen from the right side" loading="lazy"><figcaption>The pistol, from its manual. Field Manual 23-35, 1940, figure 2. The pale seal across the picture is the stamp of the Army library that scanned its copy.</figcaption></figure>
+      <div class="rec"><h3>The record</h3><ul>
+        <li>Seven cartridges in a magazine inside the grip. One shot for each squeeze. After the last shot the slide stays back to show the pistol is empty.</li>
+        <li>The recoil of each shot throws out the empty case, cocks the hammer and loads the next round.</li>
+        <li>Three things kept it from firing by accident: a lever under the thumb, a plate in the back of the grip that had to be squeezed by the hand, and a catch inside that blocked the hammer unless the action was fully closed.</li>
+        <li>How to carry it, from the manual: with no fight expected, a full magazine in the grip and the chamber empty. With a fight likely, &ldquo;loaded and locked in the holster or hand.&rdquo;</li>
+        <li>The manual calls it &ldquo;a comparatively short-range weapon.&rdquo; Its bullet was heavy and slow. At the muzzle it carried about a third of the carbine&rsquo;s energy.</li>
+        <li>What all the personal weapons were for in a heavy weapons company, from that company&rsquo;s own manual: &ldquo;the emergency defense of the individual, groups, crew-served weapons, and company installations.&rdquo;</li>
+      </ul><p class="rsrc">Field Manual 23-35, <i>Automatic Pistol, Caliber .45, M1911 and M1911A1</i> (1940), paragraphs 1, 2, 13 and 25; Field Manual 7-15, <i>Heavy Weapons Company, Rifle Regiment</i> (1942), paragraph 4.</p></div>
+    </div>
+    <p>In a mortar squad the pistol was the weapon of the men who handled the gun itself. That matters for what Jess&rsquo;s job was, and it is taken up under <a href="#squad">Who carried what</a>.</p>
+  </section>
+
+  <section class="after" id="bayonet">
+    <h2>The bayonet</h2>
+    <p>Jess does not mention a bayonet anywhere in the recording. What follows is what the Army taught every infantry trainee of his year, and what the men around him had.</p>
+    <div class="cols">
+      <figure class="plate one"><img src="img/a-guard.jpg" alt="Manual drawing of a soldier crouched in the guard position with rifle and fixed bayonet pointed forward" loading="lazy"><figcaption>&ldquo;Guard,&rdquo; the position every movement started from. Field Manual 23-25, September 1943, figure 1. The pale seal is the scanning library&rsquo;s stamp.</figcaption></figure>
+      <div class="rec"><h3>The record</h3><ul>
+        <li><b>Training.</b> The bayonet manual of 1943 lays out ten lessons of no more than 50 minutes each: the guard, the long and short thrust, strokes with the rifle butt, parries, then running at dummies and fighting in pairs and threes over an assault course of 200 to 300 yards. He trained as a rifleman, so he would have done this.</li>
+        <li><b>Two lengths.</b> The Army&rsquo;s bayonet had a 16-inch blade. During 1943 it began issuing one with a 10-inch blade, and cutting old ones down. Either could be found in the Pacific. These dates are from collectors&rsquo; references, not from an Army document read for this page.</li>
+        <li><b>None for the carbine.</b> A bayonet fixes to a rifle. The carbine of 1943 and 1944 had nowhere to put one, and a pistol has none. A mortarman with a carbine or a pistol had no bayonet.</li>
+        <li><b>A knife instead.</b> From 1943 the Army issued a fighting knife with a blade under seven inches to men whose weapon took no bayonet. Whether Company H had them is not known. This too is from later references.</li>
+      </ul><p class="rsrc">Field Manual 23-25, <i>Bayonet</i> (September 7, 1943), paragraphs 21 and 25; Field Manual 23-7 (1942).</p></div>
+    </div>
+    <figure><img src="img/x-luckylegs.jpg" alt="A Sherman tank named Lucky Legs II fires into smoke while riflemen with fixed bayonets crouch beside it in shattered jungle" loading="lazy"><figcaption>Riflemen of the 129th Infantry with bayonets fixed, beside the tank &ldquo;Lucky Legs II&rdquo; on Bougainville, March 1944. These are men of the rifle companies in front of Jess&rsquo;s mortars. Australian War Memorial, public domain.</figcaption></figure>
+    <div class="diff"><h3>Not known</h3>Whether Jess was ever issued a bayonet or a knife overseas, and whether anyone in his battalion used one in the March 1944 fighting. Nothing in the records read so far says.</div>
+  </section>
+
+  <section class="after" id="bar">
+    <h2>The automatic rifle</h2>
+    <p>The last weapon on his list is &ldquo;a Browning Automatic Rifle.&rdquo; It fired the rifle&rsquo;s cartridge from a 20-round magazine, as fast as a machine gun, and weighed twice what a rifle did. Every rifle squad had one. A mortar squad did not.</p>
+    <div class="cols">
+      <figure class="plate one"><img src="img/a-bar.jpg" alt="Manual drawing of the Browning Automatic Rifle on its two-legged rest, with parts numbered" loading="lazy"><figcaption>The Browning Automatic Rifle, Model 1918A2. Field Manual 23-15, June 1943, figure 1. The pale seal is the scanning library&rsquo;s stamp.</figcaption></figure>
+      <div class="rec"><h3>The record</h3><ul>
+        <li>About 20 pounds with its sling. A filled magazine added a pound and seven ounces.</li>
+        <li>A lever chose between two speeds, about 550 rounds a minute and about 350. In practice, the manual says, the most a gunner could usefully fire was 120 to 150 a minute, and 40 to 60 if he had to keep it up.</li>
+        <li>The table that set out a heavy weapons company in 1944 lists no automatic rifle at all.</li>
+        <li>The company&rsquo;s 1942 manual gives it one use there: guarding the trucks against aircraft. &ldquo;One Browning automatic rifle is mounted on a pedestal mount on one weapon carrier in each section of the company,&rdquo; with a man told off to ride with it.</li>
+      </ul><p class="rsrc">Field Manual 23-15, <i>Browning Automatic Rifle, Caliber .30, M1918A2</i> (1943), paragraphs 2 and 3; Field Manual 7-15 (1942), paragraph 4; Table of Organization and Equipment 7-18 (February 26, 1944).</p></div>
+    </div>
+    <div class="diff"><h3>Not known</h3>When Jess had one. He may have fired it in training at Camp Roberts, where he was being made a rifleman. He may have been the man on the truck. Units in the Pacific also picked up weapons their tables did not give them. He does not say, and no record found so far does.</div>
+  </section>
+
+  <section class="after" id="squad">
+    <h2>Who carried what</h2>
+    <p>The Army wrote down, job by job, which weapon each man in a company was to carry. For Jess&rsquo;s kind of company the table of February 1944 survives, and it lets us read his own list of weapons as a record of the jobs he held.</p>
+    <div class="viz wide"><h3>An 81 mm mortar squad, by the table</h3><p class="sub">Eight men, one mortar, one jeep and trailer.</p><div class="mtw"><svg class="dg" viewBox="0 0 720 170" role="img" aria-label="The eight men of an 81 mm mortar squad in the 1944 table: the squad leader with a rifle; the gunner, assistant gunner and number 3 ammunition bearer with pistols; four more bearers, one of them the jeep driver, with carbines"><g class="man" transform="translate(-2.8,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg r" x="16.0" y="118" width="68" height="22" rx="3"/><text x="50.0" y="134" text-anchor="middle" class="tt r">rifle</text><text x="50.0" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Squad leader</text><g class="man" transform="translate(85.7,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg p" x="104.5" y="118" width="68" height="22" rx="3"/><text x="138.5" y="134" text-anchor="middle" class="tt p">pistol</text><text x="138.5" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Gunner</text><g class="man" transform="translate(174.2,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg p" x="193.0" y="118" width="68" height="22" rx="3"/><text x="227.0" y="134" text-anchor="middle" class="tt p">pistol</text><text x="227.0" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Asst. gunner</text><g class="man" transform="translate(262.7,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg p" x="281.5" y="118" width="68" height="22" rx="3"/><text x="315.5" y="134" text-anchor="middle" class="tt p">pistol</text><text x="315.5" y="158" text-anchor="middle" class="m" style="font-size:11.5px">No. 3 bearer</text><g class="man" transform="translate(351.2,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg c" x="370.0" y="118" width="68" height="22" rx="3"/><text x="404.0" y="134" text-anchor="middle" class="tt c">carbine</text><text x="404.0" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Bearer</text><g class="man" transform="translate(439.7,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg c" x="458.5" y="118" width="68" height="22" rx="3"/><text x="492.5" y="134" text-anchor="middle" class="tt c">carbine</text><text x="492.5" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Bearer</text><g class="man" transform="translate(528.2,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg c" x="547.0" y="118" width="68" height="22" rx="3"/><text x="581.0" y="134" text-anchor="middle" class="tt c">carbine</text><text x="581.0" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Bearer</text><g class="man" transform="translate(616.7,-60) scale(.55)"><circle cx="96" cy="136" r="12"/><path d="M79,153h34l5,64h-9l-3,-39v127h-11v-74h-4v74h-11v-127l-3,39h-9z"/></g><rect class="tg c" x="635.5" y="118" width="68" height="22" rx="3"/><text x="669.5" y="134" text-anchor="middle" class="tt c">carbine</text><text x="669.5" y="158" text-anchor="middle" class="m" style="font-size:11.5px">Driver, bearer</text></svg></div>
+      <p class="note">The squad leader was a staff sergeant and the gunner a corporal. The table adds a line of its own: &ldquo;The number 3 man in 81-mm mortar squad is armed with pistol.&rdquo; The men who lifted and served the gun got the lightest weapon. The men who fetched shells, and guarded the gun when they were not fetching, got the carbine.</p></div>
+    <div class="viz wide"><h3>The whole company</h3><p class="sub">Company H at full strength, 160 officers and men. One square is one man&rsquo;s weapon.</p><div class="mtw"><svg class="dg" viewBox="0 0 720 126" role="img" aria-label="Personal weapons of the 160 men of a heavy weapons company in 1944: 82 carbines, 44 rifles, 34 pistols"><rect class="sqr" x="20" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="20" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="20" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="20" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="20" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="20" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="35" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="35" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="35" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="35" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="35" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="35" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="50" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="50" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="50" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="50" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="50" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="50" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="65" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="65" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="65" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="65" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="65" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="65" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="80" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="80" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="80" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="80" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="80" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="80" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="95" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="95" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="95" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="95" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="95" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="95" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="110" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="110" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="110" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="110" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="110" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="110" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="125" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="125" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="125" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="125" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="125" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="125" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="140" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="140" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="140" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="140" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="140" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="140" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="155" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="155" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="155" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="155" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="155" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="155" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="170" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="170" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="170" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="170" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="170" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="170" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="185" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="185" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="185" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="185" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="185" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="185" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="200" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="200" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="200" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="200" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="200" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="200" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="215" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="215" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="215" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="215" y="75" width="12" height="12" rx="2"/><text x="20" y="18">82 carbines</text><rect class="sqr" x="260" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="260" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="260" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="260" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="260" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="260" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="275" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="275" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="275" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="275" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="275" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="275" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="290" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="290" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="290" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="290" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="290" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="290" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="305" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="305" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="305" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="305" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="305" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="305" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="320" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="320" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="320" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="320" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="320" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="320" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="335" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="335" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="335" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="335" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="335" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="335" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="350" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="350" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="350" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="350" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="350" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="350" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="365" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="365" y="45" width="12" height="12" rx="2"/><text x="260" y="18">44 rifles</text><rect class="sqr" x="410" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="410" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="410" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="410" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="410" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="410" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="425" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="425" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="425" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="425" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="425" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="425" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="440" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="440" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="440" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="440" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="440" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="440" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="455" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="455" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="455" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="455" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="455" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="455" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="470" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="470" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="470" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="470" y="75" width="12" height="12" rx="2"/><rect class="sqr" x="470" y="90" width="12" height="12" rx="2"/><rect class="sqr" x="470" y="105" width="12" height="12" rx="2"/><rect class="sqr" x="485" y="30" width="12" height="12" rx="2"/><rect class="sqr" x="485" y="45" width="12" height="12" rx="2"/><rect class="sqr" x="485" y="60" width="12" height="12" rx="2"/><rect class="sqr" x="485" y="75" width="12" height="12" rx="2"/><text x="410" y="18">34 pistols</text></svg></div>
+      <p class="note">More than half the company carried the carbine.</p></div>
+    <div class="rec"><h3>What this may say about Jess</h3><ul>
+      <li>In October 1943, joining the mortars, he was issued a carbine. By the table that is an ammunition bearer&rsquo;s weapon, which is where a new man would start.</li>
+      <li>In January 1945 he went ashore on Luzon with a pistol and a piece of the mortar on his back. By the table the pistol belongs to the gunner, the assistant gunner and the number 3 man: the men who carried and served the gun.</li>
+      <li>He came home a corporal. In a mortar squad the table gives that rank to one man, the gunner.</li>
+      <li>So his weapons, in the order he had them, trace a man moving from the ammunition to the gun. <b>This is a reading of the table against his own words, not a record.</b> No paper found so far names his position in the squad, and a company in the field did not always match its table.</li>
+    </ul><p class="rsrc">War Department, Table of Organization and Equipment 7-18, <i>Infantry Heavy Weapons Company</i>, February 26, 1944, with Changes No. 1 of June 30, 1944, read in a typed transcription at militaryresearch.org, not in a photograph of the original. The table in force when he joined, dated July 15, 1943, has not been found.</p></div>
+  </section>
+
+  <section class="after" id="manuals">
+    <h2>Manuals and films</h2>
+    <p>Every manual below is a War Department publication in the public domain, scanned at the Internet Archive. They are the books a soldier&rsquo;s instructors taught from.</p>
+    <div class="cols">
+      <div class="rec"><h3>The manuals</h3><ul>
+        <li><a href="https://archive.org/details/FM23-51940" target="_blank" rel="noopener">Field Manual 23-5, <i>U.S. Rifle, Caliber .30, M1</i></a> (1940, with changes to 1941).</li>
+        <li><a href="https://archive.org/details/FM23-101943" target="_blank" rel="noopener">Field Manual 23-10, <i>U.S. Rifle, Caliber .30, M1903</i></a> (September 1943). The older rifle; the same course and scores.</li>
+        <li><a href="https://archive.org/details/FM23-7" target="_blank" rel="noopener">Field Manual 23-7, <i>U.S. Carbine, Caliber .30, M1</i></a> (1942).</li>
+        <li><a href="https://archive.org/details/fm-23-35-automatic-pistol-caliber-.-45-m-1911-and-m-1911-a-1-1940" target="_blank" rel="noopener">Field Manual 23-35, <i>Automatic Pistol, Caliber .45</i></a> (1940).</li>
+        <li><a href="https://archive.org/details/FM_23_25_B_1943" target="_blank" rel="noopener">Field Manual 23-25, <i>Bayonet</i></a> (1943).</li>
+        <li><a href="https://archive.org/details/FM_23_15_B_A_R_C_30_M1918A2_1943" target="_blank" rel="noopener">Field Manual 23-15, <i>Browning Automatic Rifle</i></a> (1943).</li>
+        <li><a href="https://archive.org/details/CombatLessonsNo4" target="_blank" rel="noopener"><i>Combat Lessons</i> No. 4</a> (1944), the Army&rsquo;s pamphlet of reports from units in the field.</li>
+      </ul></div>
+      <div class="rec"><h3>Films</h3><ul><li><a href="https://archive.org/details/Rifle_Marksmanship_with_M1_Rifle_Part_1" target="_blank" rel="noopener">Rifle Marksmanship with the M1 Rifle</a>. The Army&rsquo;s basic-training series on the rifle.</li><li><a href="https://archive.org/details/79084FightingMenKeepItClean" target="_blank" rel="noopener">Fighting Men: Keep It Clean</a>. 1943. Cleaning the rifle in the field.</li><li><a href="https://archive.org/details/TF-25" target="_blank" rel="noopener">Bayonet Training</a>. A pre-war training film.</li><li><a href="https://archive.org/details/TheBrowningAutomaticRifle1925" target="_blank" rel="noopener">The Browning Automatic Rifle</a>. An early film on the weapon.</li></ul>
+      <p class="rsrc">Titles are from each film&rsquo;s catalog page at the Internet Archive. We have not watched them through. No wartime training film on the carbine or the pistol was found.</p></div>
+    </div>
+    <div class="rec"><h3>Still to find</h3><ul>
+      <li>Which rifle Camp Roberts issued in the spring of 1943. A class book or a training photograph would settle it.</li>
+      <li>The 1943 regulation that set the rifle course and the scores he fired.</li>
+      <li>His position in the mortar squad. The 1945 company reports, not yet released, may show his promotions.</li>
+      <li>His discharge paper, which lists the weapons he qualified with and the badge he earned.</li>
+    </ul></div>
+  </section>
+
+  <footer class="colophon">A second page of <a href="index.html">Jess Rowley&rsquo;s War</a>, made for the Rowley family. Last updated November 20, 2026. Where this page says &ldquo;not known,&rdquo; nothing was guessed.</footer>
+</div>
+
+</body>
+</html>
