@@ -472,6 +472,15 @@ figure.now img{width:100%;display:block}
 
 /*frag:end*/
 
+/* idea b: life line and ages */
+#life{max-width:60em}
+#life > *{min-width:0}
+#life .mtw{overflow-x:auto;min-width:0;max-width:100%}
+#life .dg .thin{stroke-width:1}
+#life .dg .lf{fill:var(--c-mute)}
+.ch-meta .age{color:var(--ink)}
+@media (max-width:640px){ #life .mtw svg{min-width:620px} }
+
 </style>
 
 <div class="wrap">
@@ -499,6 +508,8 @@ figure.now img{width:100%;display:block}
       <li><b>What he carried</b><br>His rifle, carbine, pistol and the bayonet now have <a href="arms.html">a page of their own</a>.</li>
     </ul>
     <div class="strip" id="strip"></div>
+    <!--life--><div class="viz wide" id="life"><h3>The war inside his whole life</h3><p class="sub">Seventy-six years. The red band is his time in uniform.</p><div class="mtw"><svg class="dg" viewBox="0 0 720 104" role="img" aria-label="His life from 1923 to 1999 as one line, with the war, April 1943 to December 1945, as a short red band near the start"><path class="ln thin" d="M40.0 70H680.0"/><path class="ln thin" d="M40.0 65v10"/><text x="40.0" y="94" text-anchor="middle" class="m">1920</text><path class="ln thin" d="M120.0 65v10"/><text x="120.0" y="94" text-anchor="middle" class="m">1930</text><path class="ln thin" d="M200.0 65v10"/><text x="200.0" y="94" text-anchor="middle" class="m">1940</text><path class="ln thin" d="M280.0 65v10"/><text x="280.0" y="94" text-anchor="middle" class="m">1950</text><path class="ln thin" d="M360.0 65v10"/><text x="360.0" y="94" text-anchor="middle" class="m">1960</text><path class="ln thin" d="M440.0 65v10"/><text x="440.0" y="94" text-anchor="middle" class="m">1970</text><path class="ln thin" d="M520.0 65v10"/><text x="520.0" y="94" text-anchor="middle" class="m">1980</text><path class="ln thin" d="M600.0 65v10"/><text x="600.0" y="94" text-anchor="middle" class="m">1990</text><path class="ln thin" d="M680.0 65v10"/><text x="680.0" y="94" text-anchor="middle" class="m">2000</text><rect class="lf" x="68.4" y="62" width="609.2" height="16" rx="3"/><rect class="rd" x="226.0" y="56" width="21.8" height="28"/><text x="68.4" y="48" text-anchor="middle">Born</text><text x="68.4" y="30" text-anchor="middle" class="m">July 20, 1923</text><text x="257.7" y="48">The war</text><text x="257.7" y="30" class="m">April 1943 to December 1945</text><text x="677.6" y="48" text-anchor="end">Died</text><text x="677.6" y="30" text-anchor="end" class="m">September 12, 1999</text></svg></div>
+      <p class="note">He was 19 when he was called up and 22 when he came home: about two years and eight months, twenty-seven of those months overseas. He lived another fifty-three years. His age is shown at the top of each chapter below. Birth and death dates are from his memorial at Thatcher Cemetery.</p></div><!--/life-->
     <div class="acts">
       <a class="watch" href="https://www.youtube.com/watch?v=41T6YbBgPLA" target="_blank" rel="noopener">&#9654; Watch Jess tell it &middot; 54 min</a>
       <a class="watch" href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">&#8595; Print edition &middot; PDF, 18 MB</a>
@@ -519,7 +530,7 @@ figure.now img{width:100%;display:block}
     <main class="chapters" id="chapters">
 
       <section class="ch" data-view="west" data-at="thatcher" data-date="Dec 1942 to spring 1943" data-title="Arizona and California">
-        <div class="ch-meta"><span>December 3, 1942</span><span>Thatcher, Graham County, Arizona</span></div>
+        <div class="ch-meta"><span>December 3, 1942</span><span>Thatcher, Graham County, Arizona</span><span class="age">Age 19</span></div>
         <h2>A college boy signs up</h2>
         <p>Jess was nineteen, a first-year student at Gila College in Thatcher, when he enlisted in the Army&rsquo;s Enlisted Reserve. The reserve let college men finish the school year before they were called. Before he left he was given a patriarchal blessing that promised he would come home if he lived faithfully. He carried that promise through everything that followed.</p>
         <blockquote>In December of &rsquo;42 I enlisted in the Army Reserve so I could continue school. I stayed in that reserve till, I think it was April of &rsquo;43, and then they called us into active service.
@@ -531,7 +542,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="west" data-at="roberts" data-date="Spring to summer 1943" data-title="Arizona and California">
-        <div class="ch-meta"><span>1943</span><span>Fort MacArthur and Camp Roberts, California</span></div>
+        <div class="ch-meta"><span>1943</span><span>Fort MacArthur and Camp Roberts, California</span><span class="age">Age 19</span></div>
         <h2>Trained for the desert</h2>
         <p>A little passenger train took the Gila Valley boys from Thatcher out to Bowie, where they boarded a Pullman troop train on the main line. He was sworn in at Fort MacArthur, on the harbor at San Pedro, then sent up the coast to Camp Roberts for infantry basic training. He was trained as a rifleman, for a war in the desert.</p>
         <blockquote>The rifle I trained with in Camp Roberts, I learned to love that rifle. I earned sharpshooter with it.
@@ -547,7 +558,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="pacific" data-at="noumea" data-date="September 1943" data-title="The Pacific crossing">
-        <div class="ch-meta"><span>1943</span><span>San Francisco to New Caledonia</span></div>
+        <div class="ch-meta"><span>1943</span><span>San Francisco to New Caledonia</span><span class="age">Age 20</span></div>
         <h2>Thirty days on a ship</h2>
         <p>He sailed from San Francisco as a replacement, one of thousands of trained men sent out to fill the ranks of units already overseas. The ship took more than thirty days to reach New Caledonia, the Army&rsquo;s great rear base in the South Pacific. He was never seasick. He read the New Testament on the way across.</p>
         <blockquote>It took us better than thirty days on a ship to go down through the ocean to New Caledonia. And by the way, I read the New Testament, from there to there.
@@ -565,7 +576,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="swpac" data-at="guadalcanal" data-date="October 13, 1943" data-title="The Solomon Islands">
-        <div class="ch-meta"><span>Autumn 1943</span><span>Guadalcanal, Solomon Islands</span></div>
+        <div class="ch-meta"><span>Autumn 1943</span><span>Guadalcanal, Solomon Islands</span><span class="age">Age 20</span></div>
         <h2>Into the Illinois regiment</h2>
         <p>From New Caledonia he went up to Guadalcanal. The island had been won that February, but Japanese planes still came over at night. There, at eleven in the morning on October 13, 1943, he joined Company H of the 129th Infantry, the heavy weapons company of the regiment&rsquo;s 2nd Battalion. A man trained to carry a rifle was handed a carbine he had never fired and put on an 81 mm mortar.</p>
         <blockquote>I was trained as a rifleman, to carry a .30-06. Down here they issued me a little .30 carbine, going into heavy weapons, in the mortars. I didn&rsquo;t know a thing about the gun and was going to the front line. I said, &ldquo;Well, give me some boxes of shells. I&rsquo;m going in the jungle to learn something about this gun.&rdquo; And so I did.
@@ -586,7 +597,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="bougainville" data-at="torokina" data-date="November 13, 1943" data-title="Bougainville">
-        <div class="ch-meta"><span>From November 13, 1943</span><span>Empress Augusta Bay, Bougainville</span></div>
+        <div class="ch-meta"><span>From November 13, 1943</span><span>Empress Augusta Bay, Bougainville</span><span class="age">Age 20</span></div>
         <h2>The half circle</h2>
         <p>Bougainville is the largest of the Solomons, 125 miles of mountain and swamp with a smoking volcano, Mount Bagana, overlooking the bay where they landed. Allied intelligence put the Japanese on the island at about 37,500 soldiers and 20,000 sailors, most of them at its far ends. The Americans did not try to take it. They landed on the empty west coast, carved out a half circle of jungle big enough for three airfields, and dug in to hold it.</p>
         <blockquote>We made a half circle from the ocean around and back, enough for a bomber strip and two fighter strips, which the Seabees went to make. And we established a perimeter around to hold the Japanese off of it. They knew we were there and we knew they were over there.
@@ -604,7 +615,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="perimeter" data-battle="perimeter" data-at="coH" data-date="March 11 to 24, 1944" data-title="The perimeter, March 1944">
-        <div class="ch-meta"><span>March 1944</span><span>2nd Battalion line, Bougainville perimeter</span></div>
+        <div class="ch-meta"><span>March 1944</span><span>2nd Battalion line, Bougainville perimeter</span><span class="age">Age 20</span></div>
         <h2>&ldquo;Drop them on us&rdquo;</h2>
         <p>In March 1944 the Japanese came for the airfields. They had dragged their artillery across the island in pieces and brought more than 15,000 men through the mountains. Three columns struck the perimeter. The last and longest fight fell on the center of the 37th Division&rsquo;s line, where the 129th held about two miles of low ground with two battalions in line. The heaviest blows fell on the 2nd, Jess&rsquo;s battalion. His mortars sat a few hundred yards behind its pillboxes.</p>
         <blockquote>They thought the 129th would be the one to take, because we had really never been in a front-end battle, and there&rsquo;s a bunch of greenies in there. So they tried us.
@@ -665,7 +676,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="swpac" data-at="guadalcanal2" data-date="April to August 1944" data-title="The Solomon Islands">
-        <div class="ch-meta"><span>1944</span><span>Bougainville to Guadalcanal and back</span></div>
+        <div class="ch-meta"><span>1944</span><span>Bougainville to Guadalcanal and back</span><span class="age">Age 20, then 21</span></div>
         <h2>Eighty-nine pounds</h2>
         <p>After the battle the sickness caught him: malaria from the mosquitoes, then yellow jaundice from the water and the food. He could not keep a meal down. He lost weight for weeks and would not report sick.</p>
         <blockquote>I hated to quit because I just had too much pride. Finally I went up there on sick call one day and the doctor walked in. He said, &ldquo;Soldier, what the hell are you doing here?&rdquo; &hellip; I thought he was chewing me out for coming in. He was chewing me out for not coming in quicker, because I was almost dead.
@@ -686,7 +697,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="approach" data-at="lingayen" data-date="December 1944 to January 9, 1945" data-title="North to the Philippines">
-        <div class="ch-meta"><span>December 1944</span><span>Bougainville to Lingayen Gulf</span></div>
+        <div class="ch-meta"><span>December 1944</span><span>Bougainville to Lingayen Gulf</span><span class="age">Age 21</span></div>
         <h2>Thirteen months, then north</h2>
         <p>The regiment stayed on Bougainville for thirteen months. Late in 1944 Australian troops took over the perimeter, and in December the 37th Division loaded onto ships. They rehearsed the landing in New Guinea, trained at Manus, and on New Year&rsquo;s Eve sailed for the Philippines in one of the largest invasion fleets of the Pacific war. Below decks the men studied relief models of the beach.</p>
         <blockquote>They had relief maps of the place we was going to go and photos of it, where we had to run through the rice paddies and get to a certain spot together again.
@@ -703,7 +714,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="luzon" data-battle="landing" data-at="lingayen" data-date="January 9 to 11, 1945" data-title="Lingayen Gulf">
-        <div class="ch-meta"><span>January 9, 1945</span><span>Lingayen Gulf, Luzon</span></div>
+        <div class="ch-meta"><span>January 9, 1945</span><span>Lingayen Gulf, Luzon</span><span class="age">Age 21</span></div>
         <h2>Dry socks on the beach</h2>
         <p>The 129th was one of the assault regiments. Jess went in on a landing craft with a drop ramp and waded ashore under less fire than anyone had feared. The Navy had pounded the shore, and the Japanese had chosen to fight inland.</p>
         <blockquote>The first thing that I remember seeing as I waded out of that ocean onto that beach was a horse down there. He&rsquo;d been shot through the stomach. He was still alive. &hellip; I was able to get dry socks out of the top of my pack and get them on, and then we went in twenty miles.
@@ -735,7 +746,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="luzon" data-battle="drive" data-at="stotsenburg" data-date="January 9 to February 4, 1945" data-title="Lingayen to Manila">
-        <div class="ch-meta"><span>Late January 1945</span><span>Central Plain, Clark Field, Fort Stotsenburg</span></div>
+        <div class="ch-meta"><span>Late January 1945</span><span>Central Plain, Clark Field, Fort Stotsenburg</span><span class="age">Age 21</span></div>
         <h2>Down the plain to Clark Field</h2>
         <p>They walked south through the rice country, town after town, toward the old American air base at Clark Field and the Army post beside it, Fort Stotsenburg, both lost in 1941. The Japanese fought for them from wrecked hangars, minefields and the hills behind.</p>
         <figure><img src="img/clark.jpg" alt="Two soldiers lie in grass watching a column of black smoke" loading="lazy"><figcaption>Clark Field, January 29, 1945. Two Army cameramen photograph the 129th Infantry&rsquo;s attack. U.S. Army Signal Corps photograph SC 201652.</figcaption></figure>
@@ -758,7 +769,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="manila" data-battle="manila" data-at="provisor" data-date="February 3 to 24, 1945" data-title="Manila, February 1945">
-        <div class="ch-meta"><span>February 1945</span><span>Manila</span></div>
+        <div class="ch-meta"><span>February 1945</span><span>Manila</span><span class="age">Age 21</span></div>
         <h2>Manila</h2>
         <p>The Japanese naval garrison chose to fight for Manila block by block, and the city was destroyed around them. Jess&rsquo;s battalion took over the north bank of the Pasig River by the presidential palace on February 7, crossed the next afternoon, and spent three days taking a power plant on a small island in the river. Asked where the fighting was worst, he named two places: Bougainville and Manila.</p>
         <figure><img src="img/provisor.jpg" alt="Aerial view of a river bending through a city, with an industrial island" loading="lazy"><figcaption>The Pasig River in Manila. Provisor Island and its power plant are at lower left center. Jess&rsquo;s battalion fought for it from February 9 to 11. U.S. Army photograph.</figcaption></figure>
@@ -786,7 +797,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="luzon" data-battle="baguio" data-at="baguio" data-date="March 19 to April 27, 1945" data-title="Route 9 to Baguio">
-        <div class="ch-meta"><span>April 1945</span><span>Route 9 to Baguio</span></div>
+        <div class="ch-meta"><span>April 1945</span><span>Route 9 to Baguio</span><span class="age">Age 21</span></div>
         <h2>The mountain road</h2>
         <p>After Manila the regiment guarded bridges and roads and filled its ranks with new men. Then it was sent north, attached to another division that had been stalled for weeks below Baguio, the mountain summer capital where General Yamashita had his headquarters. The road climbed from the coast into pine forest. To Jess it was the Swift Trail up Mount Graham, with Japanese guns in the caves.</p>
         <blockquote>We&rsquo;d been up there better than two weeks without any relief, no shave and no baths and just eating out of cans. And they said, &ldquo;You&rsquo;re going back for a rest.&rdquo; &hellip; I was really kicking back down there doing my laundry, and they says, &ldquo;Get packed. You&rsquo;re going back up.&rdquo;
@@ -825,7 +836,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="luzon" data-battle="cagayan" data-at="aparri" data-date="May 31 to September 1945" data-title="The Cagayan Valley">
-        <div class="ch-meta"><span>Summer 1945</span><span>Cagayan Valley, northern Luzon</span></div>
+        <div class="ch-meta"><span>Summer 1945</span><span>Cagayan Valley, northern Luzon</span><span class="age">Age 21, then 22</span></div>
         <h2>The last valley</h2>
         <p>Rested and rebuilt, the 37th Division was sent through Balete Pass to run the length of the Cagayan Valley to the north coast and break up what was left of Yamashita&rsquo;s army. The 129th led the way out of Santa Fe. By late June it was in Tuguegarao. After that the work was patrols into the hills, with days off on the beach.</p>
         <blockquote>It was a really beautiful beach. You go out a hundred yards and still not be up over your waist. On our days off you swim in the ocean and have a good time, and then we&rsquo;d pull a detail to go out in the jungles and get the Japanese out.
@@ -847,7 +858,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="luzon" data-at="cabanatuan" data-date="Autumn 1945" data-title="Luzon">
-        <div class="ch-meta"><span>Autumn 1945</span><span>Cabanatuan</span></div>
+        <div class="ch-meta"><span>Autumn 1945</span><span>Cabanatuan</span><span class="age">Age 22</span></div>
         <h2>The general&rsquo;s jeep</h2>
         <p>The division came back down to Cabanatuan, beside the prison camp where thousands of Americans captured on Bataan had been held. There Jess was given a soft job at last: driving a general to his meetings and parties in Manila, and waiting outside in the jeep.</p>
         <p>Men went home by points, earned for months overseas. Kent Asay of Thatcher was transferred into the company to go home on points. With Rulon Larson that made three Gila Valley men together.</p>
@@ -855,7 +866,7 @@ figure.now img{width:100%;display:block}
       </section>
 
       <section class="ch" data-view="pacific" data-at="thatcher2" data-date="December 1945" data-title="Home">
-        <div class="ch-meta"><span>December 17 to 25, 1945</span><span>San Pedro, California to Thatcher</span></div>
+        <div class="ch-meta"><span>December 17 to 25, 1945</span><span>San Pedro, California to Thatcher</span><span class="age">Age 22</span></div>
         <h2>Five days before Christmas</h2>
         <p>They crossed on an old Norwegian freighter that rolled and creaked, bound for Seattle and then sent to San Pedro instead. With every port full of returning soldiers the ship lay off the beach for a week. They docked on December 17. He was discharged on December 20 at Fort MacArthur, the same post where he had been sworn in.</p>
         <figure><img src="img/x-puebla.jpg" alt="A troopship at a pier with a dense crowd of soldiers and jeeps on the dock" loading="lazy"><figcaption>The transport <i>Puebla</i> loading at San Fernando, La Union, November 22, 1945. The regiment&rsquo;s history puts the 2nd Battalion aboard her that week. Jess was not with them: his ship, by his account an old Norwegian freighter, docked five days after she did. The Army caption names a different regiment among those embarking. National Archives, via NavSource.</figcaption></figure>
@@ -1201,6 +1212,7 @@ figure.now img{width:100%;display:block}
       <li><b>His VA claim file.</b> He drew disability for malaria, so the Veterans Administration built a file that survived the fire. It will have his full medical history; the Guadalcanal hospital dates are now known from the morning reports. Next of kin can request it.</li>
       <li><b>Company H morning reports.</b> The company clerk&rsquo;s daily log names every man who joined, left, was wounded or killed, by date. The National Archives has put 1940 through 1944 online. A search by his serial number found eight of the papers cited above, including the day he went sick and the report that took him back. The day he first joined Company H, October 13, 1943, was found by reading the company&rsquo;s October reports page by page. All of Company H&rsquo;s cards through December 1944 have now been read. He was still a private in August 1944 and is on no promotion list that year, so both of his promotions came in 1945. The 1945 reports, which may name the friend killed in Manila, are not online yet.</li>
       <li><b>The regiment&rsquo;s own book.</b> <i>The 129th Infantry in World War II</i> (1947). Found, and free to read online. Its roster on page 205 lists <b>Rowley, Jesse V., Cpl, Co H</b>, of Thatcher, Arizona. <a href="https://babel.hathitrust.org/cgi/pt?id=nyp.33433105264844&amp;seq=221" target="_blank" rel="noopener">Open the page</a>. Its chapters on Bougainville and Luzon have now been read against his account, and the findings are marked through this page.</li>
+      <li><b>The home-town paper.</b> The <i>Graham County Guardian</i> of Safford for 1943 to 1945 is not in any free online archive we could read. It may hold notices of his call-up, his father&rsquo;s death and his return, and it would show what Thatcher was told about the war and when. A state or college library may hold it on microfilm; someone has to read it in person.</li>
       <li><b>A medal he never claimed.</b> He was cut by shrapnel on Bougainville and did not report it. A Purple Heart needs a medical record of treatment, so it likely cannot be awarded now, but the story belongs in the family record. Every infantryman who earned the Combat Infantryman Badge in that war was later made eligible for the Bronze Star; the discharge paper will show whether he held the badge.</li>
     </ol>
   </section>

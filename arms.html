@@ -467,6 +467,15 @@ figure.now img{width:100%;display:block}
 
 /*frag:end*/
 
+/* idea b: life line and ages */
+#life{max-width:60em}
+#life > *{min-width:0}
+#life .mtw{overflow-x:auto;min-width:0;max-width:100%}
+#life .dg .thin{stroke-width:1}
+#life .dg .lf{fill:var(--c-mute)}
+.ch-meta .age{color:var(--ink)}
+@media (max-width:640px){ #life .mtw svg{min-width:620px} }
+
 
 
 .arms .mast h1{font-size:clamp(46px,8vw,96px)}
