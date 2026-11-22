@@ -481,9 +481,25 @@ figure.now img{width:100%;display:block}
 .ch-meta .age{color:var(--ink)}
 @media (max-width:640px){ #life .mtw svg{min-width:620px} }
 
+/* menu */
+.sitenav{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;padding-block:14px 12px;border-bottom:1px solid var(--rule)}
+.sitenav a{text-decoration:none}
+.sitenav .brand{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
+.sitenav .links{display:flex;flex-wrap:wrap;gap:4px 22px}
+.sitenav .links a{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-block:6px;border-bottom:2px solid transparent}
+.sitenav .links a:hover{color:var(--ink)}
+.sitenav .links a[aria-current]{color:var(--ink);border-bottom-color:var(--red)}
+.jump{display:flex;flex-wrap:wrap;gap:8px 10px}
+.jump a{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--rule);background:var(--panel);padding:6px 10px}
+.jump a:hover{border-color:var(--ink)}
+.after,#chapters{scroll-margin-top:12px}
+@media print{.sitenav,.jump{display:none!important}}
+/* /menu */
+
 </style>
 
 <div class="wrap">
+  <nav class="sitenav" aria-label="Pages"><a class="brand" href="index.html">Jess Rowley&rsquo;s War</a><span class="links"><a href="index.html" aria-current="page">The story</a><a href="arms.html">What he carried</a><a href="book.html">The book</a></span></nav>
   <header class="mast">
     <div class="hero"><div class="hero-t">
     <div class="eyebrow">Thatcher, Arizona &middot; Bougainville &middot; Luzon &middot; 1942 to 1945</div>
@@ -497,14 +513,14 @@ figure.now img{width:100%;display:block}
       <div><dt>Weapon</dt><dd>81 mm mortar</dd></div>
       <div><dt>Campaigns</dt><dd>Northern Solomons, Luzon</dd></div>
       <div><dt>Discharged</dt><dd>December 20, 1945</dd></div>
-      <div><dt>Page last updated</dt><dd>November 20, 2026</dd></div>
+      <div><dt>Page last updated</dt><dd>November 21, 2026</dd></div>
     </dl>
     <ul class="key">
       <li><b>In his words</b><br>Red-barred quotations are Jess speaking on the family recording. Each one links to that moment in the video.</li>
       <li><b>The record</b><br>Boxed notes come from the U.S. Army&rsquo;s official histories, the National Archives and other sources listed at the end.</li>
       <li><b>Memory and record</b><br>Where his memory, fifty-odd years on, differs from the record, both are shown. Most of what he remembered checks out.</li>
       <li><b>Play the battles, turn the ground</b><br>On six of the maps a Play button steps through the fighting day by day. The 3D terrain button shows the real shape of the land, built from elevation data: the camera flies in, and you can drag to look around. Full screen gives the map the whole window; the arrow keys step through it.</li>
-    <li><b>On paper</b><br>All of this is also <a href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">a book to print</a>: a PDF laid out for letter paper turned sideways, with a still map for every chapter.</li>
+    <li><b>On paper</b><br>All of this is also <a href="book.html">a book to print</a>: a PDF laid out for letter paper turned sideways, with a still map for every chapter.</li>
       <li><b>What he carried</b><br>His rifle, carbine, pistol and the bayonet now have <a href="arms.html">a page of their own</a>.</li>
     </ul>
     <div class="strip" id="strip"></div>
@@ -514,6 +530,7 @@ figure.now img{width:100%;display:block}
       <a class="watch" href="https://www.youtube.com/watch?v=41T6YbBgPLA" target="_blank" rel="noopener">&#9654; Watch Jess tell it &middot; 54 min</a>
       <a class="watch" href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">&#8595; Download the book &middot; PDF, 20 MB</a>
     </div>
+    <nav class="jump" aria-label="On this page"><a href="#chapters">The sixteen chapters</a><a href="#org">One man among fourteen thousand</a><a href="#coh">Company H, day by day</a><a href="#home">Scale against home</a><a href="#cost">The cost</a><a href="#other">From the other side</a><a href="#mortar">His gun</a><a href="#compare">Memory and record</a><a href="#next">What would tell us more</a><a href="#sources">Sources</a></nav>
   </header>
 
   <div class="journey">
@@ -1246,7 +1263,7 @@ figure.now img{width:100%;display:block}
     </ol>
   </section>
 
-  <footer class="colophon">Made for the Rowley family, November 2026. Last updated November 20, 2026. <a href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">Print edition (PDF)</a>. Where this page says &ldquo;not known,&rdquo; nothing was guessed. Corrections from anyone who heard these stories first-hand are welcome. So is anything about the men he served with. Write to Lee, Jess&rsquo;s grandson, at <a class="em" data-u="family" data-d="jesserowley" data-t="com" href="#top">family (at) jesserowley (dot) com</a>.</footer>
+  <footer class="colophon">Made for the Rowley family, November 2026. Last updated November 21, 2026. <a href="https://jesserowley.com/jess-rowleys-war.pdf" target="_blank" rel="noopener">Print edition (PDF)</a>. Where this page says &ldquo;not known,&rdquo; nothing was guessed. Corrections from anyone who heard these stories first-hand are welcome. So is anything about the men he served with. Write to Lee, Jess&rsquo;s grandson, at <a class="em" data-u="family" data-d="jesserowley" data-t="com" href="#top">family (at) jesserowley (dot) com</a>.</footer>
 </div>
 
 <script>
